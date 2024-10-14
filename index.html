@@ -89,10 +89,11 @@
             font-size: 75px;
             overflow: hidden;
             white-space: nowrap;
+            letter-spacing: 0.15em;
             margin: 0 auto;
             border-right: .05em solid var(--primary-color);
             animation: 
-                typing 2s steps(20, end),
+                typing 3s steps(20, end),
                 blink-caret 1s step-end infinite;
         }
 
@@ -256,7 +257,7 @@
 
         @keyframes blink-caret {
             from, to { border-color: transparent }
-            50% { border-color: grey; }
+            50% { border-color: var(--text-color); }
         }
 
         h1, h2 {
@@ -328,9 +329,10 @@
 
         .color-scheme-toggle {
             position: fixed;
-            top: 20px;
+            top: 10px;
             right: 20px;
             z-index: 1001;
+            
         }
 
         .lightbulb {
@@ -398,7 +400,7 @@
                 flex-direction: row;
                 justify-content: center;
                 flex-wrap: wrap;
-                max-width: calc(100% - 50px);;
+                max-width: calc(100% - 50px);
             }
 
             nav ul li {
@@ -407,6 +409,7 @@
 
             #home h1 {
                 font-size: 40px;
+                letter-spacing: 0.15em;
             }
 
             .skills-container {
