@@ -305,6 +305,9 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s ease;
+            position: relative;
+            cursor: pointer;
+            font-weight: 400;
         }
 
         .skill, h2 {
@@ -313,6 +316,31 @@
 
         .skill:hover {
             transform: translateY(-5px);
+        }
+
+        .skill-bubble {
+            position: absolute;
+            padding: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            /* Position above the skill */
+            bottom: calc(100% + 20px);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .skill-bubble img {
+        max-width: 280px;
+            max-height: 280px;
+            object-fit: contain;
+        }
+
+        .skill:hover .skill-bubble {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-1px);
         }
 
         .social-icons {
@@ -514,21 +542,43 @@
 </section>
 
 
-        <section id="skills">
-            <div class="container">
-                <h2>Skills</h2>
-                <div class="skills-container">
-                    <div class="skill">Advanced problem-solving</div>
-                    <div class="skill">AutoCAD</div>
-                    <div class="skill">Team management</div>
-                    <div class="skill">Custom software development</div>
-                    <div class="skill">Responsive Web design</div>
-                    <div class="skill">C# with Microsoft Certification</div>
-                    <div class="skill">Python</div>
-                    <div class="skill">Java</div>
+<section id="skills">
+    <div class="container">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill">
+                Advanced problem-solving
+            </div>
+            <div class="skill">
+                AutoCAD
+            </div>
+            <div class="skill">
+                Team management
+            </div>
+            <div class="skill">
+                Custom software development
+            </div>
+            <div class="skill">
+                Responsive Web design
+                <div class="skill-bubble">
+                    <img src="/assets/webcert.png" alt="Web design illustration">
                 </div>
             </div>
-        </section>
+            <div class="skill">
+                C# with <b>Microsoft</b>
+                <div class="skill-bubble">
+                    <img src="/assets/microsoftcert.png" alt="C# certification">
+                </div>
+            </div>
+            <div class="skill">
+                Python
+            </div>
+            <div class="skill">
+                Java
+            </div>
+        </div>
+    </div>
+</section>
 
         <section id="projects">
             <div class="container">
@@ -541,7 +591,7 @@
                             <img src="/assets/form.png" alt="Project 1 Thumbnail">
                         </div>
                         <h3>CNC Machine Time Estimation App</h3>
-                        <p><i>Personal project - HTML/CSS/JS</i><br>These are interactive web applications that streamline the process for management to request time estimates for customer orders and for employees to calculate those estimates, enabling consistent and accurate pricing and quoting.</p>
+                        <p><i>Personal project - HTML/CSS/JS</i><br>These are interactive web applications that streamline the process for management to request time estimates for customer orders and for employees to calculate those estimates.</p>
                         <a href="https://github.com/Booth-Ashley/CNC-Machine-Time-Estimation" class="read-more">Read More <i>→</i></a>
                     </div>
 
