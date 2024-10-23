@@ -325,10 +325,14 @@
             visibility: hidden;
             transition: all 0.3s ease;
             z-index: 100;
-            /* Position above the skill */
             bottom: calc(100% + 20px);
             left: 50%;
             transform: translateX(-50%);
+        }
+
+        .skill-bubble a {
+            display: block;
+            cursor: zoom-in;
         }
 
         .skill-bubble img {
@@ -549,13 +553,17 @@
             <div class="skill">
                 Responsive Web design
                 <div class="skill-bubble">
-                    <img src="/assets/webcert.png" alt="Web design illustration">
+                    <a href="/assets/webcert.png" target="_blank">
+                        <img src="/assets/webcert.png" alt="Web design illustration">
+                    </a>
                 </div>
             </div>
             <div class="skill">
                 C# with <b>Microsoft</b>
                 <div class="skill-bubble">
-                    <img src="/assets/microsoftcert.png" alt="C# certification">
+                    <a href="/assets/microsoftcert.png" target="_blank">
+                        <img src="/assets/microsoftcert.png" alt="C# certification">
+                    </a>
                 </div>
             </div>
             <div class="skill">
@@ -568,13 +576,18 @@
                 AutoCAD
             </div>
             <div class="skill">
+                CNC Cutting with <b>iGems</b>
+                <div class="skill-bubble">
+                    <a href="/assets/cnc.png" target="_blank">
+                        <img src="/assets/cnc.png" alt="CNC certification">
+                    </a>
+                </div>
+            </div>
+            <div class="skill">
                 Advanced problem-solving
             </div>
             <div class="skill">
                 Team management
-            </div>
-            <div class="skill">
-                Custom software development
             </div>
         </div>
     </div>
