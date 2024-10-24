@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/ico/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <style>
+        :root {
+            --primary-color: #f4f4f4;
+            --secondary-color: #147efb;
+            --text-color: #000000;
+            --bg-color: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        section {
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        #home p {
+            margin: 20px 0;
+        }
+        
+        #home h1 {
+            font-size: 75px;
+            overflow: hidden;
+            white-space: nowrap;
+            letter-spacing: 0.15em;
+            margin: 0 auto;
+            border-right: .05em solid var(--primary-color);
+            animation: 
+                typing 3s steps(20, end),
+                blink-caret 1s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--text-color); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 20px var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            #home h1 {
+                font-size: 40px;
+                letter-spacing: 0.15em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container">
+                <h1 id="name">ERROR 404</h1>
+                <p>There's nothing here...</p>
+                <a href="/index.html" class="btn" id="contactBtn">Go Home</a>
+            </div>
+        </section>
+
+<script>
+                const nameElement = document.getElementById('name');
+        const nameTex = nameElement.textContent;
+        nameElement.textContent = '';
+        let i = 0;
+
+        function typeWriter() {
+            if (i < nameTex.length) {
+                nameElement.textContent += nameTex.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+
+        
+        window.addEventListener('load', typeWriter);
+</script>
+</body>
+</html>
