@@ -43,7 +43,7 @@
     }
 
     .error-text {
-      font-size: 10vw;
+      font-size: 8vw;
       font-weight: bold;
       color: #333;
       text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -258,6 +258,12 @@
       engine.gravity.x = gravityX * 0.5;
       engine.gravity.y = gravityY * 0.5;
     }
+
+    window.addEventListener('orientationchange', () => {
+      if (window.orientation === 90 || window.orientation === -90) {
+        location.reload(); // Refresh the page
+      }
+    });
 
     Matter.Render.run(renderer);
     Matter.Engine.run(engine);
