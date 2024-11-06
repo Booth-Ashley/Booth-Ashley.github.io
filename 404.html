@@ -1,272 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f0f0;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/ico/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <style>
+        :root {
+            --primary-color: #f4f4f4;
+            --secondary-color: #147efb;
+            --text-color: #000000;
+            --bg-color: #f4f4f4;
+        }
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 5%;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    footer {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        height: 50px;
-        color: black;
-        font-weight: 700;
-        text-align: center;
-        padding: 0;
-        font-size: 12px;
-        z-index: 10;
-    }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
 
-    .error-container {
-      text-align: center;
-      z-index: 10;
-      padding: 0 5%;
-    }
+        section {
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .error-text {
-      font-size: 8vw;
-      font-weight: bold;
-      color: #333;
-      text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      margin: 0;
-    }
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
 
-    .btn {
-      display: inline-block;
-      background-color: #007bff;
-      color: white;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      border-radius: 25px;
-      font-size: 1rem;
-      transition: background-color 0.3s;
-      margin-top: 20px;
-    }
+        #home p {
+            margin: 20px 0;
+        }
+        
+        #home h1 {
+            font-size: 75px;
+            overflow: hidden;
+            white-space: nowrap;
+            letter-spacing: 0.15em;
+            margin: 0 auto;
+            border-right: .05em solid var(--primary-color);
+            animation: 
+                typing 3s steps(20, end),
+                blink-caret 1s step-end infinite;
+        }
 
-    .btn:hover {
-      background-color: #0056b3;
-    }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
 
-    .btn:focus {
-      outline: 2px solid #0056b3;
-      outline-offset: 4px;
-    }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--text-color); }
+        }
 
-    #matter-canvas {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    @media (max-width: 600px) {
-      .error-text {
-        font-size: 8vw;
-      }
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 40px;
+            transition: box-shadow 0.3s ease;
+        }
 
-      .btn {
-        padding: 0.8rem 1.5rem;
-        font-size: 0.9rem;
-      }
+        .btn:hover {
+            box-shadow: 0 0 20px var(--secondary-color);
+        }
 
-      footer {
-        font-size: 10px;
-      }
-    }
-  </style>
+        @media (max-width: 768px) {
+            #home h1 {
+                font-size: 40px;
+                letter-spacing: 0.15em;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="error-container">
-    <div class="error-text" role="alert">ERROR 404</div><br>
-    <a href="https://ashley-booth.com/" class="btn" aria-label="Go to homepage">Go Home</a>
-  </div>
+    <header>
+    </header>
 
-  <footer>
-    <div class="container">
-        <p>&copy; 2024 ashley-booth.com All rights reserved.</p>
-    </div>
-</footer>
+    <main>
+        <section id="home">
+            <div class="container">
+                <h1 id="name">ERROR 404</h1>
+                <p>There's nothing here...</p>
+                <a href="https://ashley-booth.com/" class="btn" id="contactBtn">Go Home</a>
+            </div>
+        </section>
 
-  <canvas id="matter-canvas"></canvas>
+<script>
+                const nameElement = document.getElementById('name');
+        const nameTex = nameElement.textContent;
+        nameElement.textContent = '';
+        let i = 0;
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.18.0/matter.min.js"></script>
-
-  <script>
-    const engine = Matter.Engine.create();
-    const renderer = Matter.Render.create({
-      canvas: document.getElementById('matter-canvas'),
-      engine: engine,
-      options: {
-        width: window.innerWidth,
-        height: window.innerHeight,
-        background: 'transparent',
-        wireframes: false
-      }
-    });
-
-    const floor = Matter.Bodies.rectangle(
-      window.innerWidth / 2,
-      window.innerHeight - 10,
-      window.innerWidth, 20,
-      { isStatic: true, render: { fillStyle: '#555' } }
-    );
-    Matter.World.add(engine.world, floor);
-
-    const leftWall = Matter.Bodies.rectangle(
-      -25,
-      window.innerHeight / 2,
-      50,
-      window.innerHeight,
-      { 
-        isStatic: true, 
-        render: { fillStyle: 'transparent' }
-      }
-    );
-
-    const rightWall = Matter.Bodies.rectangle(
-      window.innerWidth + 25,
-      window.innerHeight / 2, 
-      50, 
-      window.innerHeight, 
-      { 
-        isStatic: true, 
-        render: { fillStyle: 'transparent' }
-      }
-    );
-
-    Matter.World.add(engine.world, [leftWall, rightWall]);
-
-    window.addEventListener('load', () => {
-      const headerElement = document.querySelector('.error-text');
-      const buttonElement = document.querySelector('.btn');
-
-      const headerBounds = headerElement.getBoundingClientRect();
-      const buttonBounds = buttonElement.getBoundingClientRect();
-
-      const header = Matter.Bodies.rectangle(
-        window.innerWidth / 2, 
-        headerBounds.top + headerBounds.height / 2,
-        headerBounds.width, 
-        headerBounds.height,
-        { isStatic: true, render: { fillStyle: 'transparent' } }
-      );
-      Matter.World.add(engine.world, header);
-
-      const button = Matter.Bodies.rectangle(
-        window.innerWidth / 2, 
-        buttonBounds.top + buttonBounds.height / 2,
-        buttonBounds.width,
-        buttonBounds.height,
-        { isStatic: true, render: { fillStyle: 'transparent' } }
-      );
-      Matter.World.add(engine.world, button);
-    });
-
-    const blocks = [];
-    const colors = ['#ff6b6b', '#ffa500', '#ffff00', '#00ff00', '#00ffff', '#6b6bff'];
-
-    for (let i = 0; i < 50; i++) {
-      const block = Matter.Bodies.rectangle(
-        Math.random() * window.innerWidth,
-        -Math.random() * 500 - 100,
-        50, 50,
-        {
-          frictionAir: 0.01,
-          restitution: 0.95,
-          render: { fillStyle: colors[Math.floor(Math.random() * colors.length)] }
+        function typeWriter() {
+            if (i < nameTex.length) {
+                nameElement.textContent += nameTex.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
         }
-      );
-      Matter.World.add(engine.world, block);
-      blocks.push(block);
-    }
 
-    let isDragging = false;
-    let currentBlock = null;
-    let lastMousePosition = { x: 0, y: 0 };
-    let mouseVelocity = { x: 0, y: 0 };
-
-    document.addEventListener('mousedown', (event) => {
-      const mousePosition = { x: event.clientX, y: event.clientY };
-
-      blocks.forEach((block) => {
-        if (
-          mousePosition.x > block.position.x - 25 &&
-          mousePosition.x < block.position.x + 25 &&
-          mousePosition.y > block.position.y - 25 &&
-          mousePosition.y < block.position.y + 25
-        ) {
-          isDragging = true;
-          currentBlock = block;
-          lastMousePosition = mousePosition;
-          Matter.Body.setStatic(currentBlock, true);
-        }
-      });
-    });
-
-    document.addEventListener('mousemove', (event) => {
-      if (isDragging && currentBlock) {
-        const mousePosition = { x: event.clientX, y: event.clientY };
-        mouseVelocity = { x: mousePosition.x - lastMousePosition.x, y: mousePosition.y - lastMousePosition.y };
-        lastMousePosition = mousePosition;
-        Matter.Body.setPosition(currentBlock, mousePosition);
-      }
-    });
-
-    document.addEventListener('mouseup', () => {
-      if (isDragging && currentBlock) {
-        isDragging = false;
-        Matter.Body.setStatic(currentBlock, false);
-        Matter.Body.setVelocity(currentBlock, { x: mouseVelocity.x * 2, y: mouseVelocity.y * 2 });
-        currentBlock = null;
-      }
-    });
-
-    if (window.DeviceOrientationEvent) {
-      window.addEventListener('deviceorientation', handleOrientation);
-    } else {
-      console.log("Device Orientation not supported");
-    }
-
-    function handleOrientation(event) {
-      const tiltX = event.beta;
-      const tiltY = event.gamma;
-
-      const gravityX = tiltY / 90;
-      const gravityY = tiltX / 180;
-
-      engine.gravity.x = gravityX * 0.5;
-      engine.gravity.y = gravityY * 0.5;
-    }
-
-    window.addEventListener('orientationchange', () => {
-      if (window.orientation === 90 || window.orientation === -90) {
-        location.reload(); // Refresh the page
-      }
-    });
-
-    Matter.Render.run(renderer);
-    Matter.Engine.run(engine);
-  </script>
+        
+        window.addEventListener('load', typeWriter);
+</script>
 </body>
 </html>
