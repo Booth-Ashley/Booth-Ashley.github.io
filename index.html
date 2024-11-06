@@ -134,6 +134,21 @@
             gap: 32px; 
         }
 
+        .about-wave {
+            font-size: 20px;
+            display: inline-block;
+            animation: wave-animation 1.5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+        }
+
+        @keyframes wave-animation {
+            0%, 100% {
+            transform: rotate(-10deg);
+            }
+            50% {
+            transform: rotate(20deg);
+            }
+        }
+
         @media (min-width: 768px) {
             .about-content {
                 flex-direction: row;
@@ -301,8 +316,8 @@
         }
 
         #skills {
-            padding-top: 50px;
-            padding-bottom: 50px;
+            padding-top: 200px;
+            padding-bottom: 200px;
         }
 
         .skills-container {
@@ -351,9 +366,10 @@
         }
 
         .skill-bubble img {
-        max-width: 280px;
-            max-height: 280px;
+        max-width: 200px;
+            max-height: 200px;
             object-fit: contain;
+            border-radius: 5px;
         }
 
         .skill:hover .skill-bubble {
@@ -547,7 +563,7 @@
                  </div>
                  <div class="about-description">
                         <p class="about-text">
-                         Hello! 👋 I'm a highly adaptable and innovative Assistant Manager with a diverse skill set spanning stockroom management, CNC machinery operation, team leadership, and advanced problem-solving.      
+                         Hello! <span class="about-wave">👋</span> I'm a highly adaptable and innovative Assistant Manager with a diverse skill set spanning stockroom management, CNC machinery operation, team leadership, and advanced problem-solving.      
                         
                          I am well known for driving operational efficiency, implementing cost-saving measures, and developing creative solutions that expand business capabilities and attract new customers.    
                         </p>
@@ -684,7 +700,7 @@
     <footer>
         <div class="container">
             <hr class="hrfooter">
-            <p>&copy; 2024 ashley-booth.com All rights reserved.</p>
+            <p>&copy; 2024 ashley-booth.com All rights reserved. <br>Art and website design by Ashley Booth.</p>
         </div>
     </footer>
 
