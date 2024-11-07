@@ -398,9 +398,25 @@
         footer {
             background-color: var(--primary-color);
             color: var(--text-color);
-            text-align: center;
-            padding: 20px ;
             font-size: 12px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #footer-table {
+            width: 100%; /* or a fixed width */
+            table-layout: fixed;
+            border-collapse: collapse;
+            }
+
+        #footer-table td {
+            vertical-align: middle; /* to center the image vertically */
+            }
+
+        .footer-icon {
+            width:32px;
+            height:32px;
         }
 
         #contact {
@@ -698,10 +714,14 @@
         </section>
 
     <footer>
-        <div class="container">
-            <hr class="hrfooter">
-            <p>&copy; 2024 ashley-booth.com All rights reserved. <br>Art and website design by Ashley Booth.</p>
-        </div>
+        <hr class="hrfooter">
+        <table id="footer-table">
+            <tr>
+              <td style="text-align: left;">&copy; 2024 ashley-booth.com All rights reserved.</td>
+              <td style="text-align: center;"><img id="footerIcon" src="/assets/sig.png" alt="footer-icon" class="footer-icon"></td>
+              <td style="text-align: right;">Website design by Ashley Booth.</td>
+            </tr>
+          </table>
     </footer>
 
     <div class="color-scheme-toggle">
@@ -755,6 +775,7 @@
         const colorToggle = document.getElementById('colorToggle');
         const root = document.documentElement;
         const imageToInvert = document.getElementById('imageToInvert');
+        const footerIcon = document.getElementById('footerIcon');
 
         const colorSchemes = [
             {
@@ -786,6 +807,7 @@
             root.style.setProperty('--bg-color', scheme.bg);
 
             imageToInvert.classList.toggle('inverted', currentScheme !== 0);
+            footerIcon.classList.toggle('inverted', currentScheme !== 0);
 
             colorToggle.classList.toggle('active', currentScheme !== 0);
         });
