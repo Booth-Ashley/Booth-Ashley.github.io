@@ -1,642 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Error 404 - Page Not Found</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404</title>
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/ico/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/ico/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/ico/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <style>
+        :root {
+            --primary-color: #f4f4f4;
+            --secondary-color: #147efb;
+            --text-color: #000000;
+            --bg-color: #f4f4f4;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        section {
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        #home p {
+            margin: 20px 0;
+        }
+        
+        #home h1 {
+            font-size: 75px;
+            overflow: hidden;
+            white-space: nowrap;
+            letter-spacing: 0.15em;
+            margin: 0 auto;
+            border-right: .05em solid var(--primary-color);
+            animation: 
+                typing 3s steps(20, end),
+                blink-caret 1s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--text-color); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 40px;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 20px var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            #home h1 {
+                font-size: 40px;
+                letter-spacing: 0.15em;
+            }
+        }
+    </style>
 </head>
-
-<style>
-    * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #87CEEB;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-  color: #333;
-}
-
-.sun {
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  width: 100px;
-  height: 100px;
-  background-color: #FFD700;
-  border-radius: 50%;
-  box-shadow: 0 0 80px 15px rgba(255, 215, 0, 0.6);
-  z-index: -2;
-}
-
-/* Clouds */
-#background-wrap {
-  bottom: 0;
-  left: 0;
-  padding-top: 50px;
-  padding-bottom: 200px;
-  position: fixed;
-  right: 0;
-  top: 0;
-  z-index: -1;
-}
-
-@keyframes animateCloud {
-  0% {
-    margin-left: -1000px;
-  }
-  100% {
-    margin-left: 100%;
-  }
-}
-
-.cloud1 {
-  animation: animateCloud 44s linear infinite;
-  transform: scale(0.65);
-}
-
-.cloud2 {
-  animation: animateCloud 30s linear infinite;
-  transform: scale(0.45);
-}
-
-.cloud3 {
-  animation: animateCloud 37s linear infinite;
-  transform: scale(0.5);
-}
-
-.cloud {
-  background: #fff;
-  background: linear-gradient(top, #fff 10%, #f1f1f1 100%);
-  border-radius: 100px;
-  box-shadow: 0 8px 5px rgba(0, 0, 0, 0.1);
-  height: 120px;
-  position: relative;
-  width: 350px;
-}
-
-.cloud:after,
-.cloud:before {
-  background: #fff;
-  content: '';
-  position: absolute;
-  z-index: -1;
-}
-
-.cloud:after {
-  border-radius: 100px;
-  height: 100px;
-  left: 50px;
-  top: -50px;
-  width: 100px;
-}
-
-.cloud:before {
-  border-radius: 200px;
-  width: 180px;
-  height: 180px;
-  right: 50px;
-  top: -90px;
-}
-
-/* Tunnels */
-.tunnel-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100vh;
-  z-index: 11;
-  pointer-events: none;
-}
-
-.tunnel {
-  position: absolute;
-  height: 100%;
-  width: 25vw;
-  background-image: linear-gradient(rgb(155, 155, 155) 2px, transparent 1px),
-    linear-gradient(to right, white 2px, #bd5858 1px);
-  background-size: 20px 10px;
-  border-top-right-radius: 10px;
-  border-top-left-radius: 10px;
-  border-right: 5px solid black;
-  border-left: 5px solid black;
-  transform: translateY(-10px);
-  z-index: 11;
-}
-
-.tunnel-left {
-  left: -30vw;
-  height: 80px;
-}
-
-.tunnel-right {
-  right: -30vw;
-  height: 80px;
-}
-
-/* Train */
-.error-container {
-  text-align: center;
-  position: absolute;
-  z-index: 10;
-}
-
-.train {
-  position: relative;
-  height: 120px;
-  margin-bottom: 35px;
-  display: flex;
-  animation: moveTrain 12s linear infinite;
-}
-
-.train-body {
-  position: relative;
-  background-color: #1f3c68;
-  width: 350px;
-  height: 60px;
-  border-radius: 20px 20px 5px 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  border: 1px solid black;
-}
-
-.train-front {
-  position: absolute;
-  left: 0;
-  width: 90px;
-  height: 60px;
-  background-color: #1b3a55;
-  border-radius: 20px 0 0 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.train-nose {
-  background-color: #f2a900;
-  width: 40px;
-  height: 20px;
-  border-radius: 0 15px 15px 0;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-}
-
-.train-windows {
-  position: absolute;
-  display: flex;
-  gap: 5px;
-  left: 50px;
-  top: 12px;
-}
-
-.window {
-  width: 18px;
-  height: 18px;
-  background-color: #a3c2da;
-  border-radius: 3px;
-  border: 1px solid black;
-}
-
-.train-door {
-  position: absolute;
-  width: 22px;
-  height: 50px;
-  background-color: #444;
-  left: 163px;
-  top: 5px;
-  border-radius: 5px;
-  border: 2px solid black;
-  z-index: 10;
-}
-
-.headlight {
-  position: absolute;
-  background-color: #fff;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  top: 42px;
-  z-index: 15;
-}
-
-.left-headlight {
-  left: 2px;
-  border: 1px solid greenyellow;
-}
-
-.right-headlight {
-  right: 2px;
-  border: 1px solid red;
-}
-
-.right-headlight-mb {
-  right: 2px;
-  border: 1px solid red;
-  display: none;
-}
-
-/* Extra Carriage */
-.extra-carriage {
-  background-color: #2a4a80;
-  width: 350px;
-  height: 60px;
-  border-radius: 20px 20px 5px 5px;
-  position: relative;
-  display: block;
-}
-
-.extra-carriage .train-body-error {
-  font-size: 22px;
-  font-weight: bold;
-  color: white;
-  position: absolute;
-  left: 65px;
-  bottom: 1px;
-  text-shadow: 2px 2px black;
-}
-
-.extra-carriage .train-body-404 {
-  font-size: 25px;
-  font-weight: bold;
-  color: white;
-  position: absolute;
-  right: 85px;
-  bottom: 1px;
-  text-shadow: 2px 2px black;
-}
-
-.train-body-error-mb {
-  font-size: 15px;
-  font-weight: bold;
-  color: white;
-  position: absolute;
-  left: 100px;
-  bottom: 1px;
-  text-shadow: 2px 2px black;
-  display: none;
-}
-
-.train-body-404-mb {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  position: absolute;
-  right: 115px;
-  bottom: 1px;
-  text-shadow: 2px 2px black;
-  display: none;
-}
-
-/* Train Wheels */
-.train-wheels,
-.extra-carriage-wheels {
-  position: absolute;
-  bottom: -5px;
-  left: 10px;
-  right: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-}
-
-.wheel {
-  width: 20px;
-  height: 20px;
-  background-color: #222;
-  border-radius: 50%;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-  border: 1px solid red;
-}
-
-.error-message {
-  font-size: 35px;
-  color: white;
-  font-weight: bold;
-  position: absolute;
-  top: 125px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-shadow: 2px 2px black;
-}
-
-.btn {
-  position: absolute;
-  border-radius: 25px;
-  border: 2px solid #f2a900;
-  top: 200px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #2a4a80;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-
-.btn:hover {
-  box-shadow: 0 0 5px 5px rgba(242, 169, 0, 0.8); 
-}
-.link {
-  font-weight: bold;
-  font-size: 30px;
-  text-decoration: none;
-  color: white;
-  padding: 20px;
-  text-shadow: 2px 2px black;
-}
-
-.track-container {
-  position: absolute;
-  width: 100%;
-  height: 55px;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-
-.track {
-  position: absolute;
-  width: 200%;
-  height: 100%;
-  background-color: #444;
-}
-
-.track-rail-2 {
-  position: absolute;
-  width: 100%;
-  height: 17px;
-  background-color: black;
-  transform: translateY(-50%);
-  z-index: 9;
-  top: 10px;
-  background-color: #444;  
-  background-size: 10px 10px;
-  background-image: repeating-linear-gradient(45deg, black 0, black 1px, #444 0, #444 50%);
-  border: 1px solid black;
-}
-
-.ground {
-  background-color: #444;
-  width: 100%;
-  z-index: 1;
-  position: absolute;
-  height: 50%;
-  bottom: 0;
-}
-
-.signature {
-  position: absolute;
-  bottom: 10px; 
-  left: 10px;
-  font-size: 10px;
-  color: #fff; 
-  font-style: italic; 
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); 
-  text-decoration: none;
-  z-index: 10;
-}
-
-.signature a {
-    text-decoration: none;
-    color:inherit
-}
-
-
-@keyframes moveTrain {
-  0% {
-    transform: translateX(95vw);
-  }
-  100% {
-    transform: translateX(-150%);
-  }
-}
-
-/* Mobile */
-@media (max-width: 1052px) {
-  body {
-    font-size: 14px;
-    overflow: hidden;
-  }
-
-  .extra-carriage {
-    display: none;
-  }
-
-  .error-message {
-    font-size: 20px;
-    position: absolute;
-    top: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .btn {
-    top: 200px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .link {
-    font-size: 13px;
-  }
-
-  .train-body-error-mb {
-    font-size: 15px;
-    font-weight: bold;
-    color: white;
-    position: absolute;
-    left: 105px;
-    bottom: 1px;
-    text-shadow: 2px 2px black;
-    display: block;
-  }
-
-  .train-body-404-mb {
-    font-size: 18px;
-    font-weight: bold;
-    color: white;
-    position: absolute;
-    right: 120px;
-    bottom: 1px;
-    text-shadow: 2px 2px black;
-    display: block;
-  }
-
-  .tunnel-left {
-    left: -50vw;
-    width: 50vw;
-  }
-
-  .tunnel-right {
-    right: -50vw;
-    width: 50vw;
-  }
-
-  .right-headlight-mb {
-    display: block;
-  }
-}
-
-</style>
-
 <body>
-    <div class="sun"></div>
+    <header>
+    </header>
 
-    <!-- Clouds -->
-    <div id="background-wrap">
-        <div class="cloud1">
-            <div class="cloud"></div>
-        </div>
-        <div class="cloud2">
-            <div class="cloud"></div>
-        </div>
-        <div class="cloud3">
-            <div class="cloud"></div>
-        </div>
-    </div>
-
-    <!-- Error 404 Train -->
-    <div class="error-container">
-        <div class="tunnel-container">
-            <div class="tunnel tunnel-left"></div>
-            <div class="tunnel tunnel-right"></div>
-        </div>
-        <div class="train">
-            <!-- Main Train (First Carriage) -->
-            <div class="train-body">
-                <div class="train-body-error-mb">ERROR</div>
-                <div class="train-body-404-mb">404</div>
-                <div class="train-front">
-                    <div class="train-nose"></div>
-                </div>
-                <div class="train-windows">
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                </div>
-                <div class="train-door"></div>
-                <!-- Headlights -->
-                <div class="headlight left-headlight"></div>
-                <div class="headlight right-headlight-mb"></div>
-                <!-- Wheels -->
-                <div class="train-wheels">
-                    <div class="wheel left-wheel"></div>
-                    <div class="wheel right-wheel"></div>
-                </div>
+    <main>
+        <section id="home">
+            <div class="container">
+                <h1 id="name">ERROR 404</h1>
+                <p>There's nothing here...</p>
+                <a href="https://ashley-booth.com/" class="btn" id="contactBtn">Go Home</a>
             </div>
+        </section>
 
-            <!-- Extra Carriage (Second Carriage) -->
-            <div class="train-body extra-carriage">
-                <div class="train-body-error">ERROR</div>
-                <div class="train-body-404">404</div>
-                <div class="train-windows">
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                </div>
+<script>
+                const nameElement = document.getElementById('name');
+        const nameTex = nameElement.textContent;
+        nameElement.textContent = '';
+        let i = 0;
 
-                <div class="train-door"></div>
-                <!-- Headlights -->
-                <div class="train-wheels extra-carriage-wheels">
-                    <!-- Wheels -->
-                    <div class="wheel left-wheel"></div>
-                    <div class="wheel right-wheel"></div>
-                </div>
-            </div>
+        function typeWriter() {
+            if (i < nameTex.length) {
+                nameElement.textContent += nameTex.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
 
-            <!-- Extra Carriage (Third Carriage) -->
-            <div class="train-body extra-carriage">
-                <div class="train-windows">
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                    <div class="window"></div>
-                </div>
-
-                <div class="train-door"></div>
-                <!-- Headlights -->
-                <div class="headlight right-headlight"></div>
-                <div class="train-wheels extra-carriage-wheels">
-                    <!-- Wheels -->
-                    <div class="wheel left-wheel"></div>
-                    <div class="wheel right-wheel"></div>
-                </div>
-            </div>
-        </div>
-
-        <h1 class="error-message">Oops! <BR>Looks like this page is off track.</h1>
-
-        <div class="btn">
-            <a class="link" href="https://www.ashley-booth.com">GET BACK ON TRACK</a>
-        </div>
-    </div>
-
-    <div class="track-container">
-        <div class="track"></div>
-        <div class="track-rail-1"></div>
-        <div class="track-rail-2"></div>
-        <div class="track-ties">
-            <div class="tie"></div>
-            <div class="tie"></div>
-            <div class="tie"></div>
-            <div class="tie"></div>
-            <div class="tie"></div>
-            <div class="tie"></div>
-            <div class="tie"></div>
-            <div class="tie"></div>
-            <div class="tie"></div>
-            <div class="tie"></div>
-            <div class="tie"></div>
-            <div class="tie"></div>
-            <div class="tie"></div>
-        </div>
-    </div>
-
-    <div class="ground"></div>
-
-    <div class="signature">
-        <a href="https://www.ashley-booth.com">Website design by Ashley Booth.</a>
-      </div>
-
+        
+        window.addEventListener('load', typeWriter);
+</script>
 </body>
-
 </html>
