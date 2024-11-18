@@ -131,6 +131,46 @@
             gap: 32px; 
         }
 
+        .about-image {
+            width: 250px;
+            height: 250px;
+            flex-shrink: 0;
+            border: 4px solid var(--text-color);
+            overflow: hidden;
+            background-color: var(--primary-color); 
+            flex-shrink: 0;
+            border-radius: 50%; 
+            box-shadow: 0 2px 8px var(--text-color);
+        }
+
+        .signature-svg {
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-color);
+            padding: 20px;
+            transform: translate(10px, -20px)
+        }
+
+        #signature-path {
+            fill: none;
+            stroke: var(--text-color);
+            stroke-width: 3;  
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1500;
+            stroke-dashoffset: 1500;
+            animation: draw 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes draw {
+            0% {
+                stroke-dashoffset: 1500;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+
         .about-wave {
             font-size: 25px;
             display: inline-block;
@@ -152,24 +192,6 @@
                 align-items: flex-start; 
                 gap: 48px; 
             }
-        }
-
-        .about-image {
-            background-color: var(--primary-color); 
-            flex-shrink: 0;
-            border-radius: 50%; 
-            border: 2px solid var(--text-color);
-            box-shadow: 0 2px 8px var(--text-color);
-        }
-
-        .inverted {
-            filter: invert(1);
-        }
-
-        .image-content {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
         }
 
         .about-description {
@@ -455,6 +477,10 @@
             }
         }
 
+        .inverted {
+            filter: invert(1);
+        }
+
         #contact {
             padding-top: 50px;
             padding-bottom: 50px;
@@ -581,6 +607,7 @@
             max-width: 100%;
             height: auto;
         }
+        
     </style>
 </head>
 <body>
@@ -610,9 +637,13 @@
             <div class="about-container">
                 <h2 class="about-title">About Me</h2>
                 <div class="about-content">
-                    <div class="about-image">
-                     <img id="imageToInvert" src="./assets/sig.png" alt="Ashley Booth" class="image-content" />
-                 </div>
+                <div class="about-image">
+                    <svg class="signature-svg" viewBox="70 40 150 100" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="scale(1.2)">
+                            <path id="signature-path" d="m 80.782929,126.93537 c 5.678252,-35.94671 5.697888,-35.871693 8.825953,-54.104808 1.699447,-7.41471 3.821423,-17.912258 8.213695,-17.79724 4.726023,-0.09569 4.869733,6.707466 5.698583,11.2663 2.25386,16.268186 4.92348,32.431907 5.68089,48.792618 -5.29232,-13.05242 -9.622322,-28.392638 -20.148748,-38.29314 -4.913715,-4.757105 -11.915229,-0.326069 -15.038994,4.894813 -5.112925,8.689216 -5.629863,19.810367 -4.381046,29.697147 0.451176,4.82932 5.181834,6.6193 9.494993,3.49441 11.826337,-9.39741 18.779113,-23.360799 26.190365,-36.276045 4.13672,-7.299 11.21597,-21.641215 13.82263,-21.325668 3.8621,0.170135 -1.2663,21.34547 -2.22706,30.983992 -0.79178,6.456471 -1.94432,13.569411 0.0307,13.551701 6.46728,-0.35799 7.22742,-6.415151 8.71804,-12.517364 1.24349,-4.164314 1.54464,-11.082636 7.15611,-9.440698 9.27431,1.342094 12.95097,3.1941 24.42667,-0.769707 6.57055,-3.04637 9.77071,-5.727208 13.01445,-8.669907"/>
+                        </g>
+                    </svg>
+                </div>
                  <div class="about-description">
                         <p class="about-text">
                          Hello! <span class="about-wave">👋</span> I'm a highly adaptable and innovative Assistant Manager with a diverse skill set spanning stockroom management, CNC machinery operation, team leadership, and advanced problem-solving.      
@@ -630,6 +661,7 @@
                     </div>
                 </div>
             </div>
+        </div>
 </section>
 
 
@@ -818,7 +850,6 @@
 
         const colorToggle = document.getElementById('colorToggle');
         const root = document.documentElement;
-        const imageToInvert = document.getElementById('imageToInvert');
         const footerIcon = document.getElementById('footerIcon');
 
         const colorSchemes = [
@@ -850,7 +881,6 @@
             root.style.setProperty('--text-color', scheme.text);
             root.style.setProperty('--bg-color', scheme.bg);
 
-            imageToInvert.classList.toggle('inverted', currentScheme !== 0);
             footerIcon.classList.toggle('inverted', currentScheme !== 0);
 
             colorToggle.classList.toggle('active', currentScheme !== 0);
