@@ -18,12 +18,21 @@
             --tertiary-color: #e5ecfc;
             --text-color: #000000;
             --bg-color: #f4f4f4;
+            --transition-speed: 0.3s;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            :root {
+                --transition-speed: 0s;
+            }
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            transition: 
+                background-color var(--transition-speed) ease;
         }
 
         body {
@@ -533,7 +542,7 @@
             height: 20px;
             border: 3px solid var(--text-color);
             border-radius: 50%;
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) ease;
             background-color: #FFD700
         }
 
@@ -548,7 +557,7 @@
             border: 3px solid var(--text-color);
             border-top: none;
             border-radius: 0 0 10px 10px;
-            transition: all 0.3s ease;
+            transition: all var(--transition-speed) ease;
             z-index: -1;
         }
 
