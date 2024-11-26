@@ -15,10 +15,11 @@
         :root {
             --primary-color: #f4f4f4;
             --secondary-color: #147efb;
-            --tertiary-color: #e5ecfc;
             --text-color: #000000;
             --bg-color: #f4f4f4;
             --transition-speed: 0.3s;
+            --shadow: 0px 1px 15px -3px rgba(0,0,0,0.75);
+            --gradient: linear-gradient(135deg, rgba(229,236,252,1) 0%, rgba(153,184,250,1) 71%, rgba(183,222,237,1) 100%);
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -119,12 +120,12 @@
         .about-container {
             padding-top:50px;
             padding-bottom: 50px;
-            background-color: var(--tertiary-color);
+            background: var(--gradient);
             color: var(--text-color);
             width: 1200px;
             margin: 0 auto;
             border-radius: 25px;
-            box-shadow: 0 2px 8px var(--text-color);
+            box-shadow: var(--shadow);
         }
 
         .about-title {
@@ -149,7 +150,7 @@
             background-color: var(--primary-color); 
             flex-shrink: 0;
             border-radius: 50%; 
-            box-shadow: 0 2px 8px var(--text-color);
+            box-shadow: var(--shadow);
         }
 
         .signature-svg {
@@ -239,10 +240,10 @@
         }
 
         .project-tile {
-            background-color: var(--tertiary-color);
+            background: var(--gradient);
             padding: 16px;
             border-radius: 8px;
-            box-shadow: 0 2px 8px var(--text-color);  
+            box-shadow: var(--shadow);  
             transition: transform 0.3s ease;
             position: relative;
             display: flex;
@@ -390,7 +391,7 @@
             background-color: var(--secondary-color);
             padding: 20px;
             border-radius: 40px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: inset 0px 1px 15px -3px rgba(0,0,0,0.75);
             text-align: center;
             transition: transform 0.3s ease;
             position: relative;
@@ -428,7 +429,7 @@
             max-height: 200px;
             object-fit: contain;
             border-radius: 5px;
-            box-shadow: 0 2px 8px var(--text-color);
+            box-shadow: var(--shadow);
         }
 
         .skill:hover .skill-bubble {
@@ -875,16 +876,18 @@
             {
                 primary: '#f4f4f4',
                 secondary: '#147efb',
-                tertiary: '#e5ecfc',
                 text: '#000000',
-                bg: '#f4f4f4'
+                bg: '#f4f4f4',
+                gradient: 'linear-gradient(135deg, rgba(229,236,252,1) 0%, rgba(153,184,250,1) 71%, rgba(183,222,237,1) 100%)',
+                shadow: '0px 1px 15px -3px rgba(0,0,0,0.75)'
             },
             {
                 primary: '#000000',
                 secondary: '#5b5b5b',
-                tertiary: '#2c2e3a',
                 text: '#ffffff',
-                bg: '#000000'
+                bg: '#000000',
+                gradient: 'linear-gradient(135deg, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 18%, rgba(71,71,71,1) 51%, rgba(44,44,44,1) 82%, rgba(19,19,19,1) 100%)',
+                shadow: 'inset 0px 1px 15px -3px rgba(0,0,0,0.75)'
             },
         ];
 
@@ -896,9 +899,10 @@
 
             root.style.setProperty('--primary-color', scheme.primary);
             root.style.setProperty('--secondary-color', scheme.secondary);
-            root.style.setProperty('--tertiary-color', scheme.tertiary);
             root.style.setProperty('--text-color', scheme.text);
             root.style.setProperty('--bg-color', scheme.bg);
+            root.style.setProperty('--gradient', scheme.gradient);
+            root.style.setProperty('--shadow', scheme.shadow);
 
             footerIcon.classList.toggle('inverted', currentScheme !== 0);
 
