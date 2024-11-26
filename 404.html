@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Error 404 - Page not found</title>
+  <!-- Fun error 404 page created by Ashley Booth - www.ashley-booth.com-->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/ico/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/ico/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/ico/favicon-16x16.png">
@@ -170,13 +171,23 @@
 
     const CANVAS = document.querySelector('#matrix');
 
-    const DEFAULT_OPTIONS = {
-      size: () => window.innerWidth * 0.02,
-      family: 'monospace',
-      fps: 30,
-      hue: 120,
-      glyphs: '40'
-    };
+const DEFAULT_OPTIONS = {
+  size: () => {
+    // Determine font size based on screen width with a minimum and maximum
+    const baseSize = Math.max(
+      Math.min(
+        window.innerWidth * (window.innerWidth < 768 ? 0.05 : 0.02), // Larger multiplier for mobile
+        24 // Maximum font size
+      ),
+      8 // Minimum font size
+    );
+    return baseSize;
+  },
+  family: 'monospace',
+  fps: 30,
+  hue: 120,
+  glyphs: '40'
+};
 
     function MatrixEffect(el, options) {
       if (el.tagName !== 'CANVAS') {
