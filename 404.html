@@ -1,133 +1,349 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Error 404</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/ico/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/ico/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/ico/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <style>
-        :root {
-            --primary-color: #f4f4f4;
-            --secondary-color: #147efb;
-            --text-color: #000000;
-            --bg-color: #f4f4f4;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Error 404 - Page not found</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/ico/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/ico/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/ico/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>
+    *,
+    *:after,
+    *:before {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body {
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      background-color: black;
+      overflow: hidden;
+      width: 100vw;
+    }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-        }
+    canvas {
+      background: black;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+    }
 
-        section {
-            padding: 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .terminal-window {
+      text-align: left;
+      box-sizing: border-box;
+      overflow: hidden;
+      max-width: 100%;
+      max-height: 90vh;
+      width: 38rem;
+      height: 23rem;
+      border-radius: .7rem;
+      position: absolute;
+      margin: auto;
+    }
 
-        #home {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            min-height: 100vh;
-        }
+    .terminal-window header {
+      background: #f4f2f3;
+      height: 2rem;
+      padding-left: .625rem;
+    }
 
-        #home p {
-            margin: 20px 0;
-        }
-        
-        #home h1 {
-            font-size: 75px;
-            overflow: hidden;
-            white-space: nowrap;
-            letter-spacing: 0.15em;
-            margin: 0 auto;
-            border-right: .05em solid var(--primary-color);
-            animation: 
-                typing 3s steps(20, end),
-                blink-caret 1s step-end infinite;
-        }
+    .terminal-window header .button {
+      width: .8rem;
+      height: .8rem;
+      margin: .6rem .3rem 0 0;
+      display: inline-block;
+      border-radius: 1rem;
+    }
 
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
+    .terminal-window header .button.red {
+      background: #ff4e4f;
+    }
 
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--text-color); }
-        }
+    .terminal-window header .button.yellow {
+      background: #ffb801;
+    }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+    .terminal-window header .button.green {
+      background: #00cb1a;
+    }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 40px;
-            transition: box-shadow 0.3s ease;
-        }
+    .terminal-window section.terminal {
+      color: white;
+      font-family: Menlo, Monaco, "Consolas", "Courier New", "Courier";
+      font-size: 11pt;
+      background: #3b3a3b;
+      padding: .6rem;
+      box-sizing: border-box;
+      position: absolute;
+      width: 100%;
+      top: 2rem;
+      bottom: 0;
+      overflow: auto;
+    }
 
-        .btn:hover {
-            box-shadow: 0 0 20px var(--secondary-color);
-        }
+    .title {
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
 
-        @media (max-width: 768px) {
-            #home h1 {
-                font-size: 40px;
-                letter-spacing: 0.15em;
-            }
-        }
-    </style>
+    .error-code {
+        font-weight: bold;
+        color: #ff0000;
+    }
+
+    a {
+        color: #a6d8ff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    a:hover {
+        color: #80c0ff;
+    }
+
+    .typing-container {
+      display: inline-block;
+      border-right: 2px solid white;
+      padding-right: 8px;
+      white-space: nowrap;
+      animation: blink 0.7s step-end infinite;
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .terminal-window {
+        transform: scale(0.75);
+        margin: 0 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .terminal-window {
+        transform: scale(0.6);
+        margin: 0 10px;
+      }
+    }
+
+  </style>
 </head>
 <body>
+  <canvas id="matrix"></canvas>
+
+  <div class="terminal-window">
     <header>
+      <div class="button red"></div>
+      <div class="button yellow"></div>
+      <div class="button green"></div>
     </header>
+    
+    <section class="terminal">
+        <p class="title">Error:<span class="error-code">404</span></p>
+        <p>---------------</p>
+        <br>
+        <p>$ The requested web page or resource cannot be located on the server.</p>
+        <br>
+        <p>$ Please check the URL is correct or <a href="https://ashley-booth.com/">[RETURN TO THE HOMEPAGE]</a>.</p>
+        <br>
+        <div class="typing-container">$</div>
+    </section>
+  </div>
 
-    <main>
-        <section id="home">
-            <div class="container">
-                <h1 id="name">ERROR 404</h1>
-                <p>There's nothing here...</p>
-                <a href="https://ashley-booth.com/" class="btn" id="contactBtn">Go Home</a>
-            </div>
-        </section>
+  <script>
+    if (typeof console.clear !== 'function') {
+      console.clear = function() {};
+    }
 
-<script>
-                const nameElement = document.getElementById('name');
-        const nameTex = nameElement.textContent;
-        nameElement.textContent = '';
-        let i = 0;
+    console.clear();
 
-        function typeWriter() {
-            if (i < nameTex.length) {
-                nameElement.textContent += nameTex.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
+    const CANVAS = document.querySelector('#matrix');
+
+    const DEFAULT_OPTIONS = {
+      size: () => window.innerWidth * 0.02,
+      family: 'monospace',
+      fps: 30,
+      hue: 120,
+      glyphs: '40'
+    };
+
+    function MatrixEffect(el, options) {
+      if (el.tagName !== 'CANVAS') {
+        console.error('Need a canvas element');
+        return null;
+      }
+
+      this.__ratio = window.devicePixelRatio || 1;
+      this.canvas = el;
+      this.options = {...DEFAULT_OPTIONS, ...options};
+      this.size = options.size;
+      this.glyphs = this.options.glyphs.split('');
+      this.context = el.getContext('2d');
+      
+      this.setSize();
+      this.setTracker();
+      this.init();
+      
+      return this;
+    }
+
+    MatrixEffect.prototype.setSize = function() {
+      const { height, width } = this.canvas.getBoundingClientRect();
+      this.canvas.height = height * this.__ratio;
+      this.canvas.width = width * this.__ratio;
+      
+      this.fontSize = Math.ceil(typeof this.size === 'function' ? this.size() : this.size);
+      this.columns = Math.ceil(this.canvas.width / this.fontSize);
+      this.rows = Math.ceil(this.canvas.height / this.fontSize);
+      this.characters = this.rows * this.columns;
+      
+      this.context.font = `${this.fontSize}px ${this.options.family}`;
+      this.context.textAlign = 'center';
+    };
+
+    MatrixEffect.prototype.setTracker = function() {
+      this.tracker = new Array(this.columns).fill().map(() => this.setColumn());
+    };
+
+    MatrixEffect.prototype.setColumn = function(column = {}) {
+      const len = gsap.utils.random(6, this.rows, 1);
+      const lastLen = column.len || len;
+      const destination = gsap.utils.random(this.rows * 0.1, this.rows + len, 1);
+      const lastDestination = column.destination || destination;
+      const tailEnd = lastDestination + lastLen;
+
+      let chars = column.chars || [];
+      let cacheChars = [...chars];
+
+      chars = new Array(Math.max(destination, chars.length)).fill().map((entry, index) => {
+        if (index <= destination) {
+          return this.glyphs[gsap.utils.random(0, this.glyphs.length - 1, 1)];
+        } else {
+          return cacheChars[index];
+        }
+      });
+
+      const row = gsap.utils.random(-this.rows, -1, 1);
+
+      return {
+        ...column,
+        chars,
+        cacheChars,
+        destination,
+        lastDestination,
+        lastLen,
+        tailEnd,
+        tailCounter: lastDestination,
+        row,
+        len,
+        hue: this.options.hue
+      };
+    };
+
+    MatrixEffect.prototype.init = function() {
+      this.renderMatrix = () => this.render();
+      this.resetOnSize = () => this.reset();
+      
+      window.addEventListener('resize', this.resetOnSize);
+      gsap.ticker.add(this.renderMatrix);
+      gsap.ticker.fps(this.options.fps);
+      
+      this.pause = () => {
+        gsap.ticker.remove(this.renderMatrix);
+      };
+      
+      this.play = () => {
+        gsap.ticker.add(this.renderMatrix);
+      };
+    };
+
+    MatrixEffect.prototype.reset = function() {
+      this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      this.setSize();
+      this.setTracker();
+    };
+
+    MatrixEffect.prototype.getColor = function(x, y, column) {
+      const lower = 0.1;
+      const upper = 1;
+      let alpha = 0.1;
+
+      const { row, len, lastLen, lastDestination, tailCounter } = column;
+
+      if (y <= row) {
+        alpha = gsap.utils.clamp(
+          lower,
+          upper,
+          gsap.utils.mapRange(-len, 0, lower, upper)(y - row)
+        );
+      } else if (y > row && y <= lastDestination) {
+        alpha = gsap.utils.clamp(
+          lower,
+          upper,
+          gsap.utils.mapRange(-lastLen, 0, lower, upper)(y - tailCounter)
+        );
+      } else if (y > lastDestination) {
+        alpha = lower;
+      }
+      
+      return `hsl(${column.hue}, 100%, ${row === y ? 100 : 70}%, ${alpha})`;
+    };
+
+    MatrixEffect.prototype.render = function() {
+      this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      
+      for (let c = 0; c < this.characters; c++) {
+        const x = c % this.columns;
+        const y = Math.floor(c / this.columns);
+        const column = this.tracker[x];
+
+        if (y === 0 && Math.random() > 0.1) {
+          column.row += 1;
         }
 
+        if (column.tailCounter !== column.tailOff && y === 0) {
+          column.tailCounter += 1;
+        }
+
+        const row = column.row;
+        const chars = y > row ? column.cacheChars : column.chars;
         
-        window.addEventListener('load', typeWriter);
-</script>
+        this.context.fillStyle = this.getColor(x, y, column);
+
+        if (chars[y]) {
+          if (Math.random() > 0.999 && y > row) {
+            column.cacheChars[y] = column.chars[y] = '';
+          }
+          
+          if (Math.random() > 0.99 && (y < row && y < column.destination && y > (column.destination - column.len))) {
+            column.cacheChars[y] = column.chars[y] = this.glyphs[gsap.utils.random(0, this.glyphs.length - 1, 1)];
+          }
+          
+          this.context.fillText(
+            chars[y],
+            (x + 0.5) * this.fontSize,
+            (y + 1) * this.fontSize
+          );
+        }
+
+        if (row > column.destination) {
+          this.tracker[x] = this.setColumn(column);
+        }
+      }
+    };
+
+    window.matrixDigitalRain = new MatrixEffect(CANVAS, DEFAULT_OPTIONS);
+  </script>
 </body>
 </html>
