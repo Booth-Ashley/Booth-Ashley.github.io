@@ -126,15 +126,18 @@
 
     @media (max-width: 768px) {
       .terminal-window {
-        transform: scale(0.75);
+        transform: scale(0.8);
         margin: 0 10px;
       }
     }
 
     @media (max-width: 480px) {
       .terminal-window {
-        transform: scale(0.6);
+        transform: scale(0.75);
         margin: 0 10px;
+      }
+      .terminal-window section.terminal {
+        font-size: 9pt;
       }
     }
 
@@ -152,11 +155,10 @@
     
     <section class="terminal">
         <p class="title">Error:<span class="error-code">404</span></p>
-        <p>---------------</p>
         <br>
         <p>$ The requested web page or resource cannot be located on the server.</p>
         <br>
-        <p>$ Please check the URL is correct or <a href="https://ashley-booth.com/">[RETURN TO THE HOMEPAGE]</a>.</p>
+        <p>$ Please check the URL is correct or <a href="https://ashley-booth.com/">[RETURN HOME]</a>.</p>
         <br>
         <div class="typing-container">$</div>
     </section>
@@ -173,13 +175,12 @@
 
 const DEFAULT_OPTIONS = {
   size: () => {
-    // Determine font size based on screen width with a minimum and maximum
     const baseSize = Math.max(
       Math.min(
-        window.innerWidth * (window.innerWidth < 768 ? 0.05 : 0.02), // Larger multiplier for mobile
-        24 // Maximum font size
+        window.innerWidth * (window.innerWidth < 768 ? 0.1 : 0.02), 
+        40 
       ),
-      8 // Minimum font size
+      12 
     );
     return baseSize;
   },
