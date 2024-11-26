@@ -224,25 +224,22 @@
         }
 
         #projects {
-            background-color: var(--tertiary-color);
             color: var(--text-color);
             width: 1200px;
             margin: 0 auto;
             border-radius: 25px;
             padding-top: 50px;
             padding-bottom: 50px;
-            box-shadow: 0 2px 8px var(--text-color);
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(1, 1fr);
             gap: 24px;
             padding: 24px;
         }
 
         .project-tile {
-            background-color: var(--bg-color);
+            background-color: var(--tertiary-color);
             padding: 16px;
             border-radius: 8px;
             box-shadow: 0 2px 8px var(--text-color);  
@@ -342,7 +339,7 @@
 
         @media (min-width: 768px) {
             .projects-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
