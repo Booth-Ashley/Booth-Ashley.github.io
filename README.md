@@ -1,6 +1,6 @@
 # Hello, I'm [Ashley Booth](https://ashley-booth.com) 👋
 
-I'm a highly adaptable and innovative **Production Manager** with a diverse skill set spanning:
+I'm a highly adaptable and innovative **Operations Manager** with a diverse skill set spanning:
 
 - **Stockroom Management**
 - **CNC Machinery Operation**
