@@ -393,7 +393,7 @@
             background-color: var(--secondary-color);
             padding: 20px;
             border-radius: 40px;
-            box-shadow: inset 0px 1px 15px -3px rgba(0,0,0,0.75);
+            box-shadow: var(--shadow);
             text-align: center;
             transition: transform 0.3s ease;
             position: relative;
@@ -483,6 +483,14 @@
         }
 
         @media (max-width: 768px) {
+            #skills {
+                padding-top: 100px;
+            }
+
+            .skills-container {
+                gap: 50px;
+            }
+
             #footer-table {
                 display: table; 
                 margin: 0 auto; 
@@ -753,7 +761,7 @@
                     <!-- Project 1 -->
                     <div class="project-tile">
                         <div class="project-thumbnail">
-                            <img src="./assets/gasket.png" alt="Project 1 Thumbnail">
+                            <a href="https://github.com/Booth-Ashley/Ashs-Gasket-Maker"><img src="./assets/gasket.png" alt="Project 1 Thumbnail"></a>
                         </div>
                         <h3>Ash's Gasket Maker</h3>
                         <p><i><span class="tag">GitHub</span> <span class="tag">Python</span></i><br>Ash's Gasket Maker is a simple, user-friendly application designed to create DXF files for custom gaskets.</p>
@@ -763,7 +771,7 @@
                     <!-- Project 2 -->
                     <div class="project-tile">
                         <div class="project-thumbnail">
-                            <img src="./assets/customaod.png" alt="Project 2 Thumbnail">
+                            <a href="https://xdaforums.com/t/clockface-mod-even-more-aod-customization-oreo-no-root-updated-11-12-2018.3847703/"><img src="./assets/customaod.png" alt="Project 2 Thumbnail"></a>
                         </div>
                         <h3>Customize Your Always On Display</h3>
                         <p><i><span class="tag">XDA Developers</span> <span class="tag">Java</span> <span class="tag">Android</span></i><br>Android/SamsungUI modification allowing the user to customize their 'AOD' without root access across multiple Android versions.<br><br><i>Views: 422k</i></p>
@@ -773,7 +781,7 @@
                     <!-- Project 3 -->
                     <div class="project-tile">
                         <div class="project-thumbnail">
-                            <img src="./assets/form.png" alt="Project 3 Thumbnail">
+                            <a href="https://github.com/Booth-Ashley/CNC-Machine-Time-Estimation"><img src="./assets/form.png" alt="Project 3 Thumbnail"></a>
                         </div>
                         <h3>CNC Machine Time Estimation App</h3>
                         <p><i><span class="tag">GitHub</span> <span class="tag">HTML</span> <span class="tag">CSS</span> <span class="tag">JS</span></i><br>Interactive web applications that streamline the process for management to request time estimates for customer orders and for employees to calculate those estimates.</p>
@@ -783,7 +791,7 @@
                     <!-- Project 4 -->
                     <div class="project-tile">
                         <div class="project-thumbnail">
-                            <img src="./assets/font.png" alt="Project 4 Thumbnail">
+                            <a href="https://xdaforums.com/t/google-product-sans-fonts-for-samsung-oreo-no-root-no-substratum.3857764/"><img src="./assets/font.png" alt="Project 4 Thumbnail"></a>
                         </div>
                         <h3>Google Product Sans Fonts for Samsung Oreo</h3>
                         <p><i><span class="tag">XDA Developers</span> <span class="tag">Java</span> <span class="tag">Android</span></i><br>Android/SamsungUI modification allowing the user to customize their device font without root access across multiple Android versions.<br><br><i>Views: 388k</i></p>
@@ -793,7 +801,7 @@
                     <!-- Project 5 -->
                     <div class="project-tile">
                         <div class="project-thumbnail">
-                            <img src="./assets/amoled.png" alt="Project 5 Thumbnail">
+                            <a href="https://xdaforums.com/t/amoled-wallpapers-aod-wallpapers-edge-effects-regular-community-updates.3665762/"><img src="./assets/amoled.png" alt="Project 5 Thumbnail"></a>
                         </div>
                         <h3>AMOLED Wallpapers! AOD Wallpapers! Edge Effects!</h3>
                         <p><i><span class="tag">XDA Developers</span></i><br>Community repository of AMOLED friendly wallpapers, many edited & designed by me for users.<br><br><i>Views: 166k</i></p>
