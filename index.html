@@ -645,14 +645,19 @@
                 flex-direction: column;
                 text-align: left;
                 font-size: 0.875rem;
+                gap: 0px; 
+                padding:5px;
             }
 
             .about-image {
-                margin-bottom: 20px;
+                margin-bottom: 16px;
+                width: 200px;
+                height: 200px;
             }
+            
 
             .about-description {
-                margin: 10px;
+                margin: 16px;
             }
 
             .about-container {
@@ -660,8 +665,24 @@
                 padding-bottom:10px;
             }
 
+            .about-title {
+            margin-bottom: 16px; 
+            text-align: center;
+            }
+
+            .about-section {
+                padding-left:30px;
+                padding-right:30px;
+            }
+
             .project-thumbnail img {
                 min-height: 250px;
+            }
+        }
+
+        @media (max-width: 488px){
+            .project-thumbnail img {
+                min-height: 200px;
             }
         }
 
