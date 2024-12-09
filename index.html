@@ -393,12 +393,21 @@
             background-color: var(--secondary-color);
             padding: 20px;
             border-radius: 40px;
-            box-shadow: var(--shadow);
             text-align: center;
             transition: transform 0.3s ease;
             position: relative;
             cursor: pointer;
             font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .skill i.fa-medal {
+            position: absolute;
+            font-size: 2rem;  
+            color: var(--secondary-color);
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(0%);
         }
 
         .skill, h2 {
@@ -714,46 +723,63 @@
     <div class="container">
         <h2>Skills</h2>
         <div class="skills-container">
+
             <div class="skill">
-                Responsive Web design
+                Responsive Web design <i class="fa-solid fa-medal"></i>
                 <div class="skill-bubble">
                     <a href="/assets/webcert.png" target="_blank">
                         <img src="./assets/webcert.png" alt="Web design illustration">
                     </a>
                 </div>
             </div>
+            
             <div class="skill">
-                C# with Microsoft
+                C# with Microsoft <i class="fa-solid fa-medal"></i>
                 <div class="skill-bubble">
                     <a href="/assets/microsoftcert.png" target="_blank">
                         <img src="./assets/microsoftcert.png" alt="C# certification">
                     </a>
                 </div>
             </div>
+
             <div class="skill">
-                Python
-            </div>
-            <div class="skill">
-                Java
-            </div>
-            <div class="skill">
-                AutoCAD
-            </div>
-            <div class="skill">
-                CNC Cutting with iGems
+                CNC Cutting with iGems <i class="fa-solid fa-medal"></i>
                 <div class="skill-bubble">
                     <a href="/assets/cnc.png" target="_blank">
                         <img src="./assets/cnc.png" alt="CNC certification">
                     </a>
                 </div>
             </div>
+
             <div class="skill">
-                Advanced problem-solving
-            </div>
-            <div class="skill">
-                Team management
-            </div>
+                Forklift Operation <i class="fa-solid fa-medal"></i>
+                <div class="skill-bubble">
+                    <a href="/assets/forklift.png" target="_blank">
+                        <img src="./assets/forklift.png" alt="Forklift Certificate">
+                    </a>
+                </div>
+            </div> 
+            
         </div>
+        <div class="container">
+            <div class="skills-container">
+
+                <div class="skill">
+                    Team management
+                </div>
+    
+                <div class="skill">
+                    AutoCAD
+                </div>
+    
+                <div class="skill">
+                    Java
+                </div>
+    
+                <div class="skill">
+                    Python
+                </div>
+
     </div>
 </section>
     <section class="projects-section" id="project">
