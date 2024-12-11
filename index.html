@@ -269,6 +269,30 @@
             object-fit: cover;
         }
 
+        .screen-mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Ensures the text stays within the mask */
+            pointer-events: none; /* Ensures the mask does not block interaction */
+        }
+
+        .mask-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the mask covers the screen */
+            transition: filter var(--transition-speed, 0.3s) ease-in-out;
+        }
+
+        .inverted-screen {
+            filter: invert(1);
+        }
+
         .project-tile h3 {
             font-size: 1.25rem;
             font-weight: bold;
@@ -678,12 +702,18 @@
             .project-thumbnail img {
                 min-height: 250px;
             }
+            .screen-mask {
+                min-height: 250px;
+            }
         }
 
         @media (max-width: 488px){
             .project-thumbnail img {
                 min-height: 200px;
             }
+            .screen-mask {
+                min-height: 200px;
+            }  
         }
 
         img {
@@ -729,8 +759,8 @@
                 </div>
                  <div class="about-description">
                         <p class="about-text">
-                         Hello! <span class="about-wave">👋</span> I'm a highly adaptable and innovative Operations Manager with a diverse skill set spanning stockroom management, CNC machinery operation, team leadership, and advanced problem-solving.      
-                        
+                         <b>Hello!</b> <span class="about-wave">👋</span> I'm a highly adaptable and innovative <b>Operations Manager</b> with a diverse skill set spanning <b>Advanced Problem-Solving, Software Development, Responsive Web Design</b> & <b> Team Leadership</b>.  
+                        <br><br>
                          I am well known for driving operational efficiency, implementing cost-saving measures, and developing creative solutions that expand business capabilities and attract new customers.    
                         </p>
                         <br>
@@ -739,7 +769,7 @@
                         </p>
                         <br>
                         <p class="about-text">
-                            <span><span class="about-interests-title">Interests: </span>Technology, Cybersecurity, Reverse Engineering & Design</span>
+                            <span><span class="about-interests-title">Interests: </span><b></b>Coding, Technology, Cybersecurity, Reverse Engineering & Graphic Design</span>
                         </p>
                     </div>
                 </div>
@@ -820,31 +850,35 @@
                     <!-- Project 1 -->
                     <div class="project-tile">
                         <div class="project-thumbnail">
-                            <a href="https://github.com/Booth-Ashley/Ashs-Gasket-Maker"><img src="./assets/gasket.png" alt="Project 1 Thumbnail"></a>
+                            <a href="https://github.com/Booth-Ashley/Booth-Ashley.github.io"><img src="./assets/laptop.png" alt="Project 1 Thumbnail">
+                                <div class="screen-mask">
+                                    <img src="./assets/laptop-p1.png" alt="Mask Image" class="mask-img">
+                                </div>
+                            </a>
+                        </div>
+                        <h3>Ashley-Booth.com</h3>
+                        <p><i><span class="tag">GitHub</span> <span class="tag">HTML</span> <span class="tag">CSS</span> <span class="tag">JS</span></i><br><br>The website you are browsing right now is a showcase of my self taught and continuous learning of web developement. You can view the various changes and updates i have made since starting my journey by examining the code available on my GitHub.<br><br></p>
+                        <a href="https://github.com/Booth-Ashley/Booth-Ashley.github.io" class="read-more">Read More <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-tile">
+                        <div class="project-thumbnail">
+                            <a href="https://github.com/Booth-Ashley/Ashs-Gasket-Maker"><img src="./assets/gasket.png" alt="Project 2 Thumbnail"></a>
                         </div>
                         <h3>Ash's Gasket Maker</h3>
                         <p><i><span class="tag">GitHub</span> <span class="tag">Python</span></i><br><br>Ash's Gasket Maker is a simple, user-friendly application designed to create DXF files for custom gaskets.</p>
                         <a href="https://github.com/Booth-Ashley/Ashs-Gasket-Maker" class="read-more">Read More <i class="fas fa-external-link-alt"></i></a>
                     </div>
 
-                    <!-- Project 2 -->
+                    <!-- Project 3 -->
                     <div class="project-tile">
                         <div class="project-thumbnail">
-                            <a href="https://xdaforums.com/t/clockface-mod-even-more-aod-customization-oreo-no-root-updated-11-12-2018.3847703/"><img src="./assets/customaod.png" alt="Project 2 Thumbnail"></a>
+                            <a href="https://xdaforums.com/t/clockface-mod-even-more-aod-customization-oreo-no-root-updated-11-12-2018.3847703/"><img src="./assets/customaod.png" alt="Project 3 Thumbnail"></a>
                         </div>
                         <h3>Style your Always On Display</h3>
                         <p><i><span class="tag">XDA Developers</span> <span class="tag">Java</span> <span class="tag">Android</span></i><br><br>Android/SamsungUI modification allowing the user to customize their 'AOD' without root access across multiple Android versions.<br><br><i>Views: 422k</i></p>
                         <a href="https://xdaforums.com/t/clockface-mod-even-more-aod-customization-oreo-no-root-updated-11-12-2018.3847703/" class="read-more">Read More <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-tile">
-                        <div class="project-thumbnail">
-                            <a href="https://github.com/Booth-Ashley/CNC-Machine-Time-Estimation"><img src="./assets/form.png" alt="Project 3 Thumbnail"></a>
-                        </div>
-                        <h3>CNC Time Estimation</h3>
-                        <p><i><span class="tag">GitHub</span> <span class="tag">HTML</span> <span class="tag">CSS</span> <span class="tag">JS</span></i><br><br>Interactive web applications that streamline the process for management to request time estimates for customer orders and for employees to calculate those estimates.</p>
-                        <a href="https://github.com/Booth-Ashley/CNC-Machine-Time-Estimation" class="read-more">Read More <i class="fas fa-external-link-alt"></i></a>
                     </div>
 
                     <!-- Project 4 -->
@@ -856,16 +890,27 @@
                         <p><i><span class="tag">XDA Developers</span> <span class="tag">Java</span> <span class="tag">Android</span></i><br><br>Android/SamsungUI modification allowing the user to customize their device font without root access across multiple Android versions.<br><br><i>Views: 388k</i></p>
                         <a href="https://xdaforums.com/t/google-product-sans-fonts-for-samsung-oreo-no-root-no-substratum.3857764/" class="read-more">Read More <i class="fas fa-external-link-alt"></i></a>
                     </div>
-                    
+
                     <!-- Project 5 -->
                     <div class="project-tile">
                         <div class="project-thumbnail">
-                            <a href="https://xdaforums.com/t/amoled-wallpapers-aod-wallpapers-edge-effects-regular-community-updates.3665762/"><img src="./assets/amoled.png" alt="Project 5 Thumbnail"></a>
+                            <a href="https://github.com/Booth-Ashley/CNC-Machine-Time-Estimation"><img src="./assets/form.png" alt="Project 5 Thumbnail"></a>
+                        </div>
+                        <h3>CNC Time Estimation</h3>
+                        <p><i><span class="tag">GitHub</span> <span class="tag">HTML</span> <span class="tag">CSS</span> <span class="tag">JS</span></i><br><br>Interactive web applications that streamline the process for management to request time estimates for customer orders and for employees to calculate those estimates.</p>
+                        <a href="https://github.com/Booth-Ashley/CNC-Machine-Time-Estimation" class="read-more">Read More <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <!-- Project 6 -->
+                    <div class="project-tile">
+                        <div class="project-thumbnail">
+                            <a href="https://xdaforums.com/t/amoled-wallpapers-aod-wallpapers-edge-effects-regular-community-updates.3665762/"><img src="./assets/amoled.png" alt="Project 6 Thumbnail"></a>
                         </div>
                         <h3>OLED wallpapers</h3>
                         <p><i><span class="tag">XDA Developers</span></i><br><br>Community repository of AMOLED friendly wallpapers, many edited & designed by me for users.<br><br><i>Views: 166k</i></p>
                         <a href="https://xdaforums.com/t/amoled-wallpapers-aod-wallpapers-edge-effects-regular-community-updates.3665762/" class="read-more">Read More <i class="fas fa-external-link-alt"></i></a>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -940,6 +985,7 @@
         const colorToggle = document.getElementById('colorToggle');
         const root = document.documentElement;
         const footerIcon = document.getElementById('footerIcon');
+        const screenImg = document.querySelector('.mask-img');
 
         const colorSchemes = [
             {
@@ -973,9 +1019,13 @@
             root.style.setProperty('--gradient', scheme.gradient);
             root.style.setProperty('--shadow', scheme.shadow);
 
+            screenImg.classList.toggle('inverted-screen', currentScheme !== 0);
+
             footerIcon.classList.toggle('inverted', currentScheme !== 0);
 
             colorToggle.classList.toggle('active', currentScheme !== 0);
+
+
         });
 
                 const nameElement = document.getElementById('name');
