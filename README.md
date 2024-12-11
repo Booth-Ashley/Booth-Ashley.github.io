@@ -2,10 +2,12 @@
 
 I'm a highly adaptable and innovative **Operations Manager** with a diverse skill set spanning:
 
+- **Advanced Problem-Solving**
+- **Software Development**
+- **Responsive Web Design**
+- **Team Leadership**
 - **Stockroom Management**
 - **CNC Machinery Operation**
-- **Team Leadership**
-- **Advanced Problem-Solving**
 
 I have a proven track record of driving operational efficiency, implementing cost-saving measures, and developing creative solutions that expand business capabilities and attract new customers.
 
@@ -13,13 +15,13 @@ I have a proven track record of driving operational efficiency, implementing cos
 
 ### 🔧 Passion for Technology
 
-Beyond my work in operations, I’m passionate about **coding** and exploring the latest in **digital technology**. I enjoy diving into **cybersecurity**, **reverse engineering**, and **design**, continually seeking to learn and grow in these exciting fields.
+Beyond my work as **Operations Manager**, I’m passionate about **coding** and exploring the latest in **digital technology**. I enjoy diving into all things **coding**, **cybersecurity**, **reverse engineering**, and **graphic design**, continually seeking to learn and grow in these exciting fields.
 
 ---
 
 ### 👨‍👩‍👧‍👦 Family First
 
-When I’m not working or exploring new tech, you’ll often find me spending quality time with my growing family. Balancing my professional passions with personal joy is something I value deeply.
+When I’m not working or coding, you’ll often find me spending quality time with my growing family. Balancing my professional passions with personal joy is something I value deeply.
 
 ---
 
@@ -29,8 +31,9 @@ I’m always open to collaborating and connecting with like-minded individuals. 
 
 ---
 
-## 🔗 **Interests**:
+### 🔗 **Interests**:
+- Coding
 - Technology
 - Cybersecurity
 - Reverse Engineering
-- Design
+- Graphic Design
