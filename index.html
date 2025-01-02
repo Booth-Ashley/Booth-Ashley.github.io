@@ -11,6 +11,22 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/ico/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/ico/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
+    <script>
+        (function() {
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const savedTheme = localStorage.getItem('theme');
+          const isDark = savedTheme !== null ? savedTheme === '1' : prefersDark;
+          
+          if (isDark) {
+            document.documentElement.style.setProperty('--primary-color', '#000000');
+            document.documentElement.style.setProperty('--secondary-color', '#5b5b5b');
+            document.documentElement.style.setProperty('--text-color', '#ffffff');
+            document.documentElement.style.setProperty('--bg-color', '#000000');
+            document.documentElement.style.setProperty('--gradient', 'linear-gradient(135deg, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 18%, rgba(71,71,71,1) 51%, rgba(44,44,44,1) 82%, rgba(19,19,19,1) 100%)');
+            document.documentElement.style.setProperty('--shadow', 'inset 0px 1px 15px -3px rgba(0,0,0,0.75)');
+          }
+      })();
+      </script>
     <style>
         :root {
             --primary-color: #f4f4f4;
