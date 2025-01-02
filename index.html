@@ -963,7 +963,7 @@
                 const targetElement = document.getElementById(targetId);
                 const header = document.querySelector('header');
                 const headerHeight = header.offsetHeight;
-
+    
                 if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - headerHeight,
@@ -972,16 +972,16 @@
                 }
             });
         });
-
+    
         gsap.registerPlugin(ScrollTrigger);
-
+    
         gsap.from('header', { 
             y: -100, 
             opacity: 0, 
             duration: 2, 
             ease: 'power3.out' 
         });
-
+    
         gsap.utils.toArray('section').forEach((section, i) => {
             gsap.from(section, {
                 scrollTrigger: {
@@ -995,12 +995,12 @@
                 ease: 'power3.out'
             });
         });
-
+    
         const colorToggle = document.getElementById('colorToggle');
         const root = document.documentElement;
         const footerIcon = document.getElementById('footerIcon');
         const screenImg = document.querySelector('.mask-img');
-
+    
         const colorSchemes = [
             {
                 primary: '#f4f4f4',
@@ -1019,34 +1019,56 @@
                 shadow: 'inset 0px 1px 15px -3px rgba(0,0,0,0.75)'
             },
         ];
-
+    
         let currentScheme = 0;
-
+    
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme');
+    
+        function setInitialTheme() {
+            if (savedTheme !== null) {
+                currentScheme = parseInt(savedTheme);
+            } else {
+                currentScheme = prefersDark ? 1 : 0;
+            }
+            applyTheme(currentScheme);
+        }
+    
         colorToggle.addEventListener('click', () => {
             currentScheme = (currentScheme + 1) % colorSchemes.length;
-            const scheme = colorSchemes[currentScheme];
-
+            applyTheme(currentScheme);
+            localStorage.setItem('theme', currentScheme.toString());
+        });
+    
+        function applyTheme(schemeIndex) {
+            const scheme = colorSchemes[schemeIndex];
+            
             root.style.setProperty('--primary-color', scheme.primary);
             root.style.setProperty('--secondary-color', scheme.secondary);
             root.style.setProperty('--text-color', scheme.text);
             root.style.setProperty('--bg-color', scheme.bg);
             root.style.setProperty('--gradient', scheme.gradient);
             root.style.setProperty('--shadow', scheme.shadow);
-
-            screenImg.classList.toggle('inverted-screen', currentScheme !== 0);
-
-            footerIcon.classList.toggle('inverted', currentScheme !== 0);
-
-            colorToggle.classList.toggle('active', currentScheme !== 0);
-
-
+    
+            screenImg.classList.toggle('inverted-screen', schemeIndex !== 0);
+            footerIcon.classList.toggle('inverted', schemeIndex !== 0);
+            colorToggle.classList.toggle('active', schemeIndex !== 0);
+        }
+    
+        setInitialTheme();
+    
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (localStorage.getItem('theme') === null) {
+                currentScheme = e.matches ? 1 : 0;
+                applyTheme(currentScheme);
+            }
         });
-
-                const nameElement = document.getElementById('name');
+    
+        const nameElement = document.getElementById('name');
         const nameTex = nameElement.textContent;
         nameElement.textContent = '';
         let i = 0;
-
+    
         function typeWriter() {
             if (i < nameTex.length) {
                 nameElement.textContent += nameTex.charAt(i);
@@ -1054,7 +1076,7 @@
                 setTimeout(typeWriter, 100);
             }
         }
-
+    
         window.addEventListener('load', typeWriter);
     </script>
 </body>
