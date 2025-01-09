@@ -4,18 +4,24 @@
 
   <url>
     <loc>https://ashley-booth.com/blog/</loc>
-    <lastmod>2024-08-20T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ashley-booth.com/blog/posts/budget-gaming-pc/</loc>
-    <lastmod>2024-08-20T00:00:00+00:00</lastmod>
+    <loc>https://ashley-booth.com/blog/posts/breitling-navitimer/</loc>
+    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://ashley-booth.com/blog/posts/</loc>
+    <lastmod>2025-01-09T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ashley-booth.com/blog/posts/budget-gaming-pc/</loc>
     <lastmod>2024-08-20T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
