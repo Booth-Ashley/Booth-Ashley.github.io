@@ -12,13 +12,33 @@
     <lastBuildDate>Thu, 09 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ashley-booth.com/blog/categories/problem-solving/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>How I Replaced a Breitling Navitimer Watch Battery—Without Spending Hundreds</title>
+      <title>How i replaced a Breitling Navitimer Watch battery—Without spending hundreds</title>
       <link>https://ashley-booth.com/blog/posts/breitling-navitimer/</link>
       <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
       <author>ashley@ashley-booth.com (Ashley Booth)</author>
       <guid>https://ashley-booth.com/blog/posts/breitling-navitimer/</guid>
       <description></description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/breitling-navitimer/featured.jpg" />
+    </item>
+    
+    <item>
+      <title>How i made a cloud CCTV recording system for free.</title>
+      <link>https://ashley-booth.com/blog/posts/cctvsystem/</link>
+      <pubDate>Mon, 05 Aug 2024 00:00:00 +0000</pubDate>
+      <author>ashley@ashley-booth.com (Ashley Booth)</author>
+      <guid>https://ashley-booth.com/blog/posts/cctvsystem/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/cctvsystem/featured.webp" />
+    </item>
+    
+    <item>
+      <title>DIY Samsung Galaxy Watch charging dock</title>
+      <link>https://ashley-booth.com/blog/posts/smart-watch-dock/</link>
+      <pubDate>Sun, 28 Jul 2024 00:00:00 +0000</pubDate>
+      <author>ashley@ashley-booth.com (Ashley Booth)</author>
+      <guid>https://ashley-booth.com/blog/posts/smart-watch-dock/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/smart-watch-dock/featured.webp" />
     </item>
     
   </channel>
