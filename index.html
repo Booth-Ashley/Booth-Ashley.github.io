@@ -1233,6 +1233,14 @@
             burgerMenu.classList.remove('open');
             overlay.classList.remove('show');
         });
+
+        window.addEventListener('scroll', function() {
+            if (navMenu.classList.contains('show')) {
+                navMenu.classList.remove('show');
+                burgerMenu.classList.remove('open');
+                overlay.classList.remove('show');
+            }
+        });
     </script>
 </body>
 </html>
