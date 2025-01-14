@@ -1,1548 +1,1278 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" class="scroll-smooth" data-default-appearance="light"
-  data-auto-appearance="true"><head>
-	<meta name="generator" content="Hugo 0.140.2">
-  <meta charset="utf-8" />
-  
-  <meta http-equiv="content-language" content="en" />
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  
-  <title>Ashley&#39;s Blog</title>
-  <meta name="title" content="Ashley&#39;s Blog" />
-  
-  <meta name="description" content="Here, you can explore topics spanning Technology, Design, Software, Computer Science, Commissions, Gaming, Education, Hobbies, and more." />
-  
-  
-  
-  <link rel="canonical" href="https://ashley-booth.com/blog/" />
-  
-  <link rel="alternate" type="application/rss+xml" href="/blog/index.xml" title="Ashley's Blog" />
-  
-  <link rel="alternate" type="application/json" href="/blog/index.json" title="Ashley's Blog" />
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <link type="text/css" rel="stylesheet" href="/blog/css/main.bundle.min.e27868ab1485f7ed7b06b122b4980bd38b19526eb8f7de885181204d28f04a0c47e9c334eff19a06c0278eb2ff8415b983a5d0fb80fd6b5680c926457cc61c57.css"
-    integrity="sha512-4nhoqxSF9&#43;17BrEitJgL04sZUm64996IUYEgTSjwSgxH6cM07/GaBsAnjrL/hBW5g6XQ&#43;4D9a1aAySZFfMYcVw==" />
-  
-  
-  <script type="text/javascript" src="/blog/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
-    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <script defer type="text/javascript" id="script-bundle" src="/blog/js/main.bundle.min.0c424ab1c6aafe2039f09c49da59e609e9c3639b293d752971a3f96bb967114eb9719493d28e382b62527c185812ddc2c5a3664a3a21d0cbab06dafccbf685e4.js"
-    integrity="sha512-DEJKscaq/iA58JxJ2lnmCenDY5spPXUpcaP5a7lnEU65cZST0o44K2JSfBhYEt3CxaNmSjoh0MurBtr8y/aF5A==" data-copy="" data-copied=""></script>
-  
-  
-  
-  <script src="/blog/lib/zoom/zoom.min.fcbc7f7b3dcea96e3b5570cd322c5d7a12d5351c87f9889b1c31745a2cc711df58f6b70795a86d50e63813b236ade916668332c10a70a4ce26f7c0878f525fce.js" integrity="sha512-/Lx/ez3OqW47VXDNMixdehLVNRyH&#43;YibHDF0WizHEd9Y9rcHlahtUOY4E7I2rekWZoMywQpwpM4m98CHj1Jfzg=="></script>
-  
-  
-  
-  <link rel="apple-touch-icon" sizes="180x180" href="/blog/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/blog/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/blog/favicon-16x16.png" />
-  <link rel="manifest" href="/blog/site.webmanifest" />
-  
-  
-  
-  
-  
-  
-  
-  
-  <meta property="og:url" content="https://ashley-booth.com/blog/">
-  <meta property="og:site_name" content="Ashley&#39;s Blog">
-  <meta property="og:title" content="Ashley&#39;s Blog">
-  <meta property="og:description" content="Here, you can explore topics spanning Technology, Design, Software, Computer Science, Commissions, Gaming, Education, Hobbies, and more.">
-  <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashley Booth</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/ico/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <script>
+        (function() {
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const savedTheme = localStorage.getItem('theme');
+          const isDark = savedTheme !== null ? savedTheme === '1' : prefersDark;
+          
+          if (isDark) {
+            document.documentElement.style.setProperty('--primary-color', '#000000');
+            document.documentElement.style.setProperty('--secondary-color', '#5b5b5b');
+            document.documentElement.style.setProperty('--text-color', '#ffffff');
+            document.documentElement.style.setProperty('--bg-color', '#000000');
+            document.documentElement.style.setProperty('--gradient', 'linear-gradient(135deg, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 18%, rgba(71,71,71,1) 51%, rgba(44,44,44,1) 82%, rgba(19,19,19,1) 100%)');
+            document.documentElement.style.setProperty('--shadow', 'inset 0px 1px 15px -3px rgba(0,0,0,0.75)');
+          }
+      })();
+      </script>
+    <style>
+        :root {
+            --primary-color: #f4f4f4;
+            --secondary-color: #147efb;
+            --text-color: #000000;
+            --bg-color: #f4f4f4;
+            --transition-speed: 0.3s;
+            --shadow: 0px 1px 15px -3px rgba(0,0,0,0.75);
+            --gradient: linear-gradient(135deg, rgba(229,236,252,1) 0%, rgba(153,184,250,1) 71%, rgba(183,222,237,1) 100%);
+        }
 
-  
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Ashley&#39;s Blog">
-  <meta name="twitter:description" content="Here, you can explore topics spanning Technology, Design, Software, Computer Science, Commissions, Gaming, Education, Hobbies, and more.">
+        @media (prefers-reduced-motion: reduce) {
+            :root {
+                --transition-speed: 0s;
+            }
+        }
 
-  
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": "https:\/\/ashley-booth.com\/blog\/",
-    "name": "Ashley\u0027s Blog",
-    "description": "Here, you can explore topics spanning Technology, Design, Software, Computer Science, Commissions, Gaming, Education, Hobbies, and more.",
-    "inLanguage": "en",
-    "url": "https:\/\/ashley-booth.com\/blog\/",
-    
-    "publisher" : {
-      "@type": "Person",
-      "name": "Ashley Booth"
-    }
-  }
-  </script>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: 
+                background-color var(--transition-speed) ease;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        a:focus, 
+        button:focus, 
+        input:focus, 
+        textarea:focus, 
+        select:focus, 
+        a:active, 
+        button:active, 
+        input:active, 
+        textarea:active, 
+        select:active, 
+        .skill:focus, 
+        .skill:active {
+            outline: none !important;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .burger-bar {
+            height: 3px;
+            width: 100%;
+            background-color: var(--text-color);
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            .burger-menu {
+                display: flex;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                z-index: 10;
+            }
+
+            header {
+                background-color: transparent;
+            }
+
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100px;
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                pointer-events: none;
+                z-index: 9;
+                transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s 0.3s;
+            }
+
+            nav ul.show {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: left;
+                padding: 10px 0;
+            }
+
+            nav ul li a {
+                display: block;
+                width: 100%;
+                padding: 10px 20px;
+                color: var(--text-color);
+                text-decoration: none;
+                cursor: pointer;
+            }
+
+            .burger-menu.open .burger-bar:nth-child(1) {
+                transform: rotate(45deg) translateY(13px);
+            }
+
+            .burger-menu.open .burger-bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .burger-menu.open .burger-bar:nth-child(3) {
+                transform: rotate(-45deg) translateY(-13px);
+            }
+
+            .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(5px);
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            z-index: 8;
+        }
+
+        .overlay.show {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        }
 
 
-  
-  
-  <meta name="author" content="Ashley Booth" />
-  
-  
-  
-  <link href="mailto:ashley@ashley-booth.com" rel="me" />
-  
-  
-  <link href="https://ashley-booth.com" rel="me" />
-  
-  
-  <link href="https://github.com/Booth-Ashley" rel="me" />
-  
-  
-  <link href="https://twitter.com/ashC0DE" rel="me" />
-  
-  
-  <link href="https://ko-fi.com/ashc0de" rel="me" />
-  
-  
-  
-  
+        section {
+            padding: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-<script src="/blog/lib/jquery/jquery.slim.min.03cb160e3cfdb2667a2e2c80d283bebcf63ff8bbc4b629c9ab2babf6fae1d0c07ad470edae783efa4fabda2ac01c58d60e63b98b3c336be8208460f08f4354f5.js" integrity="sha512-A8sWDjz9smZ6LiyA0oO&#43;vPY/&#43;LvEtinJqyur9vrh0MB61HDtrng&#43;&#43;k&#43;r2irAHFjWDmO5izwza&#43;gghGDwj0NU9Q=="></script>
+        #home {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height: 100vh;
+        }
 
+        #home p {
+            margin: 20px 0;
+        }
+        
+        #home h1 {
+            font-size: 75px;
+            overflow: hidden;
+            white-space: nowrap;
+            letter-spacing: 0.15em;
+            margin: 0 auto;
+            border-right: .05em solid var(--primary-color);
+            animation: 
+                typing 3s steps(20, end),
+                blink-caret 1s step-end infinite;
+        }
 
+        .about-section {
+            padding-left: 50px;
+            padding-right: 50px;
+        }
 
+        .about-container {
+            padding-top:50px;
+            padding-bottom: 50px;
+            background: var(--gradient);
+            color: var(--text-color);
+            width: 1200px;
+            margin: 0 auto;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+        }
 
+        .about-title {
+            margin-bottom: 32px; 
+            text-align: center;
+        }
 
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px; 
+            padding:16px;
+        }
 
+        .about-image {
+            width: 250px;
+            height: 250px;
+            flex-shrink: 0;
+            border: 4px solid var(--text-color);
+            overflow: hidden;
+            background-color: var(--primary-color); 
+            flex-shrink: 0;
+            border-radius: 50%; 
+            box-shadow: var(--shadow);
+        }
 
+        .signature-svg {
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-color);
+            padding: 20px;
+            transform: translate(10px, -20px)
+        }
 
+        #signature-path {
+            fill: none;
+            stroke: var(--text-color);
+            stroke-width: 3;  
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            stroke-dasharray: 1500;
+            stroke-dashoffset: 1500;
+            animation: draw 2s ease-in-out infinite alternate;
+        }
 
+        @keyframes draw {
+            0% {
+                stroke-dashoffset: 1500;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
 
+        .about-wave {
+            font-size: 25px;
+            display: inline-block;
+            animation: wave-animation 1.5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+        }
 
+        @keyframes wave-animation {
+            0%, 100% {
+            transform: rotate(-10deg);
+            }
+            50% {
+            transform: rotate(20deg);
+            }
+        }
 
+        @media (min-width: 768px) {
+            .about-content {
+                flex-direction: row;
+                align-items: flex-start; 
+                gap: 48px;
+                
+            }
+        }
 
+        .about-description {
+            max-width: 750px; 
+        }
 
+        @media (min-width: 768px) {
+            .about-description {
+                text-align: left; 
+            }
+        }
 
+        .about-interests-title {
+            font-weight: 700; 
+        }
 
+        .projects-section {
+            padding-left:10px;
+            padding-right:10px;
+        }
 
+        #projects {
+            color: var(--text-color);
+            width: 1200px;
+            margin: 0 auto;
+            border-radius: 25px;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
 
+        .projects-grid {
+            display: grid;
+            gap: 24px;
+            padding: 24px;
+        }
 
+        .project-tile {
+            background: var(--gradient);
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);  
+            transition: transform 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 450px;
+        }
 
+        .project-tile:hover {
+            transform: translateY(-5px);
+        }
 
+        .project-thumbnail {
+            position: relative;
+            margin-bottom: 16px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
 
-  
-  
+        .project-thumbnail img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
 
+        .screen-mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            pointer-events: none;
+        }
 
+        .mask-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: filter var(--transition-speed, 0.3s) ease-in-out;
+        }
 
-  
-  
-  <meta name="theme-color"/>
-  
-  
+        .inverted-screen {
+            filter: invert(1);
+        }
+
+        .project-tile h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .project-tile p {
+            font-size: 0.875rem;
+            color: var(--text-color);
+            margin-bottom: 16px;
+            padding-bottom: 24px;
+        }
+
+        .project-tile span {
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            padding-left:10px;
+            padding-right:10px;
+            color: white;
+            font-weight: 700;
+            pointer-events: none;
+            border: 1px solid rgba(0,0,0,0.75);
+            box-shadow: var(--shadow);
+        }
+
+        .read-more {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            position: absolute;
+            bottom: 16px;
+            left: 16px;
+        }
+
+        .read-more::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--text-color);
+            transition: width 0.3s ease;
+        }
+
+        .read-more:hover::after {
+            width: 100%;
+        }
+
+        .read-more i {
+            margin-left: 4px;
+        }
+
+        .repo-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .repo-action {
+            display: flex;
+            align-items: center;
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .repo-action i {
+            margin-right: 4px;
+        }
+
+        @media (min-width: 768px) {
+            .projects-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--text-color); }
+        }
+
+        h1, h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 40px;
+            transition: box-shadow 0.3s ease;
+            font-weight: 700;
+        }
+
+        .btn:hover {
+            box-shadow: 0 0 20px var(--secondary-color);
+        }
+
+        #skills {
+            padding-top: 200px;
+        }
+
+        .skills-container {
+            padding-top: 50px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            color: white;
+        }
+
+        .skill {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            border-radius: 40px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            position: relative;
+            cursor: pointer;
+            font-weight: 700;
+            margin-bottom: 40px;
+        }
+
+        .skill i.fa-medal {
+            position: absolute;
+            font-size: 2rem;  
+            color: var(--secondary-color);
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(0%);
+        }
+
+        .skill, h2 {
+            text-align: center;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-bubble {
+            position: absolute;
+            padding: 10px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            bottom: calc(100% + 20px);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .skill-bubble a {
+            display: block;
+            cursor: zoom-in;
+        }
+
+        .skill-bubble img {
+            max-width: 200px;
+            max-height: 200px;
+            object-fit: contain;
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill:hover .skill-bubble {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-1px);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 100px;
+            padding-top: 50px;
+        }
+
+        .social-icon {
+            font-size: 75px;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            font-size: 12px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        #footer-table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+            }
+
+        #footer-table td {
+            vertical-align: middle; 
+            }
+
+        .footer-icon {
+            width:32px;
+            height:32px;
+        }
+
+        @media (max-width: 768px) {
+
+            #skills {
+                padding-top: 75px;
+            }
+
+            .skills-container {
+                gap: 50px;
+            }
+
+            #footer-table {
+                display: table; 
+                margin: 0 auto; 
+                width: auto; 
+                text-align: center; 
+            }
+
+            #footer-table td {
+                display: block;
+                text-align: center;
+                margin: 10px 0 10px; 
+            }
+
+            .footer-icon {
+                width: 50px;
+                height: 50px;
+            }
+
+            .social-icons {
+                gap: 50px;
+            }
+
+            .social-icon {
+                font-size: 50px;
+            }
+        }
+
+        .inverted {
+            filter: invert(1);
+        }
+
+        #contact {
+            padding-top: 200px;
+            padding-bottom: 200px;
+        }
+
+        .hrfooter {
+            color: var(--text-color);
+            opacity: 50%;
+        }
+
+        .color-scheme-toggle {
+            position: fixed;
+            top: 10px;
+            right: 20px;
+            z-index: 1001;
+            
+        }
+
+        .lightbulb {
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .lightbulb::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--text-color);
+            border-radius: 50%;
+            transition: all var(--transition-speed) ease;
+            background-color: #FFD700
+        }
+
+        .lightbulb::after {
+            content: '';
+            position: absolute;
+            top: 23px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 10px;
+            border: 3px solid var(--text-color);
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            transition: all var(--transition-speed) ease;
+            z-index: -1;
+        }
+
+        .lightbulb.active::before {
+            background-color: var(--primary-color);
+            border: 3px solid var(--text-color);
+        }
+
+        .lightbulb.active::after {
+            content: '';
+            position: absolute;
+            top: 23px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 10px;
+            border: 3px solid var(--text-color);
+            border-top: none;
+            border-radius: 0 0 10px 10px;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 0;
+            }
+
+            nav ul {
+                flex-direction: row;
+                justify-content: center;
+                flex-wrap: wrap;
+                max-width: calc(100% - 50px);
+            }
+
+            nav ul li {
+                margin: 5px 10px;
+            }
+
+            #home h1 {
+                font-size: 40px;
+                letter-spacing: 0.15em;
+            }
+
+            .skills-container {
+                flex-direction: column;
+            }
+
+            .skill {
+                width: 100%;
+            }   
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: left;
+                font-size: 0.875rem;
+                gap: 0px; 
+                padding:5px;
+            }
+
+            .about-image {
+                margin-bottom: 16px;
+                width: 200px;
+                height: 200px;
+            }
+            
+
+            .about-description {
+                margin: 16px;
+            }
+
+            .about-container {
+                padding-top:10px;
+                padding-bottom:10px;
+            }
+
+            .about-title {
+            margin-bottom: 16px; 
+            text-align: center;
+            }
+
+            .about-section {
+                padding-left:30px;
+                padding-right:30px;
+            }
+
+            .project-thumbnail img {
+                min-height: 250px;
+            }
+            .screen-mask {
+                min-height: 250px;
+            }
+        }
+
+        @media (max-width: 488px){
+            .project-thumbnail img {
+                min-height: 200px;
+            }
+            .screen-mask {
+                min-height: 200px;
+            }  
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+    </style>
 </head>
-<body
-  class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
-  <div id="the-top" class="absolute flex self-center">
-    <a class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
-      href="#main-content"><span
-        class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>Skip to main content</a>
-  </div>
-  
-  
-  <div class="min-h-[148px]"></div>
-<div class="fixed inset-x-0 pl-[24px] pr-[24px]" style="z-index:100">
-  <div id="menu-blur" class="absolute opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl shadow-2xl"></div>
-  <div class="relative max-w-[64rem] ml-auto mr-auto">
-    <div style="padding-left:0;padding-right:0;padding-top:2px;padding-bottom:3px"
-    class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start space-x-3">
-    
-    <div class="flex flex-1 items-center justify-between">
-        <nav class="flex space-x-3">
-
-            
-            <a href="/blog/" class="text-base font-medium text-gray-500 hover:text-gray-900">Ashley&rsquo;s Blog</a>
-            
-
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="./blog/">Blog</a></li>
+            </ul>
         </nav>
-        <nav class="hidden md:flex items-center space-x-5 md:ml-12 h-12">
+        <button class="burger-menu" aria-label="Toggle menu">
+            <span class="burger-bar"></span>
+            <span class="burger-bar"></span>
+            <span class="burger-bar"></span>
+        </button>
 
-            
-            
-            
-  <a href="/blog/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <p class="text-base font-medium" title="Posts">
-        Posts
-    </p>
-</a>
-
-
-
-            
-            
-  <a href="/blog/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <p class="text-base font-medium" title="Categories">
-        Categories
-    </p>
-</a>
-
-
-
-            
-            
-  <a href="/blog/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <p class="text-base font-medium" title="Tags">
-        Tags
-    </p>
-</a>
-
-
-
-            
-            
-  <a href="/blog/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-    
-    <p class="text-base font-medium" title="">
-        About
-    </p>
-</a>
-
-
-
-            
-            
-
-            
-
-
-            
-            <button id="search-button" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
-                title="">
-                
-
-  <span class="relative block icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-
-  </span>
-
-
-            </button>
-            
-
-
-            
-            
-            <div
-                class="ltr:mr-14 rtl:ml-14 flex items-center">
-                <button id="appearance-switcher" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400">
-                    <div class="flex items-center justify-center dark:hidden">
-                        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
-
-  </span>
-
-
-                    </div>
-                    <div class="items-center justify-center hidden dark:flex">
-                        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
-
-  </span>
-
-
-                    </div>
-                </button>
-            </div>
-            
-
-        </nav>
-        <div class="flex md:hidden items-center space-x-5 md:ml-12 h-12">
-
-            <span></span>
-
-            
-
-
-            
-            <button id="search-button-mobile" aria-label="Search" class="text-base hover:text-primary-600 dark:hover:text-primary-400"
-                title="">
-                
-
-  <span class="relative block icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-
-  </span>
-
-
-            </button>
-            
-
-            
-            
-            <button id="appearance-switcher-mobile" aria-label="Dark mode switcher" type="button" class="text-base hover:text-primary-600 dark:hover:text-primary-400" style="margin-right:5px">
-                <div class="flex items-center justify-center dark:hidden">
-                    
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M32 256c0-123.8 100.3-224 223.8-224c11.36 0 29.7 1.668 40.9 3.746c9.616 1.777 11.75 14.63 3.279 19.44C245 86.5 211.2 144.6 211.2 207.8c0 109.7 99.71 193 208.3 172.3c9.561-1.805 16.28 9.324 10.11 16.95C387.9 448.6 324.8 480 255.8 480C132.1 480 32 379.6 32 256z"/></svg>
-
-  </span>
-
-
-                </div>
-                <div class="items-center justify-center hidden dark:flex">
-                    
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 159.1c-53.02 0-95.1 42.98-95.1 95.1S202.1 351.1 256 351.1s95.1-42.98 95.1-95.1S309 159.1 256 159.1zM509.3 347L446.1 255.1l63.15-91.01c6.332-9.125 1.104-21.74-9.826-23.72l-109-19.7l-19.7-109c-1.975-10.93-14.59-16.16-23.72-9.824L256 65.89L164.1 2.736c-9.125-6.332-21.74-1.107-23.72 9.824L121.6 121.6L12.56 141.3C1.633 143.2-3.596 155.9 2.736 164.1L65.89 256l-63.15 91.01c-6.332 9.125-1.105 21.74 9.824 23.72l109 19.7l19.7 109c1.975 10.93 14.59 16.16 23.72 9.824L256 446.1l91.01 63.15c9.127 6.334 21.75 1.107 23.72-9.822l19.7-109l109-19.7C510.4 368.8 515.6 356.1 509.3 347zM256 383.1c-70.69 0-127.1-57.31-127.1-127.1c0-70.69 57.31-127.1 127.1-127.1s127.1 57.3 127.1 127.1C383.1 326.7 326.7 383.1 256 383.1z"/></svg>
-
-  </span>
-
-
-                </div>
-            </button>
-            
-
-        </div>
-    </div>
-    <div class="-my-2 -mr-2 md:hidden">
-
-        <label id="menu-button" class="block">
-            
-            <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
-                
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
-
-  </span>
-
-
-            </div>
-            <div id="menu-wrapper" style="padding-top:5px;"
-                class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50">
-                <ul
-                    class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
-
-                    <li id="menu-close-button">
-                        <span
-                            class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
-
-  </span>
-
-</span>
-                    </li>
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="/blog/posts/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="Posts">
-            Posts
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="/blog/categories/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="Categories">
-            Categories
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="/blog/tags/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="Tags">
-            Tags
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                    
-  <li class="mt-1">
-    <a href="/blog/about/"  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
-        
-        <p class="text-bg font-bg" title="">
-            About
-        </p>
-    </a>
-</li>
-
-
-
-
-                    
-
-                </ul>
-                
-                
-
-            </div>
-        </label>
-    </div>
-</div>
-
-
-
-
-<script>
-    (function () {
-        var $mainmenu = $('.main-menu');
-        var path = window.location.pathname;
-        $mainmenu.find('a[href="' + path + '"]').each(function (i, e) {
-            $(e).children('p').addClass('active');
-        });
-    })();
-</script>
-
-
-  </div>
-</div>
-<script>
-  window.addEventListener('scroll', function (e) {
-    var scroll = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    var background_blur = document.getElementById('menu-blur');
-    background_blur.style.opacity = (scroll / 300);
-  });
-</script>
-
-  
-  <div class="relative flex flex-col grow">
-    <main id="main-content" class="grow">
-      
-  
-  
-    
-<article class=" flex flex-col items-center justify-center text-center">
-  <header class="relative px-1 py-1 flex flex-col items-center mb-3">
-    
-    <h1 class="text-4xl font-extrabold">
-      Ashley Booth
-    </h1>
-    
-    <div class="mt-1 text-2xl">
-      
-  <div class="flex flex-wrap text-neutral-400 dark:text-neutral-500">
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="mailto:ashley@ashley-booth.com"
-          target="_blank"
-          aria-label="Email"
-          rel="me noopener noreferrer"
-          ><span class="inline-block align-text-bottom">
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M207.8 20.73c-93.45 18.32-168.7 93.66-187 187.1c-27.64 140.9 68.65 266.2 199.1 285.1c19.01 2.888 36.17-12.26 36.17-31.49l.0001-.6631c0-15.74-11.44-28.88-26.84-31.24c-84.35-12.98-149.2-86.13-149.2-174.2c0-102.9 88.61-185.5 193.4-175.4c91.54 8.869 158.6 91.25 158.6 183.2l0 16.16c0 22.09-17.94 40.05-40 40.05s-40.01-17.96-40.01-40.05v-120.1c0-8.847-7.161-16.02-16.01-16.02l-31.98 .0036c-7.299 0-13.2 4.992-15.12 11.68c-24.85-12.15-54.24-16.38-86.06-5.106c-38.75 13.73-68.12 48.91-73.72 89.64c-9.483 69.01 43.81 128 110.9 128c26.44 0 50.43-9.544 69.59-24.88c24 31.3 65.23 48.69 109.4 37.49C465.2 369.3 496 324.1 495.1 277.2V256.3C495.1 107.1 361.2-9.332 207.8 20.73zM239.1 304.3c-26.47 0-48-21.56-48-48.05s21.53-48.05 48-48.05s48 21.56 48 48.05S266.5 304.3 239.1 304.3z"/></svg>
-
-  </span>
-
-</span></a
-        >
-      
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://ashley-booth.com"
-          target="_blank"
-          aria-label="Link"
-          rel="me noopener noreferrer"
-          ><span class="inline-block align-text-bottom">
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M172.5 131.1C228.1 75.51 320.5 75.51 376.1 131.1C426.1 181.1 433.5 260.8 392.4 318.3L391.3 319.9C381 334.2 361 337.6 346.7 327.3C332.3 317 328.9 297 339.2 282.7L340.3 281.1C363.2 249 359.6 205.1 331.7 177.2C300.3 145.8 249.2 145.8 217.7 177.2L105.5 289.5C73.99 320.1 73.99 372 105.5 403.5C133.3 431.4 177.3 435 209.3 412.1L210.9 410.1C225.3 400.7 245.3 404 255.5 418.4C265.8 432.8 262.5 452.8 248.1 463.1L246.5 464.2C188.1 505.3 110.2 498.7 60.21 448.8C3.741 392.3 3.741 300.7 60.21 244.3L172.5 131.1zM467.5 380C411 436.5 319.5 436.5 263 380C213 330 206.5 251.2 247.6 193.7L248.7 192.1C258.1 177.8 278.1 174.4 293.3 184.7C307.7 194.1 311.1 214.1 300.8 229.3L299.7 230.9C276.8 262.1 280.4 306.9 308.3 334.8C339.7 366.2 390.8 366.2 422.3 334.8L534.5 222.5C566 191 566 139.1 534.5 108.5C506.7 80.63 462.7 76.99 430.7 99.9L429.1 101C414.7 111.3 394.7 107.1 384.5 93.58C374.2 79.2 377.5 59.21 391.9 48.94L393.5 47.82C451 6.731 529.8 13.25 579.8 63.24C636.3 119.7 636.3 211.3 579.8 267.7L467.5 380z"/></svg>
-
-  </span>
-
-</span></a
-        >
-      
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://github.com/Booth-Ashley"
-          target="_blank"
-          aria-label="Github"
-          rel="me noopener noreferrer"
-          ><span class="inline-block align-text-bottom">
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
-
-  </span>
-
-</span></a
-        >
-      
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://twitter.com/ashC0DE"
-          target="_blank"
-          aria-label="X-Twitter"
-          rel="me noopener noreferrer"
-          ><span class="inline-block align-text-bottom">
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
-  </span>
-
-</span></a
-        >
-      
-    
-      
-        <a
-          class="px-1 hover:text-primary-700 dark:hover:text-primary-400"
-          href="https://ko-fi.com/ashc0de"
-          target="_blank"
-          aria-label="Ko-Fi"
-          rel="me noopener noreferrer"
-          ><span class="inline-block align-text-bottom">
-
-  <span class="relative block icon">
-    <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg width="211.67mm" height="211.67mm" version="1.1" viewBox="0 0 211.67 211.67" xmlns="http://www.w3.org/2000/svg">
- <defs>
-  <clipPath id="clipPath25">
-   <path d="m0 600h1654.8v-600h-1654.8z" fill="currentColor"/>
-  </clipPath>
- </defs>
- <g transform="translate(-3.0786 -29.59)">
-  <g transform="matrix(.35278 0 0 -.35278 3.0785 241.26)">
-   <g clip-path="url(#clipPath25)">
-    <g transform="translate(600 300)">
-     <path d="m-300 300c-165.69 0-300-134.31-300-300 0-165.69 134.31-300 300-300 165.68 0 300 134.31 300 300 0 165.69-134.32 300-300 300zm-188.93-166.99h329.58c23.223 0 46.032-6.8325 65.073-20.125 18.412-12.856 36.378-33.646 42.697-67.02 14.674-77.514-43.568-135.76-126.12-131.18 0.438-21.268-3.8105-59.422-44.878-69.696-3.282-0.821-6.6604-1.186-10.044-1.207-72.13-0.448-222.53-0.88916-222.53-0.88916s-46.066-0.01555-49.176 45.962c-1.023 77.88-0.48339 223.69-0.48339 223.69s-0.02651 2.9267-0.02051 3.6577c0.043 5.607 4.4359 16.8 15.901 16.8zm312.71-55.573v-107.8s14.302-1.6507 31.907 0.54932c20.356 6.6 39.06 20.901 39.06 57.199 0 14.85-5.2614 25.601-11.837 33.239-9.341 10.848-23.152 16.809-37.469 16.809h-21.661z" fill="currentColor"/>
-    </g>
-    <g transform="translate(256.61 203.37)">
-     <path d="m0 0c3.585-1.806 5.876 0.437 5.876 0.437s52.457 47.878 76.089 75.452c21.018 24.667 22.389 66.234-13.708 81.766-36.096 15.532-65.795-18.272-65.795-18.272-25.755 28.326-64.734 26.891-82.763 7.721-18.027-19.169-11.732-52.072 1.717-70.383 12.626-17.19 68.119-66.65 76.529-75.015 0 0 0.614-0.641 2.055-1.706" fill="currentColor"/>
-    </g>
-   </g>
-  </g>
- </g>
-</svg>
-
-  </span>
-
-</span></a
-        >
-      
-    
-  </div>
-
-
-    </div>
-  </header>
-  <section class="prose dark:prose-invert"></section>
-</article>
-<section>
-  
-
-
-
-
-
-<h2 class="mt-8 text-2xl font-extrabold mb-10">Recent</h2>
-
-
-  
-
-
-<section class="w-full grid gap-4 sm:grid-cols-2 md:grid-cols-3">
-  
-  
-
-  <a href="/blog/posts/self-taught/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card nozoom" style="background-image:url(/blog/posts/self-taught/featured_hu4574003963576161915.png);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/blog/posts/self-taught/">The Power of Self-Taught Skills</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-01-13T00:00:00&#43;00:00">13 January 2025</time><span class="px-2 text-primary-500">&middot;</span><span>1104 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">6 mins</span>
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/categories/projects/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Projects
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/categories/problem-solving/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Problem Solving
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/tags/innovation/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Innovation
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/tags/coding/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Coding
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/blog/posts/breitling-navitimer/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card nozoom" style="background-image:url(/blog/posts/breitling-navitimer/featured_hu11494459091859052521.jpg);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/blog/posts/breitling-navitimer/">How i replaced a Breitling Navitimer Watch battery—Without spending hundreds</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2025-01-09T00:00:00&#43;00:00">9 January 2025</time><span class="px-2 text-primary-500">&middot;</span><span>510 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/categories/problem-solving/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Problem Solving
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/tags/innovation/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Innovation
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/tags/cnc/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    CNC
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/blog/posts/budget-gaming-pc/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card nozoom" style="background-image:url(/blog/posts/budget-gaming-pc/featured_hu7801558088415918084.jpg);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/blog/posts/budget-gaming-pc/">Building a budget gaming PC for my daughter.</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2024-08-20T00:00:00&#43;00:00">20 August 2024</time><span class="px-2 text-primary-500">&middot;</span><span>502 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/categories/projects/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Projects
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/tags/pc-building/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    PC Building
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/tags/budget-gaming-pc/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Budget Gaming PC
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/tags/tech-for-kids/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Tech for Kids
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/blog/posts/cctvsystem/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card nozoom" style="background-image:url(/blog/posts/cctvsystem/featured_hu6908848350125576381.webp);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/blog/posts/cctvsystem/">How i made a cloud CCTV recording system for free.</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2024-08-05T00:00:00&#43;00:00">5 August 2024</time><span class="px-2 text-primary-500">&middot;</span><span>521 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">3 mins</span>
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/categories/projects/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Projects
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/categories/problem-solving/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Problem Solving
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/tags/cctv/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    CCTV
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/tags/coding/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Coding
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/blog/posts/smart-watch-dock/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card nozoom" style="background-image:url(/blog/posts/smart-watch-dock/featured_hu17817997430935851021.webp);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/blog/posts/smart-watch-dock/">DIY Samsung Galaxy Watch charging dock</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2024-07-28T00:00:00&#43;00:00">28 July 2024</time><span class="px-2 text-primary-500">&middot;</span><span>333 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/categories/problem-solving/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Problem Solving
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/categories/cnc/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    CNC
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/tags/innovation/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Innovation
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/tags/diy/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    DIY
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-  
-
-  <a href="/blog/posts/tabletstand/" class="min-w-full">
-    
-    <div class="min-h-full border border-neutral-200 dark:border-neutral-700 border-2 rounded overflow-hidden shadow-2xl relative">
-        
-        <div class="w-full thumbnail_card nozoom" style="background-image:url(/blog/posts/tabletstand/featured_hu10063431274375828544.webp);"></div>
-        
-      
-
-      <div class="px-6 py-4">
-
-        
-        <div class="font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral"
-          href="/blog/posts/tabletstand/">DIY Samsung Galaxy Tab S6 Lite stand</div>
-        
-
-        <div class="text-sm text-neutral-500 dark:text-neutral-400">
-          
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  <time datetime="2024-07-25T00:00:00&#43;00:00">25 July 2024</time><span class="px-2 text-primary-500">&middot;</span><span>244 words</span><span class="px-2 text-primary-500">&middot;</span><span title="Reading time">2 mins</span>
-  
-
-  
-  
-</div>
-
-
-
-
-
-<div class="flex flex-row flex-wrap items-center">
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/categories/downloads/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Downloads
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/categories/designs/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Designs
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/categories/cnc/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    CNC
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/tags/dxf/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    DXF
-  </span>
-</span>
-  </span>
-  
-  <span style="margin-top:0.5rem" class="mr-2" onclick="window.open(&#34;/blog/tags/diy/&#34;,'_self');return false;">
-    <span class="flex" style="cursor: pointer;">
-  <span class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    DIY
-  </span>
-</span>
-  </span>
-  
-  
-  
-  
-</div>
-
-
-
-
-        </div>
-
-        
-      </div>
-      <div class="px-6 pt-4 pb-2">
-
-      </div>
-    </div>
-  </a>
-
-  
-</section>
-
-
-
-
-
-
-<div class="mt-10 flex justify-center">
-  <a href="/blog/posts">
-    <button
-      class="bg-transparent hover:text-primary-500 prose dark:prose-invert font-semibold hover:text-white py-2 px-4 border border-primary-500 hover:border-transparent rounded">
-      Show More
-    </button>
-  </a>
-</div>
-
-
-
-</section>
-
-  
-
-      
-    </main><footer id="site-footer" class="py-10 print:hidden">
-  
-  
-    
-    <nav class="flex flex-row pb-4 text-base font-medium text-neutral-500 dark:text-neutral-400">
-      <ul class="flex flex-col list-none sm:flex-row">
-        
-        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/blog/about/#contact"
-            title="">
-            
-            Contact
-          </a>
-        </li>
-        
-        <li class="flex mb-1 ltr:text-right rtl:text-left sm:mb-0 ltr:sm:mr-7 ltr:sm:last:mr-0 rtl:sm:ml-7 rtl:sm:last:ml-0">
-          <a class="decoration-primary-500 hover:underline hover:decoration-2 hover:underline-offset-2 flex items-center" href="/blog/about/#support-my-projects"
-            title="">
-            
-            Donate
-          </a>
-        </li>
-        
-      </ul>
-    </nav>
-    
-  
-  <div class="flex items-center justify-between">
-
-    
-    
-    <p class="text-sm text-neutral-500 dark:text-neutral-400">
-      Feel free to share articles from Ashley&rsquo;s Blog (ashley-booth.com/blog) with proper attribution. Please include the original URL and follow the CC BY-NC-ND 4.0 license. For commercial inquiries, please contact me.
-    </p>
-    
-
-    
-    
-
-  </div>
-  <script>
-    
-    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
-      margin: 24,
-      background: 'rgba(0,0,0,0.5)',
-      scrollOffset: 0,
-    })
-    
-  </script>
-  
-  
-  <script type="text/javascript" src="/blog/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js" integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
-  
-  
-</footer>
-<div
-  id="search-wrapper"
-  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh]"
-  data-url="https://ashley-booth.com/blog/"
-  style="z-index:500"
->
-  <div
-    id="search-modal"
-    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800"
-  >
-    <header class="relative z-10 flex items-center justify-between flex-none px-2">
-      <form class="flex items-center flex-auto min-w-0">
-        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
-          
-
-  <span class="relative block icon">
-    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
-
-  </span>
-
-
-        </div>
-        <input
-          type="search"
-          id="search-query"
-          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
-          placeholder="Search"
-          tabindex="0"
-        />
-      </form>
-      <button
-        id="close-search-button"
-        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
-        title="Close (Esc)"
-      >
-        
-
-  <span class="relative block icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
-
-  </span>
-
-
-      </button>
     </header>
-    <section class="flex-auto px-2 overflow-auto">
-      <ul id="search-results">
-        
-      </ul>
+    <div class="overlay"></div>
+    <main>
+        <section id="home">
+            <div class="container">
+                <h1 id="name">Ashley Booth</h1>
+                <p>Operations Manager | Problem Solver | Innovator</p>
+                <a href="#about" class="btn" id="contactBtn">Learn more</a>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="about-section">
+            <div class="about-container">
+                <h2 class="about-title">About Me</h2>
+                <div class="about-content">
+                <div class="about-image">
+                    <svg class="signature-svg" viewBox="70 40 150 100" xmlns="http://www.w3.org/2000/svg">
+                        <g transform="scale(1.2)">
+                            <path id="signature-path" d="m 80.782929,126.93537 c 5.678252,-35.94671 5.697888,-35.871693 8.825953,-54.104808 1.699447,-7.41471 3.821423,-17.912258 8.213695,-17.79724 4.726023,-0.09569 4.869733,6.707466 5.698583,11.2663 2.25386,16.268186 4.92348,32.431907 5.68089,48.792618 -5.29232,-13.05242 -9.622322,-28.392638 -20.148748,-38.29314 -4.913715,-4.757105 -11.915229,-0.326069 -15.038994,4.894813 -5.112925,8.689216 -5.629863,19.810367 -4.381046,29.697147 0.451176,4.82932 5.181834,6.6193 9.494993,3.49441 11.826337,-9.39741 18.779113,-23.360799 26.190365,-36.276045 4.13672,-7.299 11.21597,-21.641215 13.82263,-21.325668 3.8621,0.170135 -1.2663,21.34547 -2.22706,30.983992 -0.79178,6.456471 -1.94432,13.569411 0.0307,13.551701 6.46728,-0.35799 7.22742,-6.415151 8.71804,-12.517364 1.24349,-4.164314 1.54464,-11.082636 7.15611,-9.440698 9.27431,1.342094 12.95097,3.1941 24.42667,-0.769707 6.57055,-3.04637 9.77071,-5.727208 13.01445,-8.669907"/>
+                        </g>
+                    </svg>
+                </div>
+                 <div class="about-description">
+                        <p class="about-text">
+                         <b>Hello!</b> <span class="about-wave">👋</span> I'm a highly adaptable and innovative <b>Operations Manager</b> with a diverse skill set spanning <b>Advanced Problem-Solving, Software Development, Responsive Web Design</b> & <b> Team Leadership</b>.  
+                        <br><br>
+                         I am well known for driving operational efficiency, implementing cost-saving measures, and developing creative solutions that expand business capabilities and attract new customers.    
+                        </p>
+                        <br>
+                        <p class="about-text">
+                            I'm also passionate about coding and digital technology exploration. I enjoy spending any spare time with my growing family.
+                        </p>
+                        <br>
+                        <p class="about-text">
+                            <span><span class="about-interests-title">Interests: </span><b></b>Coding, Technology, Cybersecurity, Reverse Engineering & Graphic Design</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+<section id="skills">
+    <div class="container">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            
+            <div class="skill">
+                C# Programming <i class="fa-solid fa-medal"></i>
+                <div class="skill-bubble">
+                    <a href="/assets/microsoftcert.png" target="_blank">
+                        <img src="./assets/microsoftcert.png" alt="C# certification">
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="skill">
+                Python Programming <i class="fa-solid fa-medal"></i>
+                <div class="skill-bubble">
+                    <a href="/assets/pythoncert.png" target="_blank">
+                        <img src="./assets/pythoncert.png" alt="Python certification">
+                    </a>
+                </div>
+            </div>
+
+            <div class="skill">
+                Web design <i class="fa-solid fa-medal"></i>
+                <div class="skill-bubble">
+                    <a href="/assets/webcert.png" target="_blank">
+                        <img src="./assets/webcert.png" alt="Web design illustration">
+                    </a>
+                </div>
+            </div>
+
+            <div class="skill">
+                CNC Cutting <i class="fa-solid fa-medal"></i>
+                <div class="skill-bubble">
+                    <a href="/assets/cnc.png" target="_blank">
+                        <img src="./assets/cnc.png" alt="CNC certification">
+                    </a>
+                </div>
+            </div>
+
+            <div class="skill">
+                Forklift Operation <i class="fa-solid fa-medal"></i>
+                <div class="skill-bubble">
+                    <a href="/assets/forklift.png" target="_blank">
+                        <img src="./assets/forklift.png" alt="Forklift Certificate">
+                    </a>
+                </div>
+            </div> 
+            
+        </div>
+        <div class="container">
+            <div class="skills-container">
+
+                <div class="skill">
+                    Team management
+                </div>
+
+                <div class="skill">
+                    Advanced problem solving
+                </div>
+
+                <div class="skill">
+                    Strategic Marketing
+                </div>
+    
+                <div class="skill">
+                    Graphic Design
+                </div>
+    
+                <div class="skill">
+                    CAD Deisgn
+                </div>
+
+    </div>
+</section>
+    <section class="projects-section" id="project">
+        <section id="projects"">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="projects-grid">
+
+                    <!-- Project 1 -->
+                    <div class="project-tile">
+                        <div class="project-thumbnail">
+                            <a href="https://github.com/Booth-Ashley/Booth-Ashley.github.io"><img src="./assets/laptop.png" alt="Project 1 Thumbnail">
+                                <div class="screen-mask">
+                                    <img src="./assets/laptop-p1.png" alt="Mask Image" class="mask-img">
+                                </div>
+                            </a>
+                        </div>
+                        <h3>Ashley-Booth.com</h3>
+                        <p><i><span class="tag">GitHub</span> <span class="tag">HTML</span> <span class="tag">CSS</span> <span class="tag">JS</span></i><br><br>The website you are browsing right now is a showcase of my self taught and continuous learning of web developement. You can view the various changes and updates i have made since starting my journey by examining the code available on my GitHub.<br><br></p>
+                        <a href="https://github.com/Booth-Ashley/Booth-Ashley.github.io" class="read-more">Read More <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-tile">
+                        <div class="project-thumbnail">
+                            <a href="https://github.com/Booth-Ashley/Feed-Rate-Adjuster"><img src="./assets/laptop.png" alt="Project 2 Thumbnail">
+                                <div class="screen-mask">
+                                    <img src="./assets/laptop-p2.png" alt="Mask Image" class="mask-img">
+                                </div>
+                            </a>
+                        </div>
+                        <h3>Feed Rate Adjuster</h3>
+                        <p><i><span class="tag">GitHub</span> <span class="tag">C#</span></i><br><br>Feed Rate Adjuster is a Windows application built using C#. The app automatically adjusts the feed rate in G-code for CNC machines based on user input.<br><br></p>
+                        <a href="https://github.com/Booth-Ashley/Feed-Rate-Adjuster" class="read-more">Read More <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <!-- Project 3 -->
+                    <div class="project-tile">
+                        <div class="project-thumbnail">
+                            <a href="https://github.com/Booth-Ashley/Ashs-Gasket-Maker"><img src="./assets/gasket.png" alt="Project 3 Thumbnail"></a>
+                        </div>
+                        <h3>Ash's Gasket Maker</h3>
+                        <p><i><span class="tag">GitHub</span> <span class="tag">Python</span></i><br><br>Ash's Gasket Maker is a simple, user-friendly application designed to create DXF files for custom gaskets.</p>
+                        <a href="https://github.com/Booth-Ashley/Ashs-Gasket-Maker" class="read-more">Read More <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-tile">
+                        <div class="project-thumbnail">
+                            <a href="https://xdaforums.com/t/clockface-mod-even-more-aod-customization-oreo-no-root-updated-11-12-2018.3847703/"><img src="./assets/customaod.png" alt="Project 4 Thumbnail"></a>
+                        </div>
+                        <h3>Style your Always On Display</h3>
+                        <p><i><span class="tag">XDA Developers</span> <span class="tag">Java</span> <span class="tag">Android</span></i><br><br>Android/SamsungUI modification allowing the user to customize their 'AOD' without root access across multiple Android versions.<br><br><i>Views: 422k</i></p>
+                        <a href="https://xdaforums.com/t/clockface-mod-even-more-aod-customization-oreo-no-root-updated-11-12-2018.3847703/" class="read-more">Read More <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-tile">
+                        <div class="project-thumbnail">
+                            <a href="https://xdaforums.com/t/google-product-sans-fonts-for-samsung-oreo-no-root-no-substratum.3857764/"><img src="./assets/font.png" alt="Project 5 Thumbnail"></a>
+                        </div>
+                        <h3>Google Fonts for Samsung</h3>
+                        <p><i><span class="tag">XDA Developers</span> <span class="tag">Java</span> <span class="tag">Android</span></i><br><br>Android/SamsungUI modification allowing the user to customize their device font without root access across multiple Android versions.<br><br><i>Views: 388k</i></p>
+                        <a href="https://xdaforums.com/t/google-product-sans-fonts-for-samsung-oreo-no-root-no-substratum.3857764/" class="read-more">Read More <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-tile">
+                        <div class="project-thumbnail">
+                            <a href="https://github.com/Booth-Ashley/CNC-Machine-Time-Estimation"><img src="./assets/form.png" alt="Project 6 Thumbnail"></a>
+                        </div>
+                        <h3>CNC Time Estimation</h3>
+                        <p><i><span class="tag">GitHub</span> <span class="tag">HTML</span> <span class="tag">CSS</span> <span class="tag">JS</span></i><br><br>Interactive web applications that streamline the process for management to request time estimates for customer orders and for employees to calculate those estimates.</p>
+                        <a href="https://github.com/Booth-Ashley/CNC-Machine-Time-Estimation" class="read-more">Read More <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    
+                    <!-- Project 7 -->
+                    <div class="project-tile">
+                        <div class="project-thumbnail">
+                            <a href="https://xdaforums.com/t/amoled-wallpapers-aod-wallpapers-edge-effects-regular-community-updates.3665762/"><img src="./assets/amoled.png" alt="Project 7 Thumbnail"></a>
+                        </div>
+                        <h3>OLED wallpapers</h3>
+                        <p><i><span class="tag">XDA Developers</span></i><br><br>Community repository of AMOLED friendly wallpapers, many edited & designed by me for users.<br><br><i>Views: 166k</i></p>
+                        <a href="https://xdaforums.com/t/amoled-wallpapers-aod-wallpapers-edge-effects-regular-community-updates.3665762/" class="read-more">Read More <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </section>
-  </div>
-</div>
+        <section id="contact">
+            <div class="container">
+                <h2>Get in Touch</h2>
+                <div class="social-icons">
+                    <a href="https://github.com/Booth-Ashley" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://x.com/ashC0DE" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="mailto:info@ashley-booth.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </section>
 
-  </div>
+    <footer>
+        <hr class="hrfooter">
+        <table id="footer-table">
+            <tr>
+              <td style="text-align: center;"><span class="footer-text">&copy; 2024 ashley-booth.com All rights reserved.</td>
+              <td style="text-align: center;"><img id="footerIcon" src="./assets/sig.png" alt="footer-icon" class="footer-icon"></td>
+              <td style="text-align: center;">Website design by Ashley Booth.</td>
+            </tr>
+          </table>
+    </footer>
+
+    <div class="color-scheme-toggle">
+        <button id="colorToggle" class="lightbulb" aria-label="Toggle color scheme"></button>
+    </div>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                const header = document.querySelector('header');
+                const headerHeight = header.offsetHeight;
+    
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - headerHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    
+        gsap.registerPlugin(ScrollTrigger);
+    
+        gsap.from('header', { 
+            y: -100, 
+            opacity: 0, 
+            duration: 2, 
+            ease: 'power3.out' 
+        });
+    
+        gsap.utils.toArray('section').forEach((section, i) => {
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top bottom-=400',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 75,
+                opacity: 0,
+                duration: 1.2,
+                ease: 'power3.out'
+            });
+        });
+    
+        const colorToggle = document.getElementById('colorToggle');
+        const root = document.documentElement;
+        const footerIcon = document.getElementById('footerIcon');
+        const screenImgs = document.querySelectorAll('.mask-img');
+    
+        const colorSchemes = [
+            {
+                primary: '#f4f4f4',
+                secondary: '#147efb',
+                text: '#000000',
+                bg: '#f4f4f4',
+                gradient: 'linear-gradient(135deg, rgba(229,236,252,1) 0%, rgba(153,184,250,1) 71%, rgba(183,222,237,1) 100%)',
+                shadow: '0px 1px 15px -3px rgba(0,0,0,0.75)'
+            },
+            {
+                primary: '#000000',
+                secondary: '#5b5b5b',
+                text: '#ffffff',
+                bg: '#000000',
+                gradient: 'linear-gradient(135deg, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 18%, rgba(71,71,71,1) 51%, rgba(44,44,44,1) 82%, rgba(19,19,19,1) 100%)',
+                shadow: 'inset 0px 1px 15px -3px rgba(0,0,0,0.75)'
+            },
+        ];
+    
+        let currentScheme = 0;
+    
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme');
+    
+        function setInitialTheme() {
+            if (savedTheme !== null) {
+                currentScheme = parseInt(savedTheme);
+            } else {
+                currentScheme = prefersDark ? 1 : 0;
+            }
+            applyTheme(currentScheme);
+        }
+    
+        colorToggle.addEventListener('click', () => {
+            currentScheme = (currentScheme + 1) % colorSchemes.length;
+            applyTheme(currentScheme);
+            localStorage.setItem('theme', currentScheme.toString());
+        });
+    
+        function applyTheme(schemeIndex) {
+            const scheme = colorSchemes[schemeIndex];
+            
+            root.style.setProperty('--primary-color', scheme.primary);
+            root.style.setProperty('--secondary-color', scheme.secondary);
+            root.style.setProperty('--text-color', scheme.text);
+            root.style.setProperty('--bg-color', scheme.bg);
+            root.style.setProperty('--gradient', scheme.gradient);
+            root.style.setProperty('--shadow', scheme.shadow);
+    
+            screenImgs.forEach(img => {
+                img.classList.toggle('inverted-screen', schemeIndex !== 0);
+            });
+            footerIcon.classList.toggle('inverted', schemeIndex !== 0);
+            colorToggle.classList.toggle('active', schemeIndex !== 0);
+        }
+    
+        setInitialTheme();
+    
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (localStorage.getItem('theme') === null) {
+                currentScheme = e.matches ? 1 : 0;
+                applyTheme(currentScheme);
+            }
+        });
+    
+        const nameElement = document.getElementById('name');
+        const nameTex = nameElement.textContent;
+        nameElement.textContent = '';
+        let i = 0;
+    
+        function typeWriter() {
+            if (i < nameTex.length) {
+                nameElement.textContent += nameTex.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        }
+    
+        window.addEventListener('load', typeWriter);
+
+        const burgerMenu = document.querySelector('.burger-menu');
+        const navMenu = document.querySelector('nav ul');
+        const menuItems = document.querySelectorAll('nav ul li a');
+        const overlay = document.querySelector('.overlay');
+
+        burgerMenu.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+            burgerMenu.classList.toggle('open');
+            overlay.classList.toggle('show'); 
+        });
+
+        menuItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navMenu.classList.remove('show');
+                burgerMenu.classList.remove('open');
+                overlay.classList.remove('show'); 
+            });
+        });
+
+        overlay.addEventListener('click', function() {
+            navMenu.classList.remove('show');
+            burgerMenu.classList.remove('open');
+            overlay.classList.remove('show');
+        });
+
+        window.addEventListener('scroll', function() {
+            if (navMenu.classList.contains('show')) {
+                navMenu.classList.remove('show');
+                burgerMenu.classList.remove('open');
+                overlay.classList.remove('show');
+            }
+        });
+    </script>
 </body>
-
 </html>
