@@ -2,101 +2,101 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ashley&#39;s Blog</title>
-    <link>http://localhost:1313/blog/</link>
+    <link>https://ashley-booth.com/blog/</link>
     <description>Recent content on Ashley&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>ashley@ashley-booth.com (Ashley Booth)</managingEditor>
     <webMaster>ashley@ashley-booth.com (Ashley Booth)</webMaster>
     <copyright>Feel free to share articles from Ashley&#39;s Blog (ashley-booth.com/blog) with proper attribution. Please include the original URL and follow the CC BY-NC-ND 4.0 license. For commercial inquiries, please contact me.</copyright>
-    <lastBuildDate>Mon, 13 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ashley-booth.com/blog/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>The Power of Self-Taught Skills</title>
-      <link>http://localhost:1313/blog/posts/self-taught/</link>
+      <link>https://ashley-booth.com/blog/posts/self-taught/</link>
       <pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate>
       <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>http://localhost:1313/blog/posts/self-taught/</guid>
+      <guid>https://ashley-booth.com/blog/posts/self-taught/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog/posts/self-taught/featured.gif" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/self-taught/featured.gif" />
     </item>
     
     <item>
       <title>How i replaced a Breitling Navitimer Watch battery—Without spending hundreds</title>
-      <link>http://localhost:1313/blog/posts/breitling-navitimer/</link>
+      <link>https://ashley-booth.com/blog/posts/breitling-navitimer/</link>
       <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
       <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>http://localhost:1313/blog/posts/breitling-navitimer/</guid>
+      <guid>https://ashley-booth.com/blog/posts/breitling-navitimer/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog/posts/breitling-navitimer/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/breitling-navitimer/featured.jpg" />
     </item>
     
     <item>
       <title>Building a budget gaming PC for my daughter.</title>
-      <link>http://localhost:1313/blog/posts/budget-gaming-pc/</link>
+      <link>https://ashley-booth.com/blog/posts/budget-gaming-pc/</link>
       <pubDate>Tue, 20 Aug 2024 00:00:00 +0000</pubDate>
       <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>http://localhost:1313/blog/posts/budget-gaming-pc/</guid>
+      <guid>https://ashley-booth.com/blog/posts/budget-gaming-pc/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog/posts/budget-gaming-pc/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/budget-gaming-pc/featured.jpg" />
     </item>
     
     <item>
       <title>How i made a cloud CCTV recording system for free.</title>
-      <link>http://localhost:1313/blog/posts/cctvsystem/</link>
+      <link>https://ashley-booth.com/blog/posts/cctvsystem/</link>
       <pubDate>Mon, 05 Aug 2024 00:00:00 +0000</pubDate>
       <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>http://localhost:1313/blog/posts/cctvsystem/</guid>
+      <guid>https://ashley-booth.com/blog/posts/cctvsystem/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog/posts/cctvsystem/featured.webp" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/cctvsystem/featured.webp" />
     </item>
     
     <item>
       <title>DIY Samsung Galaxy Watch charging dock</title>
-      <link>http://localhost:1313/blog/posts/smart-watch-dock/</link>
+      <link>https://ashley-booth.com/blog/posts/smart-watch-dock/</link>
       <pubDate>Sun, 28 Jul 2024 00:00:00 +0000</pubDate>
       <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>http://localhost:1313/blog/posts/smart-watch-dock/</guid>
+      <guid>https://ashley-booth.com/blog/posts/smart-watch-dock/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog/posts/smart-watch-dock/featured.webp" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/smart-watch-dock/featured.webp" />
     </item>
     
     <item>
       <title>DIY Samsung Galaxy Tab S6 Lite stand</title>
-      <link>http://localhost:1313/blog/posts/tabletstand/</link>
+      <link>https://ashley-booth.com/blog/posts/tabletstand/</link>
       <pubDate>Thu, 25 Jul 2024 00:00:00 +0000</pubDate>
       <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>http://localhost:1313/blog/posts/tabletstand/</guid>
+      <guid>https://ashley-booth.com/blog/posts/tabletstand/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog/posts/tabletstand/featured.webp" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/tabletstand/featured.webp" />
     </item>
     
     <item>
       <title>DIY BOO!</title>
-      <link>http://localhost:1313/blog/posts/boo/</link>
+      <link>https://ashley-booth.com/blog/posts/boo/</link>
       <pubDate>Wed, 24 Jul 2024 00:00:00 +0000</pubDate>
       <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>http://localhost:1313/blog/posts/boo/</guid>
+      <guid>https://ashley-booth.com/blog/posts/boo/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog/posts/boo/featured.webp" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/boo/featured.webp" />
     </item>
     
     <item>
       <title>DIY Cat coaster</title>
-      <link>http://localhost:1313/blog/posts/catcoaster/</link>
+      <link>https://ashley-booth.com/blog/posts/catcoaster/</link>
       <pubDate>Tue, 23 Jul 2024 00:00:00 +0000</pubDate>
       <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>http://localhost:1313/blog/posts/catcoaster/</guid>
+      <guid>https://ashley-booth.com/blog/posts/catcoaster/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog/posts/catcoaster/featured.webp" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/catcoaster/featured.webp" />
     </item>
     
     <item>
       <title></title>
-      <link>http://localhost:1313/blog/about/</link>
+      <link>https://ashley-booth.com/blog/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>http://localhost:1313/blog/about/</guid>
+      <guid>https://ashley-booth.com/blog/about/</guid>
       <description></description>
       
     </item>

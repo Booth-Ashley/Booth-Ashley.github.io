@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tech for Kids on Ashley&#39;s Blog</title>
-    <link>http://localhost:1313/blog/tags/tech-for-kids/</link>
+    <link>https://ashley-booth.com/blog/tags/tech-for-kids/</link>
     <description>Recent content in Tech for Kids on Ashley&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>ashley@ashley-booth.com (Ashley Booth)</managingEditor>
     <webMaster>ashley@ashley-booth.com (Ashley Booth)</webMaster>
     <copyright>Feel free to share articles from Ashley&#39;s Blog (ashley-booth.com/blog) with proper attribution. Please include the original URL and follow the CC BY-NC-ND 4.0 license. For commercial inquiries, please contact me.</copyright>
-    <lastBuildDate>Tue, 20 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/blog/tags/tech-for-kids/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://ashley-booth.com/blog/tags/tech-for-kids/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Building a budget gaming PC for my daughter.</title>
-      <link>http://localhost:1313/blog/posts/budget-gaming-pc/</link>
+      <link>https://ashley-booth.com/blog/posts/budget-gaming-pc/</link>
       <pubDate>Tue, 20 Aug 2024 00:00:00 +0000</pubDate>
       <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>http://localhost:1313/blog/posts/budget-gaming-pc/</guid>
+      <guid>https://ashley-booth.com/blog/posts/budget-gaming-pc/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog/posts/budget-gaming-pc/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/budget-gaming-pc/featured.jpg" />
     </item>
     
   </channel>
