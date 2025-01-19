@@ -3,67 +3,67 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://ashley-booth.com/blog/</loc>
-    <lastmod>2025-01-16T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ashley-booth.com/blog/posts/</loc>
-    <lastmod>2025-01-16T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ashley-booth.com/blog/posts/self-taught/</loc>
+    <loc>http://localhost:1313/blog/</loc>
     <lastmod>2025-01-13T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ashley-booth.com/blog/posts/breitling-navitimer/</loc>
+    <loc>http://localhost:1313/blog/posts/</loc>
+    <lastmod>2025-01-13T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog/posts/self-taught/</loc>
+    <lastmod>2025-01-13T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/blog/posts/breitling-navitimer/</loc>
     <lastmod>2025-01-09T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ashley-booth.com/blog/posts/budget-gaming-pc/</loc>
+    <loc>http://localhost:1313/blog/posts/budget-gaming-pc/</loc>
     <lastmod>2024-08-20T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ashley-booth.com/blog/posts/cctvsystem/</loc>
+    <loc>http://localhost:1313/blog/posts/cctvsystem/</loc>
     <lastmod>2024-08-05T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ashley-booth.com/blog/posts/smart-watch-dock/</loc>
+    <loc>http://localhost:1313/blog/posts/smart-watch-dock/</loc>
     <lastmod>2024-07-28T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ashley-booth.com/blog/posts/tabletstand/</loc>
+    <loc>http://localhost:1313/blog/posts/tabletstand/</loc>
     <lastmod>2024-07-25T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ashley-booth.com/blog/posts/boo/</loc>
+    <loc>http://localhost:1313/blog/posts/boo/</loc>
     <lastmod>2024-07-24T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ashley-booth.com/blog/posts/catcoaster/</loc>
+    <loc>http://localhost:1313/blog/posts/catcoaster/</loc>
     <lastmod>2024-07-23T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ashley-booth.com/blog/about/</loc>
+    <loc>http://localhost:1313/blog/about/</loc>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
