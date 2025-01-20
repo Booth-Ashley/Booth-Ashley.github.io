@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on Ashley&#39;s Blog</title>
-    <link>http://localhost:1313/blog/series/</link>
+    <link>https://ashley-booth.com/blog/series/</link>
     <description>Recent content in Series on Ashley&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>ashley@ashley-booth.com (Ashley Booth)</managingEditor>
     <webMaster>ashley@ashley-booth.com (Ashley Booth)</webMaster>
     <copyright>Feel free to share articles from Ashley&#39;s Blog (ashley-booth.com/blog) with proper attribution. Please include the original URL and follow the CC BY-NC-ND 4.0 license. For commercial inquiries, please contact me.</copyright>
-    <atom:link href="http://localhost:1313/blog/series/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://ashley-booth.com/blog/series/index.xml" rel="self" type="application/rss+xml" />
     
   </channel>
 </rss>

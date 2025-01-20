@@ -2,43 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Innovation on Ashley&#39;s Blog</title>
-    <link>http://localhost:1313/blog/tags/innovation/</link>
+    <link>https://ashley-booth.com/blog/tags/innovation/</link>
     <description>Recent content in Innovation on Ashley&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>ashley@ashley-booth.com (Ashley Booth)</managingEditor>
     <webMaster>ashley@ashley-booth.com (Ashley Booth)</webMaster>
     <copyright>Feel free to share articles from Ashley&#39;s Blog (ashley-booth.com/blog) with proper attribution. Please include the original URL and follow the CC BY-NC-ND 4.0 license. For commercial inquiries, please contact me.</copyright>
-    <lastBuildDate>Mon, 13 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="http://localhost:1313/blog/tags/innovation/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 13 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ashley-booth.com/blog/tags/innovation/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>The Power of Self-Taught Skills</title>
-      <link>http://localhost:1313/blog/posts/self-taught/</link>
+      <link>https://ashley-booth.com/blog/posts/self-taught/</link>
       <pubDate>Mon, 13 Jan 2025 00:00:00 +0000</pubDate>
       <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>http://localhost:1313/blog/posts/self-taught/</guid>
+      <guid>https://ashley-booth.com/blog/posts/self-taught/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog/posts/self-taught/featured.gif" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/self-taught/featured.gif" />
     </item>
     
     <item>
       <title>How i replaced a Breitling Navitimer Watch battery—Without spending hundreds</title>
-      <link>http://localhost:1313/blog/posts/breitling-navitimer/</link>
+      <link>https://ashley-booth.com/blog/posts/breitling-navitimer/</link>
       <pubDate>Thu, 09 Jan 2025 00:00:00 +0000</pubDate>
       <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>http://localhost:1313/blog/posts/breitling-navitimer/</guid>
+      <guid>https://ashley-booth.com/blog/posts/breitling-navitimer/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog/posts/breitling-navitimer/featured.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/breitling-navitimer/featured.webp" />
     </item>
     
     <item>
       <title>DIY Samsung Galaxy Watch charging dock</title>
-      <link>http://localhost:1313/blog/posts/smart-watch-dock/</link>
+      <link>https://ashley-booth.com/blog/posts/smart-watch-dock/</link>
       <pubDate>Sun, 28 Jul 2024 00:00:00 +0000</pubDate>
       <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>http://localhost:1313/blog/posts/smart-watch-dock/</guid>
+      <guid>https://ashley-booth.com/blog/posts/smart-watch-dock/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:1313/blog/posts/smart-watch-dock/featured.webp" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/smart-watch-dock/featured.webp" />
     </item>
     
   </channel>
