@@ -1,6 +1,6 @@
 # Hello, I'm [Ashley Booth](https://ashley-booth.com) 👋
 
-I'm a highly adaptable and innovative **Operations Manager** with a diverse skill set spanning:
+I'm highly adaptable and innovative with a diverse skill set spanning:
 
 - **Advanced Problem-Solving**
 - **Software Development**
@@ -15,7 +15,7 @@ I have a proven track record of driving operational efficiency, implementing cos
 
 ### 🔧 Passion for Technology
 
-Beyond my work as **Operations Manager**, I’m passionate about **coding** and exploring the latest in **digital technology**. I enjoy diving into all things **coding**, **cybersecurity**, **reverse engineering**, and **graphic design**, continually seeking to learn and grow in these exciting fields.
+Beyond my work, I’m passionate about **coding** and exploring the latest in **digital technology**. I enjoy diving into all things **coding**, **cybersecurity**, **reverse engineering**, and **graphic design**, continually seeking to learn and grow in these exciting fields.
 
 ---
 
