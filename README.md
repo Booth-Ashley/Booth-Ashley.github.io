@@ -1,6 +1,6 @@
 # Hello, I'm [Ashley Booth](https://ashley-booth.com) 👋
 
-I'm highly adaptable and innovative with a diverse skill set spanning:
+I'm a highly adaptable and innovative Problem Solver with a diverse skill set spanning:
 
 - **Advanced Problem-Solving**
 - **Software Development**
