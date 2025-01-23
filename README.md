@@ -1,15 +1,13 @@
 # Hello, I'm [Ashley Booth](https://ashley-booth.com) 👋
 
-I'm a highly adaptable and innovative Problem Solver with a diverse skill set spanning:
+ a Full-Stack Developer and Innovative Problem Solver with a passion for creating impactful solutions with a diverse skill set spanning:
 
 - **Advanced Problem-Solving**
 - **Software Development**
 - **Responsive Web Design**
 - **Team Leadership**
-- **Stockroom Management**
-- **CNC Machinery Operation**
 
-I have a proven track record of driving operational efficiency, implementing cost-saving measures, and developing creative solutions that expand business capabilities and attract new customers.
+Over the years, I've gained a reputation for enhancing operational efficiency, implementing cost-saving measures, and developing creative solutions that expand business capabilities while attracting new customers. My curiosity for technology and coding fuels my drive to constantly learn and innovate.
 
 ---
 
@@ -36,4 +34,3 @@ I’m always open to collaborating and connecting with like-minded individuals. 
 - Technology
 - Cybersecurity
 - Reverse Engineering
-- Graphic Design
