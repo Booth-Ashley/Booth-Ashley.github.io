@@ -4,13 +4,19 @@
 
   <url>
     <loc>https://ashley-booth.com/blog/</loc>
-    <lastmod>2025-01-13T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-24T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ashley-booth.com/blog/posts/circle-to-search/</loc>
+    <lastmod>2025-01-24T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://ashley-booth.com/blog/posts/</loc>
-    <lastmod>2025-01-13T00:00:00+00:00</lastmod>
+    <lastmod>2025-01-24T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
