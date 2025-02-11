@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tutorials on Ashley&#39;s Blog</title>
-    <link>https://ashley-booth.com/blog/categories/tutorials/</link>
-    <description>Recent content in Tutorials on Ashley&#39;s Blog</description>
+    <title>Social Media on Ashley&#39;s Blog</title>
+    <link>https://ashley-booth.com/blog/tags/social-media/</link>
+    <description>Recent content in Social Media on Ashley&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>ashley@ashley-booth.com (Ashley Booth)</managingEditor>
     <webMaster>ashley@ashley-booth.com (Ashley Booth)</webMaster>
     <copyright>Feel free to share articles from Ashley&#39;s Blog (ashley-booth.com/blog) with proper attribution. Please include the original URL and follow the CC BY-NC-ND 4.0 license. For commercial inquiries, please contact me.</copyright>
-    <lastBuildDate>Tue, 11 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ashley-booth.com/blog/categories/tutorials/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ashley-booth.com/blog/tags/social-media/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>How to remove unwanted content from your 𝕏 feed</title>
@@ -19,16 +19,6 @@
       <guid>https://ashley-booth.com/blog/posts/x-algorithm/</guid>
       <description></description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/x-algorithm/featured.webp" />
-    </item>
-    
-    <item>
-      <title>How to remove the Circle to Search bar on your Samsung Galaxy</title>
-      <link>https://ashley-booth.com/blog/posts/circle-to-search/</link>
-      <pubDate>Fri, 24 Jan 2025 00:00:00 +0000</pubDate>
-      <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>https://ashley-booth.com/blog/posts/circle-to-search/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/circle-to-search/featured.webp" />
     </item>
     
   </channel>
