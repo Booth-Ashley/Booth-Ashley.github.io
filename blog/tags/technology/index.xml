@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Reccomended on Ashley&#39;s Blog</title>
-    <link>https://ashley-booth.com/blog/categories/reccomended/</link>
-    <description>Recent content in Reccomended on Ashley&#39;s Blog</description>
+    <title>Technology on Ashley&#39;s Blog</title>
+    <link>https://ashley-booth.com/blog/tags/technology/</link>
+    <description>Recent content in Technology on Ashley&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <managingEditor>ashley@ashley-booth.com (Ashley Booth)</managingEditor>
     <webMaster>ashley@ashley-booth.com (Ashley Booth)</webMaster>
     <copyright>Feel free to share articles from Ashley&#39;s Blog (ashley-booth.com/blog) with proper attribution. Please include the original URL and follow the CC BY-NC-ND 4.0 license. For commercial inquiries, please contact me.</copyright>
-    <lastBuildDate>Thu, 27 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ashley-booth.com/blog/categories/reccomended/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://ashley-booth.com/blog/tags/technology/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Is This the Beginning of the End for Firefox?</title>
@@ -19,16 +19,6 @@
       <guid>https://ashley-booth.com/blog/posts/the-end-of-firefox/</guid>
       <description></description>
       <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/the-end-of-firefox/featured.webp" />
-    </item>
-    
-    <item>
-      <title>Why you should block Ads</title>
-      <link>https://ashley-booth.com/blog/posts/whyadblock/</link>
-      <pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate>
-      <author>ashley@ashley-booth.com (Ashley Booth)</author>
-      <guid>https://ashley-booth.com/blog/posts/whyadblock/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://ashley-booth.com/blog/posts/whyadblock/featured.webp" />
     </item>
     
   </channel>
