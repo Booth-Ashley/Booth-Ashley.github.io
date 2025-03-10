@@ -1060,7 +1060,6 @@
 </div>
   </div>
 </div>
-
           
 
           
@@ -1267,7 +1266,46 @@
   </section>
 
 
-        
+        <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+<script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+<h3>Post a <span id="typing-element"></span></h3>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    new TypeIt("#typing-element", {
+      speed: 50,
+      loop: true,
+      waitUntilVisible: true
+    })
+    .type("comment")
+    .pause(1000)
+    .delete()
+    .type("question")
+    .pause(1000)
+    .delete()
+    .type("response")
+    .pause(1000)
+    .delete()
+    .go();
+  });
+</script>
+<script src="https://giscus.app/client.js"
+        data-repo="Booth-Ashley/Booth-Ashley.github.io"
+        data-repo-id="R_kgDOM_Nc8w"
+        data-category="General"
+        data-category-id="DIC_kwDOM_Nc884CnylA"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="0"
+        data-emit-metadata="0"
+        data-input-position="top"
+        data-theme="preferred_color_scheme"
+        data-lang="en"
+        crossorigin="anonymous"
+        async>
+</script>
+<hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
+
 
 
 <h2 class="mt-8 text-2xl font-extrabold mb-10">Related</h2>
@@ -1699,27 +1737,7 @@
     </section>
   <footer class="pt-8 max-w-prose print:hidden">
 
-    <hr class="border-dotted border-neutral-300 dark:border-neutral-600" />
-  <div class="pt-8"></div>
-<p>Post a comment</p>
-<script src="https://giscus.app/client.js"
-        data-repo="Booth-Ashley/Booth-Ashley.github.io"
-        data-repo-id="R_kgDOM_Nc8w"
-        data-category="General"
-        data-category-id="DIC_kwDOM_Nc884CnylA"
-        data-mapping="pathname"
-        data-strict="1"
-        data-reactions-enabled="0"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="preferred_color_scheme"
-        data-lang="en"
-        crossorigin="anonymous"
-        async>
-</script>
-</div>
-
-
+    
   
     
     
