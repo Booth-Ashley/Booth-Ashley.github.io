@@ -4,18 +4,24 @@
 
   <url>
     <loc>https://ashley-booth.com/blog/</loc>
-    <lastmod>2025-02-27T00:00:00+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://ashley-booth.com/blog/posts/the-end-of-firefox/</loc>
-    <lastmod>2025-02-27T00:00:00+00:00</lastmod>
+    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>https://ashley-booth.com/blog/posts/</loc>
+    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ashley-booth.com/blog/posts/pokiplanet/</loc>
+    <lastmod>2025-04-14T00:00:00+00:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ashley-booth.com/blog/posts/the-end-of-firefox/</loc>
     <lastmod>2025-02-27T00:00:00+00:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
