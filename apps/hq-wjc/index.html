@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HQ-WJC</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.5/babel.min.js"></script>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    const Upload = () => (
+      <svg className="w-8 h-8 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+      </svg>
+    );
+
+    const Download = ({ className }) => (
+      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+      </svg>
+    );
+
+    const FileCode = ({ className }) => (
+      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+      </svg>
+    );
+
+    const Droplet = ({ className }) => (
+      <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16.3c2.2 0 4-1.8 4-4 0-1.5-.5-4-2-8.5C8.5 8.3 8 10.8 8 12.3c0 2.2-1.8 4-4 4M12 2v20M17 16.3c2.2 0 4-1.8 4-4 0-1.5-.5-4-2-8.5-1.5 4.5-2 7-2 8.5 0 2.2-1.8 4-4 4" />
+      </svg>
+    );
+
+    function GCodeConverter() {
+      const [inputFile, setInputFile] = useState(null);
+      const [outputCode, setOutputCode] = useState('');
+      const [fileName, setFileName] = useState('');
+
+      const convertAbrasiveToWaterOnly = (gcode) => {
+        let lines = gcode.split('\n');
+        let converted = [];
+
+        for (let line of lines) {
+          if (line.includes('M10') || line.includes('M11')) {
+            continue;
+          }
+
+          if (line.includes('(MACHINE: Abrasive cutting)')) {
+            converted.push('(MACHINE: Water only - HQ-WJC MOD - https://ashley-booth.com/apps/hq-wjc)');
+            continue;
+          }
+
+          if (line.includes('M6 T1')) {
+            converted.push('M6 T2');
+            continue;
+          }
+
+          if (line.includes('G04 P6.7') || line.match(/G04 P\d+\.\d+/)) {
+            converted.push('G04 P0.3');
+            converted.push('G04 P0.5');
+            continue;
+          }
+
+          converted.push(line);
+        }
+
+        return converted.join('\n');
+      };
+
+      const handleFileUpload = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          setFileName(file.name);
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            const content = e.target.result;
+            setInputFile(content);
+            const converted = convertAbrasiveToWaterOnly(content);
+            setOutputCode(converted);
+          };
+          reader.readAsText(file);
+        }
+      };
+
+      const handleDownload = () => {
+        if (!outputCode) return;
+        
+        const blob = new Blob([outputCode], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        const newFileName = fileName.replace('.tap', '_water_only.tap');
+        a.download = newFileName || 'converted_water_only.tap';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      };
+
+      const getConversionSummary = () => {
+        if (!inputFile || !outputCode) return null;
+
+        const inputLines = inputFile.split('\n');
+        const outputLines = outputCode.split('\n');
+        
+        const abrasiveOnCount = inputLines.filter(l => l.includes('M10')).length;
+        const abrasiveOffCount = inputLines.filter(l => l.includes('M11')).length;
+        const toolChanged = inputFile.includes('M6 T1') && outputCode.includes('M6 T2');
+        const machineTypeChanged = outputCode.includes('(MACHINE: Water only - HQ-WJC MOD - https://ashley-booth.com/apps/hq-wjc)');
+
+        return {
+          abrasiveOnCount,
+          abrasiveOffCount,
+          toolChanged,
+          machineTypeChanged,
+          inputLines: inputLines.length,
+          outputLines: outputLines.length
+        };
+      };
+
+      const summary = getConversionSummary();
+
+      return (
+        <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-50 p-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <div className="flex items-center gap-3 mb-6">
+                <h1 className="text-3xl font-bold text-gray-800">High Quality Water-jet Cutting</h1>
+              </div>
+              
+              <p className="text-gray-600 mb-6">
+                Converts abrasive cutting G-code files to water-only cutting format. 
+                Upload your .tap file and download the converted version.
+              </p>
+
+              <div className="mb-8">
+                <label className="flex items-center justify-center w-full h-32 px-4 transition bg-white border-2 border-gray-300 border-dashed rounded-lg appearance-none cursor-pointer hover:border-blue-400 focus:outline-none">
+                  <div className="flex flex-col items-center space-y-2">
+                    <Upload />
+                    <span className="font-medium text-gray-600">
+                      {fileName || 'Click to upload .tap file'}
+                    </span>
+                    <span className="text-sm text-gray-500">
+                      Abrasive cutting G-code file
+                    </span>
+                  </div>
+                  <input
+                    type="file"
+                    accept=".tap"
+                    onChange={handleFileUpload}
+                    className="hidden"
+                  />
+                </label>
+              </div>
+
+              {summary && (
+                <div className="mb-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                  <h3 className="font-semibold text-blue-900 mb-3 flex items-center gap-2">
+                    <FileCode className="w-5 h-5" />
+                    Conversion Summary
+                  </h3>
+                  <div className="grid grid-cols-2 gap-3 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Abrasive commands removed:</span>
+                      <span className="font-semibold">{summary.abrasiveOnCount + summary.abrasiveOffCount}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Tool changed:</span>
+                      <span className="font-semibold">{summary.toolChanged ? 'T1 → T2' : 'N/A'}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Machine type updated:</span>
+                      <span className="font-semibold">{summary.machineTypeChanged ? 'Yes' : 'No'}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Feed rates:</span>
+                      <span className="font-semibold">Preserved</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {outputCode && (
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center">
+                    <h3 className="font-semibold text-gray-800">Converted G-Code Preview</h3>
+                    <button
+                      onClick={handleDownload}
+                      className="flex items-center gap-2 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                    >
+                      <Download className="w-4 h-4" />
+                      Download Water-Only File
+                    </button>
+                  </div>
+                  
+                  <div className="bg-gray-900 rounded-lg p-4 overflow-auto max-h-96">
+                    <pre className="text-green-400 text-xs font-mono">
+                      {outputCode}
+                    </pre>
+                  </div>
+                </div>
+              )}
+
+              {!outputCode && (
+                <div className="text-center py-12 text-gray-400">
+                  <FileCode className="w-16 h-16 mx-auto mb-4 opacity-50" />
+                  <p>Upload an abrasive cutting file to see the converted output</p>
+                </div>
+              )}
+            </div>
+
+            <div className="mt-6 bg-white rounded-lg shadow-lg p-6">
+              <h3 className="font-semibold text-gray-800 mb-3">App created by <a href="https://ashley-booth.com">Ashley Booth</a></h3>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<GCodeConverter />, document.getElementById('root'));
+  </script>
+</body>
+</html>
