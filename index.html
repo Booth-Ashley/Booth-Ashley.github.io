@@ -1,1288 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ashley Booth - Full-Stack Developer and Innovative Problem Solver. Explore my portfolio and projects.">
-    <meta name="keywords" content="Full-Stack Developer, Web Design, Software Development, Ashley Booth">
-    <meta name="author" content="Ashley Booth">
-    <title>Ashley Booth</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/ico/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/ico/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/ico/favicon-16x16.png">
-    <link rel="manifest" href="/assets/ico/site.webmanifest">
-    <script>
-        (function() {
-          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          const savedTheme = localStorage.getItem('theme');
-          const isDark = savedTheme !== null ? savedTheme === '1' : prefersDark;
-          
-          if (isDark) {
-            document.documentElement.style.setProperty('--primary-color', '#000000');
-            document.documentElement.style.setProperty('--secondary-color', '#5b5b5b');
-            document.documentElement.style.setProperty('--text-color', '#ffffff');
-            document.documentElement.style.setProperty('--bg-color', '#000000');
-            document.documentElement.style.setProperty('--gradient', 'linear-gradient(135deg, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 18%, rgba(71,71,71,1) 51%, rgba(44,44,44,1) 82%, rgba(19,19,19,1) 100%)');
-            document.documentElement.style.setProperty('--shadow', 'inset 0px 1px 15px -3px rgba(0,0,0,0.75)');
-          }
-      })();
-      </script>
-    <style>
-        :root {
-            --primary-color: #f4f4f4;
-            --secondary-color: #147efb;
-            --text-color: #000000;
-            --bg-color: #f4f4f4;
-            --transition-speed: 0.3s;
-            --shadow: 0px 1px 15px -3px rgba(0,0,0,0.75);
-            --gradient: linear-gradient(135deg, rgba(229,236,252,1) 0%, rgba(153,184,250,1) 71%, rgba(183,222,237,1) 100%);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            :root {
-                --transition-speed: 0s;
-            }
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: 
-                background-color var(--transition-speed) ease;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-        }
-
-
-        a:focus, 
-        button:focus, 
-        input:focus, 
-        textarea:focus, 
-        select:focus, 
-        a:active, 
-        button:active, 
-        input:active, 
-        textarea:active, 
-        select:active, 
-        .skill:focus, 
-        .skill:active {
-            outline: none !important;
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            padding: 20px 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style-type: none;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: var(--secondary-color);
-        }
-
-        .burger-menu {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 30px;
-            height: 21px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0;
-        }
-
-        .burger-bar {
-            height: 3px;
-            width: 100%;
-            background-color: var(--text-color);
-            border-radius: 2px;
-            transition: all 0.3s ease-in-out;
-        }
-
-        @media (max-width: 768px) {
-            .burger-menu {
-                display: flex;
-                position: absolute;
-                top: 20px;
-                left: 20px;
-                z-index: 10;
-            }
-
-            header {
-                background-color: transparent;
-            }
-
-            nav ul {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                width: 100px;
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                pointer-events: none;
-                z-index: 9;
-                transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s 0.3s;
-            }
-
-            nav ul.show {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-                pointer-events: auto;
-                transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, visibility 0s;
-            }
-
-            nav ul li {
-                width: 100%;
-                text-align: left;
-                padding: 10px 0;
-            }
-
-            nav ul li a {
-                display: block;
-                width: 100%;
-                padding: 10px 20px;
-                color: var(--text-color);
-                text-decoration: none;
-                cursor: pointer;
-            }
-
-            .burger-menu.open .burger-bar:nth-child(1) {
-                transform: rotate(45deg) translateY(13px);
-            }
-
-            .burger-menu.open .burger-bar:nth-child(2) {
-                opacity: 0;
-            }
-
-            .burger-menu.open .burger-bar:nth-child(3) {
-                transform: rotate(-45deg) translateY(-13px);
-            }
-
-            .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(6px);
-            -webkit-backdrop-filter: blur(5px);
-            visibility: hidden;
-            opacity: 0;
-            transition: all 0.3s ease-in-out;
-            z-index: 8;
-        }
-
-        .overlay.show {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        }
-
-
-        section {
-            padding: 20px 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        #home {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            min-height: 100vh;
-        }
-
-        #home p {
-            margin: 20px 0;
-        }
-        
-        #home h1 {
-            font-size: 75px;
-            overflow: hidden;
-            white-space: nowrap;
-            letter-spacing: 0.15em;
-            margin: 0 auto;
-            border-right: .05em solid var(--primary-color);
-            animation: 
-                typing 3s steps(20, end),
-                blink-caret 1s step-end infinite;
-        }
-
-        .about-section {
-            padding-left: 50px;
-            padding-right: 50px;
-        }
-
-        .about-container {
-            padding-top:50px;
-            padding-bottom: 50px;
-            background: var(--gradient);
-            color: var(--text-color);
-            width: 1200px;
-            margin: 0 auto;
-            border-radius: 25px;
-            box-shadow: var(--shadow);
-        }
-
-
-        .about-title {
-            margin-bottom: 32px; 
-            text-align: center;
-        }
-
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 32px; 
-            padding:16px;
-        }
-
-        .about-image {
-            width: 250px;
-            height: 250px;
-            flex-shrink: 0;
-            border: 4px solid var(--text-color);
-            overflow: hidden;
-            background-color: var(--primary-color); 
-            flex-shrink: 0;
-            border-radius: 50%; 
-            box-shadow: var(--shadow);
-        }
-
-        .signature-svg {
-            width: 100%;
-            height: 100%;
-            background-color: var(--primary-color);
-            padding: 20px;
-            transform: translate(10px, -20px)
-        }
-
-        #signature-path {
-            fill: none;
-            stroke: var(--text-color);
-            stroke-width: 3;  
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-dasharray: 1500;
-            stroke-dashoffset: 1500;
-            animation: draw 2s ease-in-out infinite alternate;
-        }
-
-        @keyframes draw {
-            0% {
-                stroke-dashoffset: 1500;
-            }
-            100% {
-                stroke-dashoffset: 0;
-            }
-        }
-
-        .about-wave {
-            font-size: 25px;
-            display: inline-block;
-            animation: wave-animation 1.5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
-        }
-
-        @keyframes wave-animation {
-            0%, 100% {
-            transform: rotate(-10deg);
-            }
-            50% {
-            transform: rotate(20deg);
-            }
-        }
-
-        @media (min-width: 768px) {
-            .about-content {
-                flex-direction: row;
-                align-items: flex-start; 
-                gap: 48px;
-            }
-        }
-
-        .about-description {
-            max-width: 750px; 
-        }
-
-        @media (min-width: 768px) {
-            .about-description {
-                text-align: left; 
-            }
-        }
-
-        .about-interests-title {
-            font-weight: 700; 
-        }
-
-        .projects-section {
-            padding-left:10px;
-            padding-right:10px;
-        }
-
-        #projects {
-            color: var(--text-color);
-            width: 1200px;
-            margin: 0 auto;
-            border-radius: 25px;
-            padding-top: 50px;
-            padding-bottom: 50px;
-        }
-
-        .projects-grid {
-            display: grid;
-            gap: 24px;
-            padding: 24px;
-        }
-
-        .project-tile {
-            background: var(--gradient);
-            padding: 16px;
-            border-radius: 8px;
-            box-shadow: var(--shadow);  
-            transition: transform 0.3s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            min-height: 450px;
-        }
-
-        .project-tile:hover {
-            transform: translateY(-5px);
-        }
-
-        .project-thumbnail {
-            position: relative;
-            margin-bottom: 16px;
-            overflow: hidden;
-            border-radius: 8px;
-        }
-
-        .project-thumbnail img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .screen-mask {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 200px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            pointer-events: none;
-        }
-
-        .mask-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: filter var(--transition-speed, 0.3s) ease-in-out;
-        }
-
-        .inverted-screen {
-            filter: invert(1);
-        }
-
-        .project-tile h3 {
-            font-size: 1.25rem;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .project-tile p {
-            font-size: 0.875rem;
-            color: var(--text-color);
-            margin-bottom: 16px;
-            padding-bottom: 24px;
-        }
-
-        .project-tile span {
-            background-color: var(--secondary-color);
-            border-radius: 10px;
-            padding-left:10px;
-            padding-right:10px;
-            color: white;
-            font-weight: 700;
-            pointer-events: none;
-            border: 1px solid rgba(0,0,0,0.75);
-            box-shadow: var(--shadow);
-        }
-
-        .read-more {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            position: absolute;
-            bottom: 16px;
-            left: 16px;
-        }
-
-        .read-more::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--text-color);
-            transition: width 0.3s ease;
-        }
-
-        .read-more:hover::after {
-            width: 100%;
-        }
-
-        .read-more i {
-            margin-left: 4px;
-        }
-
-        .repo-actions {
-            display: flex;
-            gap: 8px;
-        }
-
-        .repo-action {
-            display: flex;
-            align-items: center;
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .repo-action i {
-            margin-right: 4px;
-        }
-
-        @media (min-width: 768px) {
-            .projects-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
-        }
-
-        @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--text-color); }
-        }
-
-        h1, h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 40px;
-            transition: box-shadow 0.3s ease;
-            font-weight: 700;
-        }
-
-        .btn:hover {
-            box-shadow: 0 0 20px var(--secondary-color);
-        }
-
-        #skills {
-            padding-top: 200px;
-        }
-
-        .skills-container {
-            padding-top: 50px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            color: white;
-        }
-
-        .skill {
-            background-color: var(--secondary-color);
-            padding: 20px;
-            border-radius: 40px;
-            text-align: center;
-            transition: transform 0.3s ease;
-            position: relative;
-            cursor: pointer;
-            font-weight: 700;
-            margin-bottom: 40px;
-        }
-
-        .skill i.fa-medal {
-            position: absolute;
-            font-size: 2rem;  
-            color: var(--secondary-color);
-            bottom: -30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(0%);
-        }
-
-        .skill, h2 {
-            text-align: center;
-        }
-
-        .skill:hover {
-            transform: translateY(-5px);
-        }
-
-        .skill-bubble {
-            position: absolute;
-            padding: 10px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 100;
-            bottom: calc(100% + 20px);
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .skill-bubble a {
-            display: block;
-            cursor: zoom-in;
-        }
-
-        .skill-bubble img {
-            max-width: 200px;
-            max-height: 200px;
-            object-fit: contain;
-            border-radius: 5px;
-            box-shadow: var(--shadow);
-        }
-
-        .skill:hover .skill-bubble {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) translateY(-1px);
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 100px;
-            padding-top: 50px;
-        }
-
-        .social-icon {
-            font-size: 75px;
-            color: var(--text-color);
-            transition: all 0.3s ease;
-        }
-
-        .social-icon:hover {
-            color: var(--secondary-color);
-            transform: translateY(-5px);
-        }
-
-        footer {
-            background-color: var(--primary-color);
-            color: var(--text-color);
-            font-size: 12px;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        #footer-table {
-            width: 100%;
-            table-layout: fixed;
-            border-collapse: collapse;
-            }
-
-        #footer-table td {
-            vertical-align: middle; 
-            }
-
-        .footer-icon {
-            width:32px;
-            height:32px;
-        }
-
-        @media (max-width: 768px) {
-
-            #skills {
-                padding-top: 75px;
-            }
-
-            .skills-container {
-                gap: 50px;
-            }
-
-            #footer-table {
-                display: table; 
-                margin: 0 auto; 
-                width: auto; 
-                text-align: center; 
-            }
-
-            #footer-table td {
-                display: block;
-                text-align: center;
-                margin: 10px 0 10px; 
-            }
-
-            .footer-icon {
-                width: 50px;
-                height: 50px;
-            }
-
-            .social-icons {
-                gap: 50px;
-            }
-
-            .social-icon {
-                font-size: 50px;
-            }
-        }
-
-        .inverted {
-            filter: invert(1);
-        }
-
-        #contact {
-            padding-top: 200px;
-            padding-bottom: 200px;
-        }
-
-        .hrfooter {
-            color: var(--text-color);
-            opacity: 50%;
-        }
-
-        .color-scheme-toggle {
-            position: fixed;
-            top: 10px;
-            right: 20px;
-            z-index: 1001;
-            
-        }
-
-        .lightbulb {
-            width: 40px;
-            height: 40px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            position: relative;
-        }
-
-        .lightbulb::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            border: 3px solid var(--text-color);
-            border-radius: 50%;
-            transition: all var(--transition-speed) ease;
-            background-color: #FFD700
-        }
-
-        .lightbulb::after {
-            content: '';
-            position: absolute;
-            top: 23px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 8px;
-            height: 10px;
-            border: 3px solid var(--text-color);
-            border-top: none;
-            border-radius: 0 0 10px 10px;
-            transition: all var(--transition-speed) ease;
-            z-index: -1;
-        }
-
-        .lightbulb.active::before {
-            background-color: var(--primary-color);
-            border: 3px solid var(--text-color);
-        }
-
-        .lightbulb.active::after {
-            content: '';
-            position: absolute;
-            top: 23px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 8px;
-            height: 10px;
-            border: 3px solid var(--text-color);
-            border-top: none;
-            border-radius: 0 0 10px 10px;
-            transition: all 0.3s ease;
-        }
-
-        @media (max-width: 768px) {
-            header {
-                padding: 10px 0;
-            }
-
-            nav ul {
-                flex-direction: row;
-                justify-content: center;
-                flex-wrap: wrap;
-                max-width: calc(100% - 50px);
-            }
-
-            nav ul li {
-                margin: 5px 10px;
-            }
-
-            #home h1 {
-                font-size: 40px;
-                letter-spacing: 0.15em;
-            }
-
-            .skills-container {
-                flex-direction: column;
-            }
-
-            .skill {
-                width: 100%;
-            }   
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-content {
-                flex-direction: column;
-                text-align: left;
-                font-size: 0.875rem;
-                gap: 0px; 
-                padding:5px;
-            }
-
-            .about-image {
-                margin-bottom: 16px;
-                width: 200px;
-                height: 200px;
-            }
-            
-
-            .about-description {
-                margin: 16px;
-            }
-
-            .about-container {
-                padding-top:10px;
-                padding-bottom:10px;
-            }
-
-            .about-title {
-            margin-bottom: 16px; 
-            text-align: center;
-            }
-
-            .about-section {
-                padding-left:30px;
-                padding-right:30px;
-            }
-
-            .project-thumbnail img {
-                min-height: 250px;
-            }
-            .screen-mask {
-                min-height: 250px;
-            }
-        }
-
-        @media (max-width: 488px){
-            .project-thumbnail img {
-                min-height: 200px;
-            }
-            .screen-mask {
-                min-height: 200px;
-            }  
-        }
-
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ashley Booth</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #home h1, #home h2, #home a {
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    #home h1 { animation-delay: 0.2s; }
+    #home h2 { animation-delay: 0.4s; }
+    #home a { animation-delay: 0.6s; }
+
+    @keyframes draw {
+        0% {
+        stroke-dashoffset: 1500;
+        }
+        100% {
+        stroke-dashoffset: 0;
+        }
+    }
+
+    #signature-path {
+        stroke-dasharray: 1500;
+        stroke-dashoffset: 1500;
+    }
+
+    .about-wave {
+        font-size: 25px;
+        display: inline-block;
+        animation: wave-animation 1.5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+    }
+
+    @keyframes wave-animation {
+        0%, 100% {
+        transform: rotate(-10deg);
+        }
+        50% {
+        transform: rotate(20deg);
+        }
+    }
+
+    @media (max-width: 640px) {
+      section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+      }
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#project">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="./blog/">Blog</a></li>
-            </ul>
-        </nav>
-        <button class="burger-menu" aria-label="Toggle menu">
-            <span class="burger-bar"></span>
-            <span class="burger-bar"></span>
-            <span class="burger-bar"></span>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Navbar -->
+  <nav class="fixed w-full bg-white shadow-md z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#home" class="text-2xl font-bold text-blue-600">Ashley Booth</a>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex space-x-6 font-medium">
+        <a href="#home" class="hover:text-blue-600 transition">Home</a>
+        <a href="#about" class="hover:text-blue-600 transition">About</a>
+        <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
+        <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
+        <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="menu-btn" class="md:hidden focus:outline-none">
+        <i data-feather="menu"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+      <a href="#home" class="block py-2 px-6 hover:bg-gray-100">Home</a>
+      <a href="#about" class="block py-2 px-6 hover:bg-gray-100">About</a>
+      <a href="#skills" class="block py-2 px-6 hover:bg-gray-100">Skills</a>
+      <a href="#projects" class="block py-2 px-6 hover:bg-gray-100">Projects</a>
+      <a href="#contact" class="block py-2 px-6 hover:bg-gray-100">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-800 text-white pt-20">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">Ashley Booth</h1>
+      <h2 class="text-2xl md:text-3xl mb-8">Developer | Innovative Problem Solver</h2>
+      <a href="#about" class="inline-block px-8 py-3 bg-white text-blue-600 rounded-full font-semibold hover:bg-gray-100 transition duration-300">
+        Learn More
+      </a>
+    </div>
+  </section>
+
+  <!-- About Me Section -->
+  <section id="about" class="py-20 bg-white">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold text-center mb-12">About Me</h2>
+    <div class="flex flex-col md:flex-row items-center gap-12">
+      <div class="md:w-1/2 flex justify-center">
+        <div class="w-[250px] h-[250px] flex-shrink-0 rounded-full border-4 border-gray-800 bg-white shadow-lg overflow-hidden flex items-center justify-center">
+          <svg class="w-full h-full p-5 transform translate-x-[10px] -translate-y-[20px]" viewBox="70 40 150 100" xmlns="http://www.w3.org/2000/svg">
+            <g transform="scale(1.2)">
+              <path id="signature-path"
+                d="m 80.782929,126.93537 c 5.678252,-35.94671 5.697888,-35.871693 8.825953,-54.104808 1.699447,-7.41471 3.821423,-17.912258 8.213695,-17.79724 4.726023,-0.09569 4.869733,6.707466 5.698583,11.2663 2.25386,16.268186 4.92348,32.431907 5.68089,48.792618 -5.29232,-13.05242 -9.622322,-28.392638 -20.148748,-38.29314 -4.913715,-4.757105 -11.915229,-0.326069 -15.038994,4.894813 -5.112925,8.689216 -5.629863,19.810367 -4.381046,29.697147 0.451176,4.82932 5.181834,6.6193 9.494993,3.49441 11.826337,-9.39741 18.779113,-23.360799 26.190365,-36.276045 4.13672,-7.299 11.21597,-21.641215 13.82263,-21.325668 3.8621,0.170135 -1.2663,21.34547 -2.22706,30.983992 -0.79178,6.456471 -1.94432,13.569411 0.0307,13.551701 6.46728,-0.35799 7.22742,-6.415151 8.71804,-12.517364 1.24349,-4.164314 1.54464,-11.082636 7.15611,-9.440698 9.27431,1.342094 12.95097,3.1941 24.42667,-0.769707 6.57055,-3.04637 9.77071,-5.727208 13.01445,-8.669907"
+                class="fill-none stroke-gray-800 stroke-[3px] stroke-linecap-round stroke-linejoin-round animate-[draw_2s_ease-in-out_infinite_alternate]" />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class="md:w-1/2">
+        <p class="text-xl mb-6">
+          <span class="text-2xl about-wave">👋</span> Hello! My name is Ashley Booth. I’m a self-taught programmer and currently work as a Deputy Works Manager. I’m a quick learner with a strong self-driven attitude and a passion for exploring new technologies. I enjoy problem-solving and working across all aspects of web application development.
+
+While my core expertise lies in web development, I’ve also developed various software applications in different programming languages. I’m open to any opportunities that align with my skills and interests, and I’m always eager to learn and contribute to new challenges.
+        </p>
+        <div class="mt-8">
+          <h3 class="text-xl font-semibold mb-4">Interests:</h3>
+          <div class="flex flex-wrap gap-3">
+            <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full">Coding & Technology</span>
+            <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full">Cybersecurity</span>
+            <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full">Reverse Engineering</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-20 px-4 bg-gray-50">
+    <div class="container mx-auto max-w-6xl">
+      <h2 class="text-3xl font-bold text-center mb-12">SKILLS</h2>
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <div class="bg-white p-4 rounded-lg flex flex-col items-center hover:shadow-md transition">
+          <img src="/assets/LogosHtml5.svg" alt="HTML" class="w-12 h-12 mb-2">
+          <span class="font-medium">HTML</span>
+        </div>
+        <div class="bg-white p-4 rounded-lg flex flex-col items-center hover:shadow-md transition">
+          <img src="/assets/LogosCss3.svg" alt="CSS" class="w-12 h-12 mb-2">
+          <span class="font-medium">CSS</span>
+        </div>
+        <div class="bg-white p-4 rounded-lg flex flex-col items-center hover:shadow-md transition">
+          <img src="/assets/LogosJavascript.svg" alt="JavaScript" class="w-12 h-12 mb-2">
+          <span class="font-medium">JavaScript</span>
+        </div>
+        <div class="bg-white p-4 rounded-lg flex flex-col items-center hover:shadow-md transition">
+          <img src="/assets/LogosAndroidIcon.svg" alt="Android" class="w-12 h-12 mb-2">
+          <span class="font-medium">Android</span>
+        </div>
+        <div class="bg-white p-4 rounded-lg flex flex-col items-center hover:shadow-md transition">
+          <img src="/assets/LogosCSharp.svg" alt="C#" class="w-12 h-12 mb-2">
+          <span class="font-medium">C#</span>
+        </div>
+        <div class="bg-white p-4 rounded-lg flex flex-col items-center hover:shadow-md transition">
+          <img src="/assets/LogosPython.svg" alt="Python" class="w-12 h-12 mb-2">
+          <span class="font-medium">Python</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-20 px-4 bg-white">
+  <div class="container mx-auto max-w-6xl">
+    <h2 class="text-3xl font-bold text-center mb-12">PROJECTS</h2>
+
+    <div class="grid md:grid-cols-2 gap-8">
+
+        <!-- Ashley-Booth.com -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Web Development</h3>
+          <div class="bg-gray-800 p-4 rounded-lg mb-4">
+            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
+  name: 'Ashley-Booth.com',
+  tools: ['GitHub', 'HTML', 'CSS', 'JavaScript', 'Go']
+};</code></pre>
+          </div>
+          <p class="text-gray-600 mb-4">
+            The personal website you're browsing. built from scratch to showcase my projects, learning progress, and development skills. All versions and updates are available on GitHub.
+          </p>
+          <a href="https://github.com/Booth-Ashley/Booth-Ashley.github.io" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
+            View on GitHub <i data-feather="external-link" class="inline w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- PokiPlanet.com -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Web Development</h3>
+          <div class="bg-gray-800 p-4 rounded-lg mb-4">
+            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
+  name: 'Pokiplanet.com',
+  tools: ['HTML', 'Tailwind CSS', 'JavaScript', 'Go']
+};</code></pre>
+          </div>
+          <p class="text-gray-600 mb-4">
+            PokiPlanet is a Pokémon Trading Card shop and blog fully developed by me using <strong>HTML</strong>, <strong>Tailwind CSS</strong>, <strong>JavaScript</strong>, and <strong>Go</strong>. It features a clean, responsive layout and custom blog functionality.
+          </p>
+          <a href="https://pokiplanet.com" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
+            Visit Website <i data-feather="external-link" class="inline w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Watermark WebP -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Automation Script</h3>
+          <div class="bg-gray-800 p-4 rounded-lg mb-4">
+            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
+  name: 'Watermark Webp',
+  tools: ['Python']
+};</code></pre>
+          </div>
+          <p class="text-gray-600 mb-4">
+            A Python script that automatically scans a folder for <code>.webp</code> images, applies a diagonal watermark, and saves them into an output folder for easy batch processing.
+          </p>
+          <a href="https://github.com/Booth-Ashley/Watermark-WebP" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
+            View on GitHub <i data-feather="external-link" class="inline w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+        <!-- Style your Always On Display -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Reverse Engineering</h3>
+          <div class="bg-gray-800 p-4 rounded-lg mb-4">
+            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
+  name: 'Style your Always On Display',
+  tools: ['Java', 'Android', 'Samsung UI']
+};</code></pre>
+          </div>
+          <p class="text-gray-600 mb-4">
+            Android/Samsung UI modification that enables users to fully customize their Always On Display (AOD) without requiring root access, compatible across multiple Android versions.
+          </p>
+          <a href="https://xdaforums.com/t/clockface-mod-even-more-aod-customization-oreo-no-root-updated-11-12-2018.3847703/" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
+            View on XDA <i data-feather="external-link" class="inline w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Feed Rate Adjuster -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card hidden">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Software Development</h3>
+          <div class="bg-gray-800 p-4 rounded-lg mb-4">
+            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
+  name: 'Feed Rate Adjuster',
+  tools: ['C#', '.NET']
+};</code></pre>
+          </div>
+          <p class="text-gray-600 mb-4">
+            A Windows desktop application built in C# to automatically adjust feed rates in G-code for CNC machines, streamlining machine setup for operators.
+          </p>
+          <a href="https://github.com/Booth-Ashley/Feed-Rate-Adjuster" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
+            View on GitHub <i data-feather="external-link" class="inline w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Gasket Maker -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card hidden">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Software Development</h3>
+          <div class="bg-gray-800 p-4 rounded-lg mb-4">
+            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
+  name: 'Gasket Maker',
+  tools: ['Python', 'DXF']
+};</code></pre>
+          </div>
+          <p class="text-gray-600 mb-4">
+            A simple, user-friendly Python program for creating custom gasket DXF files. It allows users to generate precise templates for manufacturing.
+          </p>
+          <a href="https://github.com/Booth-Ashley/Ashs-Gasket-Maker" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
+            View on GitHub <i data-feather="external-link" class="inline w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Google Fonts for Samsung -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card hidden">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Reverse Engineering</h3>
+          <div class="bg-gray-800 p-4 rounded-lg mb-4">
+            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
+  name: 'Google Fonts for Samsung',
+  tools: ['Java', 'Android', 'Samsung UI']
+};</code></pre>
+          </div>
+          <p class="text-gray-600 mb-4">
+            Custom Android font pack allowing users to apply Google’s Product Sans fonts on Samsung devices without root or Substratum themes.
+          </p>
+          <a href="https://xdaforums.com/t/google-product-sans-fonts-for-samsung-oreo-no-root-no-substratum.3857764/" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
+            View on XDA <i data-feather="external-link" class="inline w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- CNC Time Estimation -->
+      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card hidden">
+        <div class="p-6">
+          <h3 class="text-xl font-bold mb-2">Web Application</h3>
+          <div class="bg-gray-800 p-4 rounded-lg mb-4">
+            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
+  name: 'CNC Time Estimation',
+  tools: ['HTML', 'CSS', 'JavaScript']
+};</code></pre>
+          </div>
+          <p class="text-gray-600 mb-4">
+            An interactive web application for generating accurate time estimates for CNC machining jobs, improving efficiency for both management and production teams.
+          </p>
+          <a href="https://github.com/Booth-Ashley/CNC-Machine-Time-Estimation" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
+            View on GitHub <i data-feather="external-link" class="inline w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="text-center mt-6">
+        <button id="show-more" class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full ">
+            Show More
         </button>
-
-    </header>
-    <div class="overlay"></div>
-    <main>
-        <section id="home">
-            <div class="container">
-                <h1 id="name">Ashley Booth</h1>
-                <p>Full-Stack Developer | Innovative Problem Solver</p>
-                <a href="#about" class="btn" id="contactBtn">Learn more</a>
-            </div>
-        </section>
-
-        <!-- About Me Section -->
-        <section id="about" class="about-section">
-            <div class="about-container">
-                <h2 class="about-title">About Me</h2>
-                <div class="about-content">
-                <div class="about-image">
-                    <svg class="signature-svg" viewBox="70 40 150 100" xmlns="http://www.w3.org/2000/svg">
-                        <g transform="scale(1.2)">
-                            <path id="signature-path" d="m 80.782929,126.93537 c 5.678252,-35.94671 5.697888,-35.871693 8.825953,-54.104808 1.699447,-7.41471 3.821423,-17.912258 8.213695,-17.79724 4.726023,-0.09569 4.869733,6.707466 5.698583,11.2663 2.25386,16.268186 4.92348,32.431907 5.68089,48.792618 -5.29232,-13.05242 -9.622322,-28.392638 -20.148748,-38.29314 -4.913715,-4.757105 -11.915229,-0.326069 -15.038994,4.894813 -5.112925,8.689216 -5.629863,19.810367 -4.381046,29.697147 0.451176,4.82932 5.181834,6.6193 9.494993,3.49441 11.826337,-9.39741 18.779113,-23.360799 26.190365,-36.276045 4.13672,-7.299 11.21597,-21.641215 13.82263,-21.325668 3.8621,0.170135 -1.2663,21.34547 -2.22706,30.983992 -0.79178,6.456471 -1.94432,13.569411 0.0307,13.551701 6.46728,-0.35799 7.22742,-6.415151 8.71804,-12.517364 1.24349,-4.164314 1.54464,-11.082636 7.15611,-9.440698 9.27431,1.342094 12.95097,3.1941 24.42667,-0.769707 6.57055,-3.04637 9.77071,-5.727208 13.01445,-8.669907"/>
-                        </g>
-                    </svg>
-                </div>
-                 <div class="about-description">
-                        <p class="about-text">
-                            <b>Hello!</b> <span class="about-wave">👏󠄳󠅟󠅞󠅗󠅢󠅑󠅤󠅥󠅜󠅑󠅤󠅙󠅟󠅞󠅣󠄐󠅟󠅞󠄐󠅖󠅙󠅞󠅔󠅙󠅞󠅗󠄐󠅤󠅘󠅙󠅣󠄐󠅣󠅕󠅓󠅢󠅕󠅤󠄐󠅝󠅕󠅣󠅣󠅑󠅗󠅕󠄑󠄐󠄸󠅕󠅢󠅕󠄐󠅙󠅣󠄐󠅑󠄐󠅓󠅟󠅟󠅛󠅙󠅕󠄐󠇠󠆏󠅽󠆚</span> I'm Ashley Booth, a Full-Stack Developer and Innovative Problem Solver with a passion for creating impactful solutions. With a diverse skill set that spans Software Development, Responsive Web Design and Team Leadership, I thrive on tackling challenges and driving results.  
-                            <br><br>
-                            Over the years, I've gained a reputation for enhancing operational efficiency, implementing cost-saving measures, and developing creative solutions that expand business capabilities while attracting new customers.    
-                        </p>
-                        <br>
-                        <p class="about-text">
-                            Beyond my professional pursuits, I enjoy spending quality time with my growing family and exploring the world of digital technology.
-                        </p>
-                        <br>
-                        <p class="about-text">
-                            <span><span class="about-interests-title">Interests: </span>Coding & Technology, Cybersecurity & Reverse Engineering</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </div>
+  
 </section>
 
-
-<section id="skills">
-    <div class="container">
-        <h2>Skills</h2>
-        <div class="skills-container">
-            
-            <div class="skill">
-                C# Programming <i class="fa-solid fa-medal"></i>
-                <div class="skill-bubble">
-                    <a href="/assets/microsoftcert.png" target="_blank">
-                        <img src="./assets/microsoftcert.png" alt="C# certification">
-                    </a>
-                </div>
-            </div>
-
-
-            <div class="skill">
-                Python Programming <i class="fa-solid fa-medal"></i>
-                <div class="skill-bubble">
-                    <a href="/assets/pythoncert.png" target="_blank">
-                        <img src="./assets/pythoncert.png" alt="Python certification">
-                    </a>
-                </div>
-            </div>
-
-            <div class="skill">
-                Web design <i class="fa-solid fa-medal"></i>
-                <div class="skill-bubble">
-                    <a href="/assets/webcert.png" target="_blank">
-                        <img src="./assets/webcert.png" alt="Web design illustration">
-                    </a>
-                </div>
-            </div>
-
-            <div class="skill">
-                CNC Cutting <i class="fa-solid fa-medal"></i>
-                <div class="skill-bubble">
-                    <a href="/assets/cnc.png" target="_blank">
-                        <img src="./assets/cnc.png" alt="CNC certification">
-                    </a>
-                </div>
-            </div>
-            
-        </div>
-        <div class="container">
-            <div class="skills-container">
-
-                <div class="skill">
-                    Team management
-                </div>
-
-                <div class="skill">
-                    Advanced problem solving
-                </div>
-
-                <div class="skill">
-                    Strategic Marketing
-                </div>
-    
-                <div class="skill">
-                    Graphic Design
-                </div>
-    
-                <div class="skill">
-                    CAD Deisgn
-                </div>
-
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gray-100">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-4xl font-bold mb-12">Get in Touch</h2>
+      <div class="flex justify-center gap-6 mb-8">
+        <a href="https://github.com/Booth-Ashley" target="_blank" class="text-gray-700 hover:text-blue-600 transition">
+          <i data-feather="github" class="w-8 h-8"></i>
+        </a>
+        <a href="https://x.com/ashC0DE" target="_blank" class="text-gray-700 hover:text-blue-600 transition">
+          <i data-feather="twitter" class="w-8 h-8"></i>
+        </a>
+        <a href="mailto:info@ashley-booth.com" class="text-gray-700 hover:text-blue-600 transition">
+          <i data-feather="mail" class="w-8 h-8"></i>
+        </a>
+      </div>
+      <p>Feel free to reach out for collaborations or just to say hi!</p>
     </div>
-</section>
-    <section class="projects-section" id="project">
-        <section id="projects"">
-            <div class="container">
-                <h2>Projects</h2>
-                <div class="projects-grid">
+  </section>
 
-                    <div class="project-tile">
-                        <div class="project-thumbnail">
-                            <a href="https://pokiplanet.com"><img src="./assets/pokiplanet.gif" alt="PokiPlanet.com Thumbnail"></a>
-                        </div>
-                        <h3>PokiPlanet.com</h3>
-                        <p><i><span class="tag">Website</span> <span class="tag">HTML</span> <span class="tag">Tailwind CSS</span> <span class="tag">JS</span><span class="tag">Go</span></i><br><br>PokiPlanet is a Pokemon Trading Card Shop & Blog completely developed by me using HTML, Tailwind CSS, Javascript and Go. <br><br></p>
-                        <a href="https://pokiplanet.com" class="read-more">Visit Website <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-
-                    <div class="project-tile">
-                        <div class="project-thumbnail">
-                            <a href="https://github.com/Booth-Ashley/Booth-Ashley.github.io"><img src="./assets/laptop.png" alt="Ashley-Booth.com Thumbnail">
-                                <div class="screen-mask">
-                                    <img src="./assets/laptop-p1.png" alt="Mask Image" class="mask-img">
-                                </div>
-                            </a>
-                        </div>
-                        <h3>Ashley-Booth.com</h3>
-                        <p><i><span class="tag">Website</span> <span class="tag">GitHub</span> <span class="tag">HTML</span> <span class="tag">CSS</span> <span class="tag">JS</span> <span class="tag">Go</span></i><br><br>The website you are browsing right now is a showcase of my self taught and continuous learning of web developement. You can view the various changes and updates i have made since starting my journey by examining the code available on my GitHub.<br><br></p>
-                        <a href="https://github.com/Booth-Ashley/Booth-Ashley.github.io" class="read-more">View on GitHub <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-
-                    <div class="project-tile">
-                        <div class="project-thumbnail">
-                            <a href="https://github.com/Booth-Ashley/Watermark-WebP"><img src="./assets/laptop.png" alt="Watermark WebP Thumbnail">
-                                <div class="screen-mask">
-                                    <img src="./assets/laptop-p3.png" alt="Mask Image" class="mask-img">
-                                </div>
-                            </a>
-                        </div>
-                        <h3>Watermark WebP</h3>
-                        <p><i><span class="tag">GitHub</span> <span class="tag">Python</span></i><br><br>Watermark WebP is a Python script that adds a watermark to .webp images. The script scans an input folder for images, applies a diagonal watermark, and saves the processed images to an output folder.<br><br></p>
-                        <a href="https://github.com/Booth-Ashley/Watermark-WebP" class="read-more">View on GitHub <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-
-                    <div class="project-tile">
-                        <div class="project-thumbnail">
-                            <a href="https://github.com/Booth-Ashley/Feed-Rate-Adjuster"><img src="./assets/laptop.png" alt="Feed Rate Adjuster Thumbnail">
-                                <div class="screen-mask">
-                                    <img src="./assets/laptop-p2.png" alt="Mask Image" class="mask-img">
-                                </div>
-                            </a>
-                        </div>
-                        <h3>Feed Rate Adjuster</h3>
-                        <p><i><span class="tag">GitHub</span> <span class="tag">C#</span></i><br><br>Feed Rate Adjuster is a Windows application built using C#. The app automatically adjusts the feed rate in G-code for CNC machines based on user input.<br><br></p>
-                        <a href="https://github.com/Booth-Ashley/Feed-Rate-Adjuster" class="read-more">View on GitHub <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    
-                    <div class="project-tile">
-                        <div class="project-thumbnail">
-                            <a href="https://github.com/Booth-Ashley/Ashs-Gasket-Maker"><img src="./assets/gasket.png" alt="Ash's Gasket Maker Thumbnail"></a>
-                        </div>
-                        <h3>Ash's Gasket Maker</h3>
-                        <p><i><span class="tag">GitHub</span> <span class="tag">Python</span></i><br><br>Ash's Gasket Maker is a simple, user-friendly application designed to create DXF files for custom gaskets.</p>
-                        <a href="https://github.com/Booth-Ashley/Ashs-Gasket-Maker" class="read-more">View on GitHub <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-
-                    <div class="project-tile">
-                        <div class="project-thumbnail">
-                            <a href="https://xdaforums.com/t/clockface-mod-even-more-aod-customization-oreo-no-root-updated-11-12-2018.3847703/"><img src="./assets/customaod.png" alt="Style your Always On Display Thumbnail"></a>
-                        </div>
-                        <h3>Style your Always On Display</h3>
-                        <p><i><span class="tag">XDA Developers</span> <span class="tag">Java</span> <span class="tag">Android</span></i><br><br>Android/SamsungUI modification allowing the user to customize their 'AOD' without root access across multiple Android versions.</p>
-                        <a href="https://xdaforums.com/t/clockface-mod-even-more-aod-customization-oreo-no-root-updated-11-12-2018.3847703/" class="read-more">View on XDA <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-
-                    <div class="project-tile">
-                        <div class="project-thumbnail">
-                            <a href="https://xdaforums.com/t/google-product-sans-fonts-for-samsung-oreo-no-root-no-substratum.3857764/"><img src="./assets/font.png" alt="Google Fonts for Samsung Thumbnail"></a>
-                        </div>
-                        <h3>Google Fonts for Samsung</h3>
-                        <p><i><span class="tag">XDA Developers</span> <span class="tag">Java</span> <span class="tag">Android</span></i><br><br>Android/SamsungUI modification allowing the user to customize their device font without root access across multiple Android versions.</p>
-                        <a href="https://xdaforums.com/t/google-product-sans-fonts-for-samsung-oreo-no-root-no-substratum.3857764/" class="read-more">View on XDA <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-
-                    <div class="project-tile">
-                        <div class="project-thumbnail">
-                            <a href="https://github.com/Booth-Ashley/CNC-Machine-Time-Estimation"><img src="./assets/form.png" alt="CNC Time Estimation Thumbnail"></a>
-                        </div>
-                        <h3>CNC Time Estimation</h3>
-                        <p><i><span class="tag">GitHub</span> <span class="tag">HTML</span> <span class="tag">CSS</span> <span class="tag">JS</span></i><br><br>Interactive web applications that streamline the process for management to request time estimates for customer orders and for employees to calculate those estimates.</p>
-                        <a href="https://github.com/Booth-Ashley/CNC-Machine-Time-Estimation" class="read-more">View on GitHub <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                    
-                    <div class="project-tile">
-                        <div class="project-thumbnail">
-                            <a href="https://xdaforums.com/t/amoled-wallpapers-aod-wallpapers-edge-effects-regular-community-updates.3665762/"><img src="./assets/amoled.png" alt="OLED wallpapers Thumbnail"></a>
-                        </div>
-                        <h3>OLED wallpapers</h3>
-                        <p><i><span class="tag">XDA Developers</span></i><br><br>Community repository of AMOLED friendly wallpapers, many edited & designed by me for users.</p>
-                        <a href="https://xdaforums.com/t/amoled-wallpapers-aod-wallpapers-edge-effects-regular-community-updates.3665762/" class="read-more">View on XDA <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    </section>
-        <section id="contact">
-            <div class="container">
-                <h2>Get in Touch</h2>
-                <div class="social-icons">
-                    <a href="https://github.com/Booth-Ashley" class="social-icon"><i class="fab fa-github"></i></a>
-                    <a href="https://x.com/ashC0DE" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-                    <a href="mailto:info@ashley-booth.com" class="social-icon"><i class="fas fa-envelope"></i></a>
-                </div>
-            </div>
-        </section>
-
-    <footer>
-        <hr class="hrfooter">
-        <table id="footer-table">
-            <tr>
-              <td style="text-align: center;"><span class="footer-text">&copy; 2025 ashley-booth.com All rights reserved.</td>
-              <td style="text-align: center;"><img id="footerIcon" src="./assets/sig.png" alt="footer-icon" class="footer-icon"></td>
-              <td style="text-align: center;">Website design by Ashley Booth.</td>
-            </tr>
-          </table>
-    </footer>
-
-    <div class="color-scheme-toggle">
-        <button id="colorToggle" class="lightbulb" aria-label="Toggle color scheme"></button>
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-8">
+    <div class="container mx-auto px-6 text-center">
+      <p>&copy; <span id="year"></span> Ashley Booth. All rights reserved.</p>
+      <div class="flex justify-center gap-4 mt-4">
+        <a href="#home" class="hover:text-white">Home</a>
+        <a href="#about" class="hover:text-white">About</a>
+        <a href="#projects" class="hover:text-white">Projects</a>
+        <a href="#contact" class="hover:text-white">Contact</a>
+        <a href="./blog/" class="hover:text-white">Blog</a>
+      </div>
     </div>
+  </footer>
 
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                const header = document.querySelector('header');
-                const headerHeight = header.offsetHeight;
-    
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - headerHeight,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    
-        gsap.registerPlugin(ScrollTrigger);
-    
-        gsap.from('header', { 
-            y: -100, 
-            opacity: 0, 
-            duration: 2, 
-            ease: 'power3.out' 
-        });
-    
-        gsap.utils.toArray('section').forEach((section, i) => {
-            gsap.from(section, {
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top bottom-=400',
-                    toggleActions: 'play none none reverse'
-                },
-                y: 75,
-                opacity: 0,
-                duration: 1.2,
-                ease: 'power3.out'
-            });
-        });
-    
-        const colorToggle = document.getElementById('colorToggle');
-        const root = document.documentElement;
-        const footerIcon = document.getElementById('footerIcon');
-        const screenImgs = document.querySelectorAll('.mask-img');
-    
-        const colorSchemes = [
-            {
-                primary: '#f4f4f4',
-                secondary: '#147efb',
-                text: '#000000',
-                bg: '#f4f4f4',
-                gradient: 'linear-gradient(135deg, rgba(229,236,252,1) 0%, rgba(153,184,250,1) 71%, rgba(183,222,237,1) 100%)',
-                shadow: '0px 1px 15px -3px rgba(0,0,0,0.75)'
-            },
-            {
-                primary: '#000000',
-                secondary: '#5b5b5b',
-                text: '#ffffff',
-                bg: '#000000',
-                gradient: 'linear-gradient(135deg, rgba(76,76,76,1) 0%, rgba(102,102,102,1) 18%, rgba(71,71,71,1) 51%, rgba(44,44,44,1) 82%, rgba(19,19,19,1) 100%)',
-                shadow: 'inset 0px 1px 15px -3px rgba(0,0,0,0.75)'
-            },
-        ];
-    
-        let currentScheme = 0;
-    
-        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const savedTheme = localStorage.getItem('theme');
-    
-        function setInitialTheme() {
-            if (savedTheme !== null) {
-                currentScheme = parseInt(savedTheme);
-            } else {
-                currentScheme = prefersDark ? 1 : 0;
-            }
-            applyTheme(currentScheme);
-        }
-    
-        colorToggle.addEventListener('click', () => {
-            currentScheme = (currentScheme + 1) % colorSchemes.length;
-            applyTheme(currentScheme);
-            localStorage.setItem('theme', currentScheme.toString());
-        });
-    
-        function applyTheme(schemeIndex) {
-            const scheme = colorSchemes[schemeIndex];
-            
-            root.style.setProperty('--primary-color', scheme.primary);
-            root.style.setProperty('--secondary-color', scheme.secondary);
-            root.style.setProperty('--text-color', scheme.text);
-            root.style.setProperty('--bg-color', scheme.bg);
-            root.style.setProperty('--gradient', scheme.gradient);
-            root.style.setProperty('--shadow', scheme.shadow);
-    
-            screenImgs.forEach(img => {
-                img.classList.toggle('inverted-screen', schemeIndex !== 0);
-            });
-            footerIcon.classList.toggle('inverted', schemeIndex !== 0);
-            colorToggle.classList.toggle('active', schemeIndex !== 0);
-        }
-    
-        setInitialTheme();
-    
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-            if (localStorage.getItem('theme') === null) {
-                currentScheme = e.matches ? 1 : 0;
-                applyTheme(currentScheme);
-            }
-        });
-    
-        const nameElement = document.getElementById('name');
-        const nameTex = nameElement.textContent;
-        nameElement.textContent = '';
-        let i = 0;
-    
-        function typeWriter() {
-            if (i < nameTex.length) {
-                nameElement.textContent += nameTex.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-    
-        window.addEventListener('load', typeWriter);
+  <!-- Scripts -->
+  <script>
+    const btn = document.getElementById('show-more');
+    const hiddenProjects = document.querySelectorAll('.project-card.hidden');
 
-        const burgerMenu = document.querySelector('.burger-menu');
-        const navMenu = document.querySelector('nav ul');
-        const menuItems = document.querySelectorAll('nav ul li a');
-        const overlay = document.querySelector('.overlay');
+    btn.addEventListener('click', () => {
+    hiddenProjects.forEach(p => p.classList.toggle('hidden'));
+    btn.textContent = hiddenProjects[0].classList.contains('hidden') ? 'Show More' : 'Show Less';
+    });
 
-        burgerMenu.addEventListener('click', function() {
-            navMenu.classList.toggle('show');
-            burgerMenu.classList.toggle('open');
-            overlay.classList.toggle('show'); 
-        });
+    feather.replace();
 
-        menuItems.forEach(item => {
-            item.addEventListener('click', function() {
-                navMenu.classList.remove('show');
-                burgerMenu.classList.remove('open');
-                overlay.classList.remove('show'); 
-            });
-        });
+    // Navbar mobile toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
 
-        overlay.addEventListener('click', function() {
-            navMenu.classList.remove('show');
-            burgerMenu.classList.remove('open');
-            overlay.classList.remove('show');
-        });
-
-        window.addEventListener('scroll', function() {
-            if (navMenu.classList.contains('show')) {
-                navMenu.classList.remove('show');
-                burgerMenu.classList.remove('open');
-                overlay.classList.remove('show');
-            }
-        });
-    </script>
+    // Dynamic year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
