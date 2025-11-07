@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nashi — a macOS-inspired web code editor that combines the elegance of Apple’s design with the power of modern web technologies. Edit, preview, and share your code in a clean, minimal workspace.">
+    <meta name="keywords" content="Web App, Web Design, Software Development, Ashley Booth, Code Editor, Apple, MacOS, free code editor, Python, HTML, CSS, JS, JSON, Markdown">
+    <meta name="author" content="Ashley Booth">
+    <title>Nashi - Code Editor</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apps/nashi/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/apps/nashi/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/apps/nashi/favicon-16x16.png">
+    <link rel="manifest" href="/apps/nashi/site.webmanifest">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+            transition: background 0.3s ease;
+        }
+
+        body.light {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        body.dark {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .window {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .light .window {
+            background: #ffffff;
+        }
+
+        .dark .window {
+            background: #1e1e1e;
+        }
+
+        .titlebar {
+            height: 52px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            border-bottom: 1px solid;
+            transition: all 0.3s ease;
+        }
+
+        .light .titlebar {
+            background: linear-gradient(180deg, #f5f5f7 0%, #e8e8ea 100%);
+            border-bottom-color: #d1d1d6;
+        }
+
+        .dark .titlebar {
+            background: linear-gradient(180deg, #2d2d2d 0%, #252525 100%);
+            border-bottom-color: #1a1a1a;
+        }
+
+        .traffic-lights {
+            display: flex;
+            gap: 8px;
+            margin-right: 16px;
+        }
+
+        .traffic-light {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 0.5px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .traffic-light:hover {
+            filter: brightness(1.1);
+        }
+
+        .traffic-light.close {
+            background: linear-gradient(135deg, #ff5f57 0%, #ff4136 100%);
+        }
+
+        .traffic-light.minimize {
+            background: linear-gradient(135deg, #ffbd2e 0%, #ffa500 100%);
+        }
+
+        .traffic-light.maximize {
+            background: linear-gradient(135deg, #28ca42 0%, #20a038 100%);
+        }
+
+        .title {
+            flex: 1;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .light .title {
+            color: #1d1d1f;
+        }
+
+        .dark .title {
+            color: #e0e0e0;
+        }
+
+        .toolbar {
+            height: 44px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            gap: 12px;
+            border-bottom: 1px solid;
+            transition: all 0.3s ease;
+        }
+
+        .light .toolbar {
+            background: #fafafa;
+            border-bottom-color: #e5e5e5;
+        }
+
+        .dark .toolbar {
+            background: #252526;
+            border-bottom-color: #1e1e1e;
+        }
+
+        .toolbar-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .light .toolbar-btn {
+            background: #ffffff;
+            color: #1d1d1f;
+            border: 1px solid #d1d1d6;
+        }
+
+        .dark .toolbar-btn {
+            background: #333333;
+            color: #e0e0e0;
+            border: 1px solid #3e3e42;
+        }
+
+        .toolbar-btn:hover {
+            transform: translateY(-1px);
+        }
+
+        .light .toolbar-btn:hover {
+            background: #f5f5f7;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dark .toolbar-btn:hover {
+            background: #3e3e42;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .toolbar-btn.primary {
+            color: white;
+            border: none;
+        }
+
+        .light .toolbar-btn.primary {
+            background: linear-gradient(135deg, #007aff 0%, #0051d5 100%);
+        }
+
+        .dark .toolbar-btn.primary {
+            background: linear-gradient(135deg, #0a84ff 0%, #006ce0 100%);
+        }
+
+        .toolbar-btn.primary:hover {
+            filter: brightness(1.1);
+        }
+
+        select.toolbar-btn {
+            appearance: none;
+            padding-right: 28px;
+            background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1L5 5L9 1' stroke='%23666' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+        }
+
+        .theme-toggle {
+            margin-left: auto;
+            padding: 6px 10px;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .editor-container {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #editor {
+            width: 100%;
+            height: 100%;
+        }
+
+        .preview-container {
+            flex: 1;
+            display: none;
+            border-left: 1px solid;
+            position: relative;
+        }
+
+        .light .preview-container {
+            border-left-color: #e5e5e5;
+            background: #ffffff;
+        }
+
+        .dark .preview-container {
+            border-left-color: #1e1e1e;
+            background: #1e1e1e;
+        }
+
+        .preview-container.visible {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-header {
+            height: 36px;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            font-size: 12px;
+            font-weight: 500;
+            border-bottom: 1px solid;
+        }
+
+        .light .preview-header {
+            background: #fafafa;
+            border-bottom-color: #e5e5e5;
+            color: #666;
+        }
+
+        .dark .preview-header {
+            background: #252526;
+            border-bottom-color: #1e1e1e;
+            color: #999;
+        }
+
+        #preview {
+            flex: 1;
+            border: none;
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .window {
+                top: 10px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+            }
+
+            .toolbar {
+                flex-wrap: wrap;
+                height: auto;
+                padding: 8px;
+            }
+
+            .content {
+                flex-direction: column;
+            }
+
+            .preview-container {
+                border-left: none;
+                border-top: 1px solid;
+            }
+
+            .light .preview-container {
+                border-top-color: #e5e5e5;
+            }
+
+            .dark .preview-container {
+                border-top-color: #1e1e1e;
+            }
+        }
+
+        .status-bar {
+            height: 24px;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            font-size: 11px;
+            border-top: 1px solid;
+            transition: all 0.3s ease;
+        }
+
+        .light .status-bar {
+            background: #f5f5f7;
+            border-top-color: #e5e5e5;
+            color: #666;
+        }
+
+        .dark .status-bar {
+            background: #1e1e1e;
+            border-top-color: #2d2d2d;
+            color: #999;
+        }
+
+        .status-item {
+            margin-right: 16px;
+        }
+    </style>
+</head>
+<body class="light">
+    <div class="window">
+        <div class="titlebar">
+            <div class="traffic-lights">
+                <div class="traffic-light close"></div>
+                <div class="traffic-light minimize"></div>
+                <div class="traffic-light maximize"></div>
+            </div>
+            <div class="title">Untitled.html</div>
+        </div>
+
+        <div class="toolbar">
+            <button class="toolbar-btn primary" id="runBtn">
+                <i class="fas fa-play"></i> Run
+            </button>
+            <button class="toolbar-btn" id="saveBtn">
+                <i class="fas fa-save"></i> Save
+            </button>
+            <button class="toolbar-btn" id="downloadBtn">
+                <i class="fas fa-download"></i> Download
+            </button>
+            <select class="toolbar-btn" id="languageSelect">
+                <option value="html">HTML</option>
+                <option value="javascript">JavaScript</option>
+                <option value="css">CSS</option>
+                <option value="python">Python</option>
+                <option value="json">JSON</option>
+                <option value="markdown">Markdown</option>
+            </select>
+            <button class="toolbar-btn theme-toggle" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+
+        <div class="content">
+            <div class="editor-container">
+                <div id="editor"></div>
+            </div>
+            <div class="preview-container" id="previewContainer">
+                <div class="preview-header">
+                    <i class="fas fa-eye"></i>&nbsp; Live Preview
+                </div>
+                <iframe id="preview"></iframe>
+            </div>
+        </div>
+
+        <div class="status-bar">
+            <span class="status-item" id="lineCol">Ln 1, Col 1</span>
+            <span class="status-item" id="language">HTML</span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs/loader.min.js"></script>
+    <script>
+        let editor;
+        let currentTheme = 'light';
+        let currentLanguage = 'html';
+
+        require.config({ paths: { vs: 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.44.0/min/vs' } });
+
+        require(['vs/editor/editor.main'], function () {
+            editor = monaco.editor.create(document.getElementById('editor'), {
+                value: `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        h1 {
+            color: white;
+            font-size: 48px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello, World! 🌍</h1>
+</body>
+</html>`,
+                language: 'html',
+                theme: 'vs',
+                fontSize: 14,
+                fontFamily: 'SF Mono, Monaco, Menlo, Consolas, monospace',
+                minimap: { enabled: true },
+                lineNumbers: 'on',
+                scrollBeyondLastLine: false,
+                automaticLayout: true,
+                tabSize: 2,
+                wordWrap: 'on',
+                suggestOnTriggerCharacters: true,
+                quickSuggestions: true,
+                formatOnPaste: true,
+                formatOnType: true
+            });
+
+            editor.onDidChangeCursorPosition((e) => {
+                document.getElementById('lineCol').textContent = `Ln ${e.position.lineNumber}, Col ${e.position.column}`;
+            });
+
+            editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, () => {
+                saveCode();
+            });
+
+            editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyR, () => {
+                runCode();
+            });
+        });
+
+        // Theme toggle
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.body.className = currentTheme;
+            
+            const icon = document.querySelector('#themeToggle i');
+            icon.className = currentTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+            
+            if (editor) {
+                monaco.editor.setTheme(currentTheme === 'light' ? 'vs' : 'vs-dark');
+            }
+        });
+
+        // Language selector
+        document.getElementById('languageSelect').addEventListener('change', (e) => {
+            currentLanguage = e.target.value;
+            if (editor) {
+                monaco.editor.setModelLanguage(editor.getModel(), currentLanguage);
+            }
+            document.getElementById('language').textContent = currentLanguage.toUpperCase();
+            document.querySelector('.title').textContent = `Untitled.${getFileExtension(currentLanguage)}`;
+        });
+
+        function getFileExtension(lang) {
+            const extensions = {
+                html: 'html',
+                javascript: 'js',
+                css: 'css',
+                python: 'py',
+                json: 'json',
+                markdown: 'md'
+            };
+            return extensions[lang] || 'txt';
+        }
+
+        // Run code
+        document.getElementById('runBtn').addEventListener('click', runCode);
+
+        function runCode() {
+            if (currentLanguage === 'html') {
+                const code = editor.getValue();
+                const previewContainer = document.getElementById('previewContainer');
+                const preview = document.getElementById('preview');
+                
+                previewContainer.classList.add('visible');
+                preview.srcdoc = code;
+            } else {
+                alert('Live preview is only available for HTML files. For other languages, use the Download button to save and run externally.');
+            }
+        }
+
+        // Save code (to memory)
+        document.getElementById('saveBtn').addEventListener('click', saveCode);
+
+        function saveCode() {
+            const code = editor.getValue();
+            localStorage.setItem('savedCode', code);
+            localStorage.setItem('savedLanguage', currentLanguage);
+            alert('✅ Code saved successfully!');
+        }
+
+        // Download code
+        document.getElementById('downloadBtn').addEventListener('click', () => {
+            const code = editor.getValue();
+            const extension = getFileExtension(currentLanguage);
+            const blob = new Blob([code], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `untitled.${extension}`;
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        // Load saved code on startup
+        window.addEventListener('load', () => {
+            const savedCode = localStorage.getItem('savedCode');
+            const savedLanguage = localStorage.getItem('savedLanguage');
+            
+            if (savedCode && editor) {
+                editor.setValue(savedCode);
+            }
+            
+            if (savedLanguage) {
+                currentLanguage = savedLanguage;
+                document.getElementById('languageSelect').value = savedLanguage;
+                monaco.editor.setModelLanguage(editor.getModel(), savedLanguage);
+                document.getElementById('language').textContent = savedLanguage.toUpperCase();
+                document.querySelector('.title').textContent = `Untitled.${getFileExtension(savedLanguage)}`;
+            }
+        });
+
+        // Traffic lights 
+        document.querySelector('.traffic-light.close').addEventListener('click', () => {
+            if (confirm('Close editor? Unsaved changes will be lost.')) {
+                window.close();
+            }
+        });
+
+        document.querySelector('.traffic-light.minimize').addEventListener('click', () => {
+            alert('Were you expecting this page to minimize? oh well, here is a cat.🐈');
+        });
+
+        document.querySelector('.traffic-light.maximize').addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        });
+    </script>
+</body>
+</html>
