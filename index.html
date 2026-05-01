@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Ashley Booth - Developer and Innovative Problem Solver. Explore my portfolio and projects.">
-  <meta name="keywords" content="Developer, Web Design, Software Development, Ashley Booth">
+  <meta name="keywords" content="Developer, Web Design, Software Development, Ashley Booth, C#, Python, JavaScript">
   <meta name="author" content="Ashley Booth">
   <title>Ashley Booth</title>
   <script src="https://cdn.tailwindcss.com"></script>
@@ -13,425 +13,855 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/assets/ico/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/assets/ico/favicon-16x16.png">
   <link rel="manifest" href="/assets/ico/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
-    html {
-      scroll-behavior: smooth;
-      overflow-x: hidden;
+    :root {
+      --bg:        #0b0f19;
+      --surface:   #111827;
+      --surface2:  #1a2236;
+      --border:    #1f2d45;
+      --accent:    #38bdf8;
+      --accent2:   #818cf8;
+      --text:      #e2e8f0;
+      --muted:     #64748b;
+      --card-glow: 0 0 0 1px var(--border), 0 8px 40px rgba(56,189,248,.08);
     }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Sora', sans-serif;
+      background: var(--bg);
+      color: var(--text);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* ── Noise grain overlay ── */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      opacity: .025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
     }
 
-    #home h1, #home h2, #home a {
-      animation: fadeIn 1s ease-out forwards;
+    /* ── Navbar ── */
+    nav {
+      background: rgba(11,15,25,.85);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
     }
 
-    #home h1 { animation-delay: 0.2s; }
-    #home h2 { animation-delay: 0.4s; }
-    #home a { animation-delay: 0.6s; }
+    .nav-link {
+      color: var(--muted);
+      font-size: .875rem;
+      font-weight: 500;
+      letter-spacing: .04em;
+      transition: color .2s;
+      position: relative;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--accent);
+      transition: width .25s;
+    }
+    .nav-link:hover { color: var(--accent); }
+    .nav-link:hover::after { width: 100%; }
 
-    @keyframes draw {
-        0% {
-        stroke-dashoffset: 1500;
-        }
-        100% {
-        stroke-dashoffset: 0;
-        }
+    .logo-text {
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -.01em;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    #signature-path {
-        stroke-dasharray: 1500;
-        stroke-dashoffset: 1500;
+    /* ── Hero ── */
+    #home {
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(56,189,248,.12) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 50% at 20% 70%, rgba(129,140,248,.1) 0%, transparent 55%),
+        var(--bg);
+      position: relative;
     }
 
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: rgba(56,189,248,.1);
+      border: 1px solid rgba(56,189,248,.25);
+      border-radius: 99px;
+      padding: .3rem .85rem;
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-tag .dot {
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse-dot 1.8s ease infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .4; transform: scale(.7); }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-up { opacity: 0; animation: fadeUp .8s ease forwards; }
+    .delay-1 { animation-delay: .15s; }
+    .delay-2 { animation-delay: .3s; }
+    .delay-3 { animation-delay: .45s; }
+    .delay-4 { animation-delay: .6s; }
+
+    .hero-h1 {
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--muted);
+      font-weight: 400;
+      max-width: 42ch;
+    }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--accent);
+      color: #0b0f19;
+      font-weight: 700;
+      font-size: .9rem;
+      padding: .75rem 1.75rem;
+      border-radius: 8px;
+      transition: opacity .2s, transform .2s;
+    }
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: .5rem;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 600;
+      font-size: .9rem;
+      padding: .75rem 1.75rem;
+      border-radius: 8px;
+      transition: border-color .2s, color .2s, transform .2s;
+    }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+    /* ── About ── */
+    #about { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .profile-img-wrap {
+      width: 260px; height: 260px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--card-glow);
+      background: var(--surface2);
+      flex-shrink: 0;
+      position: relative;
+    }
+
+    /* Stylised avatar illustration (replaces animated SVG) */
+    .profile-img-wrap svg { width: 100%; height: 100%; display: block; }
+
+    .stat-box {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      text-align: center;
+      flex: 1;
+    }
+    .stat-box .num {
+      font-size: 1.6rem; font-weight: 800;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .stat-box .lbl { font-size: .75rem; color: var(--muted); margin-top: .15rem; }
+
+    .interest-pill {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: rgba(56,189,248,.1);
+      border: 1px solid rgba(56,189,248,.2);
+      color: var(--accent);
+      border-radius: 99px;
+      padding: .35rem .9rem;
+      font-size: .8rem; font-weight: 600;
+    }
+
+    /* ── Skills ── */
+    #skills { background: var(--bg); }
+
+    .section-label {
+      font-size: .7rem; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: .5rem;
+    }
+
+    .section-h2 {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800; letter-spacing: -.025em;
+    }
+
+    .skill-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.25rem 1rem;
+      display: flex; flex-direction: column; align-items: center; gap: .6rem;
+      transition: border-color .25s, transform .25s, box-shadow .25s;
+      cursor: default;
+    }
+    .skill-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+      box-shadow: 0 0 24px rgba(56,189,248,.15);
+    }
+    .skill-card img { width: 40px; height: 40px; object-fit: contain; }
+    .skill-card span { font-size: .8rem; font-weight: 600; color: var(--text); }
+
+    .skill-category {
+      font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: .75rem;
+    }
+
+    /* ── Projects ── */
+    #projects { background: var(--surface); border-top: 1px solid var(--border); }
+
+    .project-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color .25s, box-shadow .25s;
+    }
+    .project-card:hover {
+      border-color: rgba(56,189,248,.4);
+      box-shadow: 0 0 32px rgba(56,189,248,.1);
+    }
+
+    .project-type-badge {
+      display: inline-block;
+      background: rgba(129,140,248,.15);
+      border: 1px solid rgba(129,140,248,.3);
+      color: var(--accent2);
+      border-radius: 6px;
+      padding: .2rem .6rem;
+      font-size: .7rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+      margin-bottom: .75rem;
+    }
+
+    .code-block {
+      background: #0d1117;
+      border: 1px solid #1e2b3a;
+      border-radius: 10px;
+      padding: 1rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: .8rem;
+      color: #7dd3fc;
+      margin-bottom: 1rem;
+    }
+    .code-block .kw  { color: #c084fc; }
+    .code-block .str { color: #86efac; }
+    .code-block .arr { color: #e2e8f0; }
+
+    .project-link {
+      display: inline-flex; align-items: center; gap: .35rem;
+      font-size: .85rem; font-weight: 600; color: var(--accent);
+      transition: gap .2s;
+    }
+    .project-link:hover { gap: .6rem; }
+
+    /* ── Contact ── */
+    #contact { background: var(--bg); }
+
+    .contact-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute; inset: 0; pointer-events: none;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(56,189,248,.08), transparent 60%);
+    }
+
+    .social-btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: .65rem 1.25rem;
+      font-size: .85rem; font-weight: 600; color: var(--text);
+      transition: border-color .2s, color .2s, transform .2s;
+    }
+    .social-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+    /* ── Footer ── */
+    footer {
+      background: #070b13;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── Show more / less ── */
+    #show-more {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: 8px;
+      padding: .65rem 1.5rem;
+      font-size: .875rem; font-weight: 600;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+    #show-more:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* Mobile menu */
+    #mobile-menu { background: var(--surface); border-top: 1px solid var(--border); }
+    #mobile-menu a { color: var(--muted); font-size: .9rem; font-weight: 500; }
+    #mobile-menu a:hover { color: var(--accent); }
+
+    /* Wave */
     .about-wave {
-        font-size: 25px;
-        display: inline-block;
-        animation: wave-animation 1.5s cubic-bezier(0.25, 0.1, 0.25, 1) infinite;
+      display: inline-block;
+      animation: wave-animation 1.5s cubic-bezier(.25,.1,.25,1) infinite;
     }
-
     @keyframes wave-animation {
-        0%, 100% {
-        transform: rotate(-10deg);
-        }
-        50% {
-        transform: rotate(20deg);
-        }
+      0%, 100% { transform: rotate(-10deg); }
+      50%       { transform: rotate(20deg); }
     }
 
     @media (max-width: 640px) {
-      section {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-      }
+      section { padding-top: 3.5rem; padding-bottom: 3.5rem; }
     }
   </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body>
 
   <!-- Navbar -->
-  <nav class="fixed w-full bg-white shadow-md z-50">
+  <nav class="fixed w-full z-50">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <a href="#home" class="text-2xl font-bold text-blue-600">Ashley Booth</a>
+      <a href="#home" class="logo-text">Ashley Booth</a>
 
-      <!-- Desktop Links -->
-      <div class="hidden md:flex space-x-6 font-medium">
-        <a href="#home" class="hover:text-blue-600 transition">Home</a>
-        <a href="#about" class="hover:text-blue-600 transition">About</a>
-        <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
-        <a href="#projects" class="hover:text-blue-600 transition">Projects</a>
-        <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#home"     class="nav-link">Home</a>
+        <a href="#about"    class="nav-link">About</a>
+        <a href="#skills"   class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact"  class="nav-link">Contact</a>
+        <a href="mailto:info@ashley-booth.com" class="btn-primary" style="padding:.5rem 1.1rem; font-size:.8rem; border-radius:6px;">
+          Hire Me
+        </a>
       </div>
 
-      <!-- Mobile Menu Button -->
-      <button id="menu-btn" class="md:hidden focus:outline-none">
+      <button id="menu-btn" class="md:hidden text-gray-400 hover:text-white">
         <i data-feather="menu"></i>
       </button>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-      <a href="#home" class="block py-2 px-6 hover:bg-gray-100">Home</a>
-      <a href="#about" class="block py-2 px-6 hover:bg-gray-100">About</a>
-      <a href="#skills" class="block py-2 px-6 hover:bg-gray-100">Skills</a>
-      <a href="#projects" class="block py-2 px-6 hover:bg-gray-100">Projects</a>
-      <a href="#contact" class="block py-2 px-6 hover:bg-gray-100">Contact</a>
+    <div id="mobile-menu" class="hidden md:hidden">
+      <a href="#home"     class="block py-3 px-6 border-b border-gray-800">Home</a>
+      <a href="#about"    class="block py-3 px-6 border-b border-gray-800">About</a>
+      <a href="#skills"   class="block py-3 px-6 border-b border-gray-800">Skills</a>
+      <a href="#projects" class="block py-3 px-6 border-b border-gray-800">Projects</a>
+      <a href="#contact"  class="block py-3 px-6">Contact</a>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 to-indigo-800 text-white pt-20">
-    <div class="container mx-auto px-6 text-center">
-      <h1 class="text-5xl md:text-6xl font-bold mb-4">Ashley Booth</h1>
-      <h2 class="text-2xl md:text-3xl mb-8">Developer | Innovative Problem Solver</h2>
-      <a href="#about" class="inline-block px-8 py-3 bg-white text-blue-600 rounded-full font-semibold hover:bg-gray-100 transition duration-300">
-        Learn More
-      </a>
-    </div>
-  </section>
-
-  <!-- About Me Section -->
-  <section id="about" class="py-20 bg-white">
-  <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-bold text-center mb-12">About Me</h2>
-    <div class="flex flex-col md:flex-row items-center gap-12">
-      <div class="md:w-1/2 flex justify-center">
-        <div class="w-[250px] h-[250px] flex-shrink-0 rounded-full border-4 border-gray-800 bg-white shadow-[0_8px_20px_rgba(0,0,0,0.7)] overflow-hidden flex items-center justify-center">
-          <svg class="w-full h-full p-5 transform translate-x-[10px] -translate-y-[20px]" viewBox="70 40 150 100" xmlns="http://www.w3.org/2000/svg">
-            <g transform="scale(1.2)">
-              <path id="signature-path"
-                d="m 80.782929,126.93537 c 5.678252,-35.94671 5.697888,-35.871693 8.825953,-54.104808 1.699447,-7.41471 3.821423,-17.912258 8.213695,-17.79724 4.726023,-0.09569 4.869733,6.707466 5.698583,11.2663 2.25386,16.268186 4.92348,32.431907 5.68089,48.792618 -5.29232,-13.05242 -9.622322,-28.392638 -20.148748,-38.29314 -4.913715,-4.757105 -11.915229,-0.326069 -15.038994,4.894813 -5.112925,8.689216 -5.629863,19.810367 -4.381046,29.697147 0.451176,4.82932 5.181834,6.6193 9.494993,3.49441 11.826337,-9.39741 18.779113,-23.360799 26.190365,-36.276045 4.13672,-7.299 11.21597,-21.641215 13.82263,-21.325668 3.8621,0.170135 -1.2663,21.34547 -2.22706,30.983992 -0.79178,6.456471 -1.94432,13.569411 0.0307,13.551701 6.46728,-0.35799 7.22742,-6.415151 8.71804,-12.517364 1.24349,-4.164314 1.54464,-11.082636 7.15611,-9.440698 9.27431,1.342094 12.95097,3.1941 24.42667,-0.769707 6.57055,-3.04637 9.77071,-5.727208 13.01445,-8.669907"
-                class="fill-none stroke-gray-800 stroke-[3px] stroke-linecap-round stroke-linejoin-round animate-[draw_2s_ease-in-out_infinite_alternate]" />
-            </g>
-          </svg>
+  <!-- Hero -->
+  <section id="home" class="min-h-screen flex items-center justify-center pt-24">
+    <div class="container mx-auto px-6 text-center relative z-10">
+      <div class="fade-up delay-1">
+        <div class="hero-tag">
+          <span class="dot"></span>
+          Available for opportunities
         </div>
       </div>
-      <div class="md:w-1/2">
-        <p class="text-xl mb-6">
-          <span class="text-2xl about-wave">👋</span> Hello! My name is Ashley Booth. I’m a self-taught programmer and currently work as a Deputy Works Manager. I’m a quick learner with a strong self-driven attitude and a passion for exploring new technologies. I enjoy problem-solving and working across all aspects of web application development.
-
-While my core expertise lies in web development, I’ve also developed various software applications in different programming languages. I’m open to any opportunities that align with my skills and interests, and I’m always eager to learn and contribute to new challenges.
-        </p>
-        <div class="mt-8">
-          <h3 class="text-xl font-semibold mb-4">Interests:</h3>
-          <div class="flex flex-wrap gap-3">
-            <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full">Coding & Technology</span>
-            <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full">Cybersecurity</span>
-            <span class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full">Reverse Engineering</span>
-          </div>
-        </div>
+      <h1 class="hero-h1 fade-up delay-2">
+        Ashley<br>
+        <span style="background: linear-gradient(100deg, var(--accent), var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Booth</span>
+      </h1>
+      <p class="hero-sub mx-auto mt-5 fade-up delay-3">
+        Developer &amp; Innovative Problem Solver — building elegant solutions across web, desktop, and mobile.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 mt-8 fade-up delay-4">
+        <a href="#projects" class="btn-primary">
+          View My Work <i data-feather="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#contact" class="btn-outline">
+          Get In Touch
+        </a>
       </div>
 
-    </div>
-  </div>
-</section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="py-20 px-4 bg-gray-50">
-    <div class="container mx-auto max-w-6xl">
-      <h2 class="text-3xl font-bold text-center mb-12">SKILLS</h2>
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-        <div class="bg-white p-4 rounded-lg flex flex-col items-center hover:shadow-md transition">
-          <img src="/assets/LogosHtml5.svg" alt="HTML" class="w-12 h-12 mb-2">
-          <span class="font-medium">HTML</span>
-        </div>
-        <div class="bg-white p-4 rounded-lg flex flex-col items-center hover:shadow-md transition">
-          <img src="/assets/LogosCss3.svg" alt="CSS" class="w-12 h-12 mb-2">
-          <span class="font-medium">CSS</span>
-        </div>
-        <div class="bg-white p-4 rounded-lg flex flex-col items-center hover:shadow-md transition">
-          <img src="/assets/LogosJavascript.svg" alt="JavaScript" class="w-12 h-12 mb-2">
-          <span class="font-medium">JavaScript</span>
-        </div>
-        <div class="bg-white p-4 rounded-lg flex flex-col items-center hover:shadow-md transition">
-          <img src="/assets/LogosAndroidIcon.svg" alt="Android" class="w-12 h-12 mb-2">
-          <span class="font-medium">Android</span>
-        </div>
-        <div class="bg-white p-4 rounded-lg flex flex-col items-center hover:shadow-md transition">
-          <img src="/assets/LogosCSharp.svg" alt="C#" class="w-12 h-12 mb-2">
-          <span class="font-medium">C#</span>
-        </div>
-        <div class="bg-white p-4 rounded-lg flex flex-col items-center hover:shadow-md transition">
-          <img src="/assets/LogosPython.svg" alt="Python" class="w-12 h-12 mb-2">
-          <span class="font-medium">Python</span>
-        </div>
+      <!-- Floating tech labels -->
+      <div class="flex flex-wrap justify-center gap-2 mt-12 fade-up delay-4" style="opacity:.5;">
+        <span style="font-family:'JetBrains Mono',monospace; font-size:.7rem; color:var(--muted);">HTML · CSS · JavaScript · C# · Python · Go · Android · .NET</span>
       </div>
     </div>
   </section>
 
-<!-- Projects Section -->
-<section id="projects" class="py-20 px-4 bg-white">
-  <div class="container mx-auto max-w-6xl">
-    <h2 class="text-3xl font-bold text-center mb-12">PROJECTS</h2>
+  <!-- About -->
+  <section id="about" class="py-24">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row items-center gap-14">
 
-    <div class="grid md:grid-cols-2 gap-8">
+        <!-- Profile image -->
+        <div class="flex-shrink-0 flex flex-col items-center">
+          <div class="profile-img-wrap">
+            <img src="/assets/headshot.webp">
 
-              <!-- Nashi -->
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card">
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Web Application</h3>
-          <div class="bg-gray-800 p-4 rounded-lg mb-4">
-            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
-  name: 'Nashi',
-  tools: ['HTML', 'CSS',
-          'JS', 'Monaco Editor']
-};</code></pre>
           </div>
-          <p class="text-gray-600 mb-4">
-            Nashi is a macOS-inspired web code editor built for developers who appreciate beautiful design and seamless functionality.
-          </p>
-          <a href="/apps/nashi/" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
-            View Live Demo <i data-feather="external-link" class="inline w-4 h-4"></i>
-          </a>
+
+          <!-- Quick stats -->
+          <div class="flex gap-3 mt-4">
+            <div class="stat-box">
+              <div class="num">5+</div>
+              <div class="lbl">Languages</div>
+            </div>
+            <div class="stat-box">
+              <div class="num">10+</div>
+              <div class="lbl">Projects</div>
+            </div>
+            <div class="stat-box">
+              <div class="num">3+</div>
+              <div class="lbl">Platforms</div>
+            </div>
+          </div>
         </div>
-      </div>
 
-              <!-- Style your Always On Display -->
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card">
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Reverse Engineering</h3>
-          <div class="bg-gray-800 p-4 rounded-lg mb-4">
-            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
-  name: 'Style your AOD',
-  tools: ['Java', 'Android',
-          'Samsung UI']
-};</code></pre>
-          </div>
-          <p class="text-gray-600 mb-4">
-            Android/Samsung UI modification that enables users to fully customize their Always On Display (AOD) without requiring root access, compatible across multiple Android versions.
+        <!-- Text -->
+        <div class="flex-1">
+          <div class="section-label">About Me</div>
+          <h2 class="section-h2 mb-6">
+            Self-taught developer &amp; <span style="color:var(--accent);">problem solver</span>
+          </h2>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            <span class="about-wave text-xl">👋</span>  Hello! I'm Ashley Booth — a self-taught programmer and Deputy Works Manager with a genuine passion for technology and problem-solving.
           </p>
-          <a href="https://xdaforums.com/t/clockface-mod-even-more-aod-customization-oreo-no-root-updated-11-12-2018.3847703/" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
-            View on XDA <i data-feather="external-link" class="inline w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
+          <p class="text-gray-400 leading-relaxed mb-4">
+            My core expertise is in web development, but I've built across the stack: Windows desktop apps in C#, Python automation scripts, Android mods, and full business websites. I'm a quick learner with a self-driven attitude who loves exploring new technologies.
+          </p>
+          <p class="text-gray-400 leading-relaxed mb-8">
+            I'm open to opportunities that align with my skills and interests, and I'm always eager to learn and contribute to new challenges.
+          </p>
 
-      <!-- Ashley-Booth.com -->
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card">
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Web Development</h3>
-          <div class="bg-gray-800 p-4 rounded-lg mb-4">
-            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
-  name: 'Ashley-Booth.com',
-  tools: ['GitHub', 'HTML', 'CSS',
-          'JavaScript', 'Go']
-};</code></pre>
+          <h3 class="text-sm font-semibold text-gray-300 uppercase tracking-widest mb-3">Interests</h3>
+          <div class="flex flex-wrap gap-2 mb-8">
+            <span class="interest-pill">💻 Coding &amp; Technology</span>
+            <span class="interest-pill">🔐 Cybersecurity</span>
+            <span class="interest-pill">🔬 Reverse Engineering</span>
+            <span class="interest-pill">🤖 Automation</span>
+            <span class="interest-pill">⚙️ CNC &amp; Manufacturing</span>
           </div>
-          <p class="text-gray-600 mb-4">
-            The personal website you're browsing. built from scratch to showcase my projects, learning progress, and development skills. All versions and updates are available on GitHub.
-          </p>
-          <a href="https://github.com/Booth-Ashley/Booth-Ashley.github.io" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
-            View on GitHub <i data-feather="external-link" class="inline w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
 
-      <!-- Watermark WebP -->
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card">
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Automation Script</h3>
-          <div class="bg-gray-800 p-4 rounded-lg mb-4">
-            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
-  name: 'Watermark Webp',
-  tools: ['Python']
-};</code></pre>
-          </div>
-          <p class="text-gray-600 mb-4">
-            A Python script that automatically scans a folder for <code>.webp</code> images, applies a diagonal watermark, and saves them into an output folder for easy batch processing.
-          </p>
-          <a href="https://github.com/Booth-Ashley/Watermark-WebP" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
-            View on GitHub <i data-feather="external-link" class="inline w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Feed Rate Adjuster -->
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card hidden">
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Software Development</h3>
-          <div class="bg-gray-800 p-4 rounded-lg mb-4">
-            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
-  name: 'Feed Rate Adjuster',
-  tools: ['C#', '.NET']
-};</code></pre>
-          </div>
-          <p class="text-gray-600 mb-4">
-            A Windows desktop application built in C# to automatically adjust feed rates in G-code for CNC machines, streamlining machine setup for operators.
-          </p>
-          <a href="https://github.com/Booth-Ashley/Feed-Rate-Adjuster" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
-            View on GitHub <i data-feather="external-link" class="inline w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- PokiPlanet.com -->
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card hidden">
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Web Design</h3>
-          <div class="bg-gray-800 p-4 rounded-lg mb-4">
-            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
-  name: 'Pokiplanet.com',
-  tools: ['HTML', 'Tailwind CSS',
-          'JavaScript', 'Go']
-};</code></pre>
-          </div>
-          <p class="text-gray-600 mb-4">
-            PokiPlanet is a hobby website for Pokémon Trading Cards, fully designed and developed by me using <strong>HTML</strong>, <strong>Tailwind CSS</strong>, <strong>JavaScript</strong>, and <strong>Go</strong>. It features a clean, responsive layout and custom blog functionality.
-          </p>
-          <a href="https://pokiplanet.com" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
-            Visit Website <i data-feather="external-link" class="inline w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Gasket Maker -->
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card hidden">
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Software Development</h3>
-          <div class="bg-gray-800 p-4 rounded-lg mb-4">
-            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
-  name: 'Gasket Maker',
-  tools: ['Python', 'CAD']
-};</code></pre>
-          </div>
-          <p class="text-gray-600 mb-4">
-            A simple, user-friendly Python program for creating custom gasket DXF files. It allows users to generate precise templates for manufacturing.
-          </p>
-          <a href="https://github.com/Booth-Ashley/Ashs-Gasket-Maker" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
-            View on GitHub <i data-feather="external-link" class="inline w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Google Fonts for Samsung -->
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card hidden">
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Reverse Engineering</h3>
-          <div class="bg-gray-800 p-4 rounded-lg mb-4">
-            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
-  name: 'Google Fonts for Samsung',
-  tools: ['Java', 'Android', 'Samsung UI']
-};</code></pre>
-          </div>
-          <p class="text-gray-600 mb-4">
-            Custom Android font pack allowing users to apply Google’s Product Sans fonts on Samsung devices without root or Substratum themes.
-          </p>
-          <a href="https://xdaforums.com/t/google-product-sans-fonts-for-samsung-oreo-no-root-no-substratum.3857764/" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
-            View on XDA <i data-feather="external-link" class="inline w-4 h-4"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- CNC Time Estimation -->
-      <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition project-card hidden">
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-2">Web Application</h3>
-          <div class="bg-gray-800 p-4 rounded-lg mb-4">
-            <pre class="text-sm text-gray-300 overflow-x-auto"><code>const project = {
-  name: 'CNC Time Estimation',
-  tools: ['HTML', 'CSS', 'JavaScript']
-};</code></pre>
-          </div>
-          <p class="text-gray-600 mb-4">
-            An interactive web application for generating accurate time estimates for CNC machining jobs, improving efficiency for both management and production teams.
-          </p>
-          <a href="https://github.com/Booth-Ashley/CNC-Machine-Time-Estimation" target="_blank" class="inline-block text-blue-600 font-semibold hover:underline">
-            View on GitHub <i data-feather="external-link" class="inline w-4 h-4"></i>
+          <a href="mailto:info@ashley-booth.com" class="btn-primary">
+            <i data-feather="mail" class="w-4 h-4"></i>
+            Say Hello
           </a>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
-    <div class="text-center mt-6">
-        <button id="show-more" class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full shadow-xl">
-            Show More
-        </button>
-    </div>
-  
-</section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="py-20 bg-gray-100">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold mb-12">Get in Touch</h2>
-      <div class="flex justify-center gap-6 mb-8">
-        <a href="https://github.com/Booth-Ashley" target="_blank" class="text-gray-700 hover:text-blue-600 transition">
-          <i data-feather="github" class="w-8 h-8"></i>
-        </a>
-        <a href="https://x.com/ashC0DE" target="_blank" class="text-gray-700 hover:text-blue-600 transition">
-          <i data-feather="twitter" class="w-8 h-8"></i>
-        </a>
-        <a href="mailto:info@ashley-booth.com" class="text-gray-700 hover:text-blue-600 transition">
-          <i data-feather="mail" class="w-8 h-8"></i>
-        </a>
+  <!-- Skills -->
+  <section id="skills" class="py-24">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <div class="text-center mb-14">
+        <div class="section-label">What I Work With</div>
+        <h2 class="section-h2">Skills &amp; Technologies</h2>
       </div>
-      <p>Feel free to reach out for collaborations or just to say hi!</p>
+
+      <!-- Web Development -->
+      <div class="mb-10">
+        <p class="skill-category">Web Development</p>
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+          <div class="skill-card">
+            <img src="/assets/LogosHtml5.svg" alt="HTML5">
+            <span>HTML5</span>
+          </div>
+          <div class="skill-card">
+            <img src="/assets/LogosCss3.svg" alt="CSS3">
+            <span>CSS3</span>
+          </div>
+          <div class="skill-card">
+            <img src="/assets/LogosJavascript.svg" alt="JavaScript">
+            <span>JavaScript</span>
+          </div>
+          <div class="skill-card">
+            <img src="/assets/tailwindcss-original.svg" alt="Tailwind CSS"> 
+            <span>Tailwind</span>
+          </div>
+          <div class="skill-card">
+            <img src="/assets/go-original.svg" alt="Go">
+            <span>Go</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop & Scripting -->
+      <div class="mb-10">
+        <p class="skill-category">Desktop &amp; Scripting</p>
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+          <div class="skill-card">
+            <img src="/assets/LogosCSharp.svg" alt="C#">
+            <span>C#</span>
+          </div>
+          <div class="skill-card">
+            <img src="/assets/dot-net-original.svg" alt=".NET">
+            <span>.NET</span>
+          </div>
+          <div class="skill-card">
+            <img src="/assets/LogosPython.svg" alt="Python">
+            <span>Python</span>
+          </div>
+          <div class="skill-card">
+            <img src="/assets/bash-original.svg" alt="Bash">
+            <span>Bash</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile & Platform -->
+      <div class="mb-10">
+        <p class="skill-category">Mobile &amp; Platform</p>
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+          <div class="skill-card">
+            <img src="/assets/LogosAndroidIcon.svg" alt="Android">
+            <span>Android</span>
+          </div>
+          <div class="skill-card">
+            <img src="/assets/java-original.svg" alt="Java">
+            <span>Java</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tools & Workflows -->
+      <div>
+        <p class="skill-category">Tools &amp; Workflows</p>
+        <div class="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-4">
+          <div class="skill-card">
+            <img src="/assets/git-original.svg" alt="Git">
+            <span>Git</span>
+          </div>
+          <div class="skill-card">
+            <img src="/assets/github-original.svg" alt="GitHub" style="filter:invert(1);">
+            <span>GitHub</span>
+          </div>
+          <div class="skill-card">
+            <img src="/assets/vscode-original.svg" alt="VS Code">
+            <span>VS Code</span>
+          </div>
+          <div class="skill-card">
+            <img src="/assets/linux-original.svg" alt="Linux">
+            <span>Linux</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="py-24">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <div class="text-center mb-14">
+        <div class="section-label">What I've Built</div>
+        <h2 class="section-h2">Projects</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <!-- Trent-Castings.co.uk -->
+        <div class="project-card">
+          <div class="p-6">
+            <div class="project-type-badge">Web Development</div>
+            <h3 class="text-lg font-bold mb-1">Trent-Castings.co.uk</h3>
+            <div class="code-block">
+              <span class="kw">const</span> project = {<br>
+              &nbsp;&nbsp;name: <span class="str">'Trent-Castings.co.uk'</span>,<br>
+              &nbsp;&nbsp;tools: <span class="arr">['HTML', 'CSS', 'JavaScript', 'Tailwind']</span><br>
+              };
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+              A professional business website for Trent Castings — a UK foundry. Fully designed and built from scratch, featuring a clean, responsive layout showcasing their services and products.
+            </p>
+            <a href="https://trent-castings.vercel.app/" target="_blank" class="project-link">
+              View Website <i data-feather="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Nashi -->
+        <div class="project-card">
+          <div class="p-6">
+            <div class="project-type-badge">Web Application</div>
+            <h3 class="text-lg font-bold mb-1">Nashi</h3>
+            <div class="code-block">
+              <span class="kw">const</span> project = {<br>
+              &nbsp;&nbsp;name: <span class="str">'Nashi'</span>,<br>
+              &nbsp;&nbsp;tools: <span class="arr">['HTML', 'CSS', 'JS', 'Monaco Editor']</span><br>
+              };
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+              Nashi is a macOS-inspired web code editor built for developers who appreciate beautiful design and seamless functionality.
+            </p>
+            <a href="/apps/nashi/" target="_blank" class="project-link">
+              View Live Demo <i data-feather="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Style your AOD -->
+        <div class="project-card">
+          <div class="p-6">
+            <div class="project-type-badge">Reverse Engineering</div>
+            <h3 class="text-lg font-bold mb-1">Style your AOD</h3>
+            <div class="code-block">
+              <span class="kw">const</span> project = {<br>
+              &nbsp;&nbsp;name: <span class="str">'Style your AOD'</span>,<br>
+              &nbsp;&nbsp;tools: <span class="arr">['Java', 'Android', 'Samsung UI']</span><br>
+              };
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+              Android/Samsung UI modification that enables users to fully customise their Always On Display without requiring root access, compatible across multiple Android versions.
+            </p>
+            <a href="https://xdaforums.com/t/clockface-mod-even-more-aod-customization-oreo-no-root-updated-11-12-2018.3847703/" target="_blank" class="project-link">
+              View on XDA <i data-feather="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Watermark WebP -->
+        <div class="project-card">
+          <div class="p-6">
+            <div class="project-type-badge">Automation Script</div>
+            <h3 class="text-lg font-bold mb-1">Watermark WebP</h3>
+            <div class="code-block">
+              <span class="kw">const</span> project = {<br>
+              &nbsp;&nbsp;name: <span class="str">'Watermark WebP'</span>,<br>
+              &nbsp;&nbsp;tools: <span class="arr">['Python']</span><br>
+              };
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+              A Python script that automatically scans a folder for <code style="color:var(--accent)">.webp</code> images, applies a diagonal watermark, and saves them into an output folder for easy batch processing.
+            </p>
+            <a href="https://github.com/Booth-Ashley/Watermark-WebP" target="_blank" class="project-link">
+              View on GitHub <i data-feather="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Feed Rate Adjuster (hidden initially) -->
+        <div class="project-card project-card-extra hidden">
+          <div class="p-6">
+            <div class="project-type-badge">Software Development</div>
+            <h3 class="text-lg font-bold mb-1">Feed Rate Adjuster</h3>
+            <div class="code-block">
+              <span class="kw">const</span> project = {<br>
+              &nbsp;&nbsp;name: <span class="str">'Feed Rate Adjuster'</span>,<br>
+              &nbsp;&nbsp;tools: <span class="arr">['C#', '.NET']</span><br>
+              };
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+              A Windows desktop application built in C# to automatically adjust feed rates in G-code for CNC machines, streamlining machine setup for operators.
+            </p>
+            <a href="https://github.com/Booth-Ashley/Feed-Rate-Adjuster" target="_blank" class="project-link">
+              View on GitHub <i data-feather="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- PokiPlanet (hidden initially) -->
+        <div class="project-card project-card-extra hidden">
+          <div class="p-6">
+            <div class="project-type-badge">Web Development</div>
+            <h3 class="text-lg font-bold mb-1">PokiPlanet.com</h3>
+            <div class="code-block">
+              <span class="kw">const</span> project = {<br>
+              &nbsp;&nbsp;name: <span class="str">'PokiPlanet.com'</span>,<br>
+              &nbsp;&nbsp;tools: <span class="arr">['HTML', 'Tailwind CSS', 'JavaScript', 'Go']</span><br>
+              };
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+              A hobby website for Pokémon Trading Cards, fully designed and developed from scratch. Features a clean responsive layout and custom blog functionality.
+            </p>
+            <a href="https://pokiplanet.com" target="_blank" class="project-link">
+              Visit Website <i data-feather="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Ashley-Booth.com -->
+        <div class="project-card project-card-extra hidden">
+          <div class="p-6">
+            <div class="project-type-badge">Web Development</div>
+            <h3 class="text-lg font-bold mb-1">Ashley-Booth.com</h3>
+            <div class="code-block">
+              <span class="kw">const</span> project = {<br>
+              &nbsp;&nbsp;name: <span class="str">'Ashley-Booth.com'</span>,<br>
+              &nbsp;&nbsp;tools: <span class="arr">['HTML', 'CSS', 'JavaScript', 'Go']</span><br>
+              };
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+              The personal website you're browsing — built from scratch to showcase my projects, learning progress, and development skills. All versions on GitHub.
+            </p>
+            <a href="https://github.com/Booth-Ashley/Booth-Ashley.github.io" target="_blank" class="project-link">
+              View on GitHub <i data-feather="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Gasket Maker (hidden initially) -->
+        <div class="project-card project-card-extra hidden">
+          <div class="p-6">
+            <div class="project-type-badge">Software Development</div>
+            <h3 class="text-lg font-bold mb-1">Gasket Maker</h3>
+            <div class="code-block">
+              <span class="kw">const</span> project = {<br>
+              &nbsp;&nbsp;name: <span class="str">'Gasket Maker'</span>,<br>
+              &nbsp;&nbsp;tools: <span class="arr">['Python', 'CAD']</span><br>
+              };
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+              A simple Python program for creating custom gasket DXF files, allowing users to generate precise templates for manufacturing.
+            </p>
+            <a href="https://github.com/Booth-Ashley/Ashs-Gasket-Maker" target="_blank" class="project-link">
+              View on GitHub <i data-feather="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Google Fonts for Samsung (hidden initially) -->
+        <div class="project-card project-card-extra hidden">
+          <div class="p-6">
+            <div class="project-type-badge">Reverse Engineering</div>
+            <h3 class="text-lg font-bold mb-1">Google Fonts for Samsung</h3>
+            <div class="code-block">
+              <span class="kw">const</span> project = {<br>
+              &nbsp;&nbsp;name: <span class="str">'Google Fonts for Samsung'</span>,<br>
+              &nbsp;&nbsp;tools: <span class="arr">['Java', 'Android', 'Samsung UI']</span><br>
+              };
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-4">
+              Custom Android font pack allowing users to apply Google's Product Sans fonts on Samsung devices without root or Substratum themes.
+            </p>
+            <a href="https://xdaforums.com/t/google-product-sans-fonts-for-samsung-oreo-no-root-no-substratum.3857764/" target="_blank" class="project-link">
+              View on XDA <i data-feather="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-8">
+        <button id="show-more">Show More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24">
+    <div class="container mx-auto px-6 max-w-2xl">
+      <div class="contact-card">
+        <div class="relative z-10">
+          <div class="section-label mb-2">Let's Talk</div>
+          <h2 class="section-h2 mb-4">Get In Touch</h2>
+          <p class="text-gray-400 mb-8">
+            Feel free to reach out for collaborations, opportunities, or just to say hi! I'll do my best to get back to you.
+          </p>
+
+          <a href="mailto:info@ashley-booth.com" class="btn-primary mb-10 mx-auto" style="display:inline-flex;">
+            <i data-feather="mail" class="w-4 h-4"></i>
+            info@ashley-booth.com
+          </a>
+
+          <div class="flex flex-wrap justify-center gap-3 mt-8">
+            <a href="https://github.com/Booth-Ashley" target="_blank" class="social-btn">
+              <i data-feather="github" class="w-4 h-4"></i> GitHub
+            </a>
+            <a href="https://x.com/ashC0DE" target="_blank" class="social-btn">
+              <i data-feather="twitter" class="w-4 h-4"></i> Twitter / X
+            </a>
+            <a href="mailto:info@ashley-booth.com" class="social-btn">
+              <i data-feather="mail" class="w-4 h-4"></i> Email
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-400 py-8">
-    <div class="container mx-auto px-6 text-center">
-      <p>&copy; <span id="year"></span> Ashley Booth. All rights reserved.</p>
-      <div class="flex justify-center gap-4 mt-4">
-        <a href="#home" class="hover:text-white">Home</a>
-        <a href="#about" class="hover:text-white">About</a>
-        <a href="#projects" class="hover:text-white">Projects</a>
-        <a href="#contact" class="hover:text-white">Contact</a>
+  <footer class="py-8">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-gray-600 text-sm">&copy; <span id="year"></span> Ashley Booth. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="#home"     class="text-gray-600 hover:text-white text-sm transition">Home</a>
+        <a href="#about"    class="text-gray-600 hover:text-white text-sm transition">About</a>
+        <a href="#projects" class="text-gray-600 hover:text-white text-sm transition">Projects</a>
+        <a href="#contact"  class="text-gray-600 hover:text-white text-sm transition">Contact</a>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
   <script>
-    const btn = document.getElementById('show-more');
-    const hiddenProjects = document.querySelectorAll('.project-card.hidden');
-
-    btn.addEventListener('click', () => {
-    hiddenProjects.forEach(p => p.classList.toggle('hidden'));
-    btn.textContent = hiddenProjects[0].classList.contains('hidden') ? 'Show More' : 'Show Less';
-    });
-
     feather.replace();
-
-    // Navbar mobile toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
 
     // Dynamic year
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Show more / less projects
+    const btn = document.getElementById('show-more');
+    const extras = document.querySelectorAll('.project-card-extra');
+    let expanded = false;
+    btn.addEventListener('click', () => {
+      expanded = !expanded;
+      extras.forEach(p => p.classList.toggle('hidden', !expanded));
+      btn.textContent = expanded ? 'Show Less' : 'Show More';
+    });
+
+    // Scroll-triggered fade-in for sections
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.skill-card, .project-card').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(16px)';
+      el.style.transition = 'opacity .5s ease, transform .5s ease';
+      observer.observe(el);
+    });
   </script>
 </body>
 </html>
